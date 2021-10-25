@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tabs on 静静地坐着</title>
+    <link>https://prime167.github.io/tab/</link>
+    <description>Recent content in Tabs on 静静地坐着</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 10 Jul 2019 21:38:52 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于</title>
+      <link>https://prime167.github.io/tab/about/</link>
+      <pubDate>Wed, 10 Jul 2019 21:38:52 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/tab/about/</guid>
+      <description>NullReferenceException</description>
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://prime167.github.io/tab/archives/</link>
+      <pubDate>Fri, 28 Jun 2019 09:19:48 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/tab/archives/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

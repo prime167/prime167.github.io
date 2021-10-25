@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>C# 的协变和逆变 | 静静地坐着</title>
+    <meta property="og:title" content="C# 的协变和逆变 - 静静地坐着">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-10-08T13:22:58&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-10-08T13:22:58&#43;08:00'>
+        
+    <meta name="Keywords" content="C#,csharp,.NET">
+    <meta name="description" content="C# 的协变和逆变">
+        
+    <meta name="author" content="Codest">
+    <meta property="og:url" content="https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://prime167.github.io">
+                        静静地坐着
+                    </a>
+                
+                <p class="description">.NET 开发</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://prime167.github.io">首页</a>
+                    
+                    <a  href="https://prime167.github.io/tab/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://prime167.github.io/tags/" title="标签">标签</a>
+                    
+                    <a  href="https://prime167.github.io/categories/" title="类别">类别</a>
+                    
+                    <a  href="https://prime167.github.io/tab/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#数组的协变">数组的协变</a></li>
+    <li><a href="#型委托的可变性">型委托的可变性</a></li>
+    <li><a href="#泛型中的可变性">泛型中的可变性</a>
+      <ul>
+        <li><a href="#泛型集合">泛型集合</a></li>
+        <li><a href="#泛型委托">泛型委托</a></li>
+      </ul>
+    </li>
+    <li><a href="#泛型接口">泛型接口</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#代码">代码:</a></li>
+    <li><a href="#参考扩展阅读">参考、扩展阅读</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">C# 的协变和逆变</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年10月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <p>协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变</p>
+<h2 id="概念">概念</h2>
+<p>先从一段代码开始：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#458;font-weight:bold">object</span>[] objects = <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">string</span>[<span style="color:#099">2</span>];
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的代码在C#中是合法的，其实这就是协变。 因为string继承自object，所以string是object的子类型，记作 string ≦ object。</p>
+<p>而oject的数组类型Object[]，是由object构造出来的一种新的类型,可以认为是一种构造类型，记f(object)，那么我们可以这么来描述协变和逆变：</p>
+<p>当A ≦ B时,如果有f(A) ≦ f(B),那么f叫做 协变
+当A ≦ B时,如果有f(B) ≦ f(A),那么f叫做 逆变
+如果上面两种关系都不成立则叫做 不可变。
+我觉得知乎问题 <a href="https://www.zhihu.com/question/38861374">应该怎么理解编程语言中的协变逆变？</a> 的 <a href="https://www.zhihu.com/question/38861374/answer/79315718">一个回答</a> 说的比较好：</p>
+<blockquote>
+<p>逆变和协变描述了具有继承关系的类型，通过类型构造器映射到另一范畴时所具有的继承关系。 保持原继承关系的为协变，继承关系反转的为逆变 。</p>
+</blockquote>
+<h2 id="数组的协变">数组的协变</h2>
+<p>如上所述，C#从一开始就支持数组类型的协变，但这不是类型安全的:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Animal[] animals = <span style="color:#000;font-weight:bold">new</span> Goldfish[<span style="color:#099">10</span>];
+animals[<span style="color:#099">0</span>] = <span style="color:#000;font-weight:bold">new</span> Tiger(); <span style="color:#998;font-style:italic">// 运行时异常 ArrayTypeMismatchException
+</span></code></pre></td></tr></table>
+</div>
+</div><p>因为运行时，objs[]的类型是string[],无法存储int型。所以回抛出异常。这个从Java中抄来的特性，被Eric Lippert 列为<a href="http://www.informit.com/articles/article.aspx?p=2425867">C#10大最糟糕特性</a>之首，实践中应避免使用。</p>
+<h2 id="型委托的可变性">型委托的可变性</h2>
+<p>C# 2.0 引入了委托的变体支持，用于在 C# 中匹配所有委托的方法签名和委托类型。 这表明不仅可以将具有匹配签名的方法分配给委托，还可以将返回派生程度较大的派生类型的方法分配给委托（协变），或者如果方法所接受参数的派生类型所具有的派生程度小于委托类型指定的程度（逆变），也可将其分配给委托。即 对参数的逆变性和对返回值的协变性</p>
+<p>举例说明：</p>
+<p>定义如下继承关系</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L1</span> { }
+
+<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L2</span> : L1 { }
+
+<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L3</span> : L2 { }
+</code></pre></td></tr></table>
+</div>
+</div><p>定义一个委托</p>
+<pre tabindex="0"><code class="language-charp" data-lang="charp">public delegate L1 SampleDelegate(L3 t);
+</code></pre><p>使用：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// 将签名完全匹配的方法赋值给委托，无需转换
+</span><span style="color:#998;font-style:italic"></span>SampleDelegate d1 = RL1PL3;
+
+<span style="color:#998;font-style:italic">// 将一个返回值的派生程度更大（协变），参数值的派生程度更小（逆变）的方法赋值给委托
+</span><span style="color:#998;font-style:italic"></span>SampleDelegate d2 = RL2PL2;
+
+<span style="color:#998;font-style:italic">// 方法返回值派生程度继续变大，参数值的派生程度继续变小
+</span><span style="color:#998;font-style:italic"></span>SampleDelegate dNonGenericConversion1 = RL3PL1;
+
+<span style="color:#998;font-style:italic">// 一个委托就可以适用于全部返回值、参数组合
+</span><span style="color:#998;font-style:italic">// 使代码更通用
+</span><span style="color:#998;font-style:italic"></span>SampleDelegate sd1 = RL1PL1;
+SampleDelegate sd2 = RL1PL2;
+SampleDelegate sd3 = RL1PL3;
+SampleDelegate sd4 = RL2PL1;
+SampleDelegate sd5 = RL2PL2;
+SampleDelegate sd6 = RL2PL3;
+SampleDelegate sd7 = RL3PL1;
+SampleDelegate sd8 = RL3PL2;
+SampleDelegate sd9 = RL3PL3;
+</code></pre></td></tr></table>
+</div>
+</div><p>逆变为什么是类型安全的？</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Action&lt;Base&gt; b = (target) =&gt; { Console.WriteLine(target.GetType().Name); };
+Action&lt;Derived&gt; d = b;
+d(<span style="color:#000;font-weight:bold">new</span> Derived());
+</code></pre></td></tr></table>
+</div>
+</div><p>由于 lambda 表达式与其自身所分配到的委托相匹配，因此定义了一个方法，此方法采用一个类型 Base 的参数且没有返回值。 可以将结果委托分配给类型类型 Action 的变量，因为 T 委托的类型参数 Action 是逆变类型参数。 由于 T 指定了一个参数类型，因此该代码是类型安全代码。 在调用类型 Action 的委托（就像它是类型 Action的委托一样）时，其参数必须属于类型 Derived。 始终可以将此实参安全地传递给基础方法，因为该方法的形参属于类型 Base。</p>
+<h2 id="泛型中的可变性">泛型中的可变性</h2>
+<h3 id="泛型集合">泛型集合</h3>
+<p>C# 不支持泛型集合。考虑下面的代码:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">List&lt;Giraffe&gt; giraffes = <span style="color:#000;font-weight:bold">new</span> List&lt;Giraffe&gt;();
+giraffes.Add(<span style="color:#000;font-weight:bold">new</span> Giraffe());
+<span style="color:#998;font-style:italic">//List&lt;Animal&gt; animals = giraffes; // 编译错误
+</span><span style="color:#998;font-style:italic">//animals.Add(new Lion()); // Aargh!
+</span></code></pre></td></tr></table>
+</div>
+</div><p>如果第3行是合法的，那么第4行也是合法,但animails的实际类型是List，你不可能把Lion添加到里面。</p>
+<h3 id="泛型委托">泛型委托</h3>
+<p>对于委托</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> R SampleGenericDelegate&lt;P, R&gt;(P a);
+</code></pre></td></tr></table>
+</div>
+</div><p>类似非泛型委托,9种函数组合，一个委托就够了：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">SampleGenericDelegate&lt;L3, L1&gt; dg1 = RL1PL1;
+SampleGenericDelegate&lt;L3, L1&gt; dg2 = RL1PL2;
+SampleGenericDelegate&lt;L3, L1&gt; dg3 = RL1PL3;
+SampleGenericDelegate&lt;L3, L1&gt; dg4 = RL2PL1;
+SampleGenericDelegate&lt;L3, L1&gt; dg5 = RL2PL2;
+SampleGenericDelegate&lt;L3, L1&gt; dg6 = RL2PL3;
+SampleGenericDelegate&lt;L3, L1&gt; dg7 = RL3PL1;
+SampleGenericDelegate&lt;L3, L1&gt; dg8 = RL3PL2;
+SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
+</code></pre></td></tr></table>
+</div>
+</div><p>C# 4.0 使用 <strong>in</strong> 和 <strong>out</strong> 来限定泛型委托中参数的可变性：</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/out-generic-modifier">out</a>： 对于泛型类型参数，out 关键字指定该类型参数是协变的。 可以在泛型接口和委托中使用 out 关键字。</li>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/in-generic-modifier">in</a>：对于泛型类型参数，in 关键字指定该类型参数是逆变的。 可以在泛型接口和委托中使用 in 关键字。</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> TResult SampleGenericDelegate&lt;<span style="color:#000;font-weight:bold">in</span> TP, <span style="color:#000;font-weight:bold">out</span> TResult&gt;(TP a);
+<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> T SampleGenericDelegate1&lt;<span style="color:#000;font-weight:bold">out</span> T&gt;();
+<span style="color:#000;font-weight:bold">delegate</span> <span style="color:#000;font-weight:bold">void</span> Action&lt;<span style="color:#000;font-weight:bold">in</span> T&gt;(T t);
+<span style="color:#000;font-weight:bold">delegate</span> TResult Func&lt;<span style="color:#000;font-weight:bold">out</span> TResult&gt;();
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="泛型接口">泛型接口</h2>
+<p>.NET framework 4.0 使用 in 和 out 来定义接口的可变性，在这之前都是不可变的。</p>
+<ul>
+<li>in 限定类型参数只能用于参数，即<strong>逆变</strong></li>
+<li>out 限定类型参数只能用于返回值，即<strong>协变</strong></li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">interface</span> IVariant&lt;<span style="color:#000;font-weight:bold">out</span> R, <span style="color:#000;font-weight:bold">in</span> A&gt;
+{
+    <span style="color:#998;font-style:italic">// 符合规则.
+</span><span style="color:#998;font-style:italic"></span>    R GetR();
+    <span style="color:#000;font-weight:bold">void</span> SetA(A sampleArg);
+    R GetRSetA(A sampleArg);
+
+    <span style="color:#998;font-style:italic">// 不符合规则.
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// A GetA();
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// void SetR(R sampleArg);
+</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// A GetASetR(R sampleArg);
+</span><span style="color:#998;font-style:italic"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>内置的一些接口：</p>
+<ul>
+<li>
+<p>public interface IEnumerable</p>
+</li>
+<li>
+<p>public interface IEnumerator</p>
+</li>
+<li>
+<p>public interface IQueryable</p>
+</li>
+<li>
+<p>public interface IGrouping&lt;out TKey,out TElement&gt;</p>
+</li>
+<li>
+<p>public interface IComparable</p>
+</li>
+<li>
+<p>public interface IComparer</p>
+</li>
+<li>
+<p>public interface IEqualityComparer</p>
+</li>
+</ul>
+<p>举例</p>
+<p>最常见的：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// 协变
+</span><span style="color:#998;font-style:italic"></span>IEnumerable&lt;<span style="color:#458;font-weight:bold">string</span>&gt; listL3 = <span style="color:#000;font-weight:bold">new</span> List&lt;<span style="color:#458;font-weight:bold">string</span>&gt;();
+IEnumerable&lt;<span style="color:#458;font-weight:bold">object</span>&gt; lis = listL3;
+</code></pre></td></tr></table>
+</div>
+</div><p>方法的参数使用IEnumerable编写更通用的方法:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+{
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> PrintFullName(IEnumerable&lt;Person&gt; persons)
+    {
+        
+    }
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main()
+    {
+        <span style="color:#998;font-style:italic">// 协变
+</span><span style="color:#998;font-style:italic"></span>        List&lt;Teacher&gt; employees = <span style="color:#000;font-weight:bold">new</span> List&lt;Teacher&gt;();
+        PrintFullName(employees);
+        
+        <span style="color:#998;font-style:italic">// 协变
+</span><span style="color:#998;font-style:italic"></span>        List&lt;Student&gt; students = <span style="color:#000;font-weight:bold">new</span> List&lt;Student&gt;();
+        PrintFullName(students);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>因为 IEnumerable 是只读的，无法和List一样添加元素，所以此处是类型安全的。</p>
+<p>实现一个通用的Comparer (<a href="https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance">来源</a>)</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System</span>;
+<span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System.Collections.Generic</span>;
+
+<span style="color:#000;font-weight:bold">abstract</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Shape</span>
+{
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">virtual</span> <span style="color:#458;font-weight:bold">double</span> Area { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>; }}
+}
+
+<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Circle</span> : Shape
+{
+    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">double</span> r;
+    <span style="color:#000;font-weight:bold">public</span> Circle(<span style="color:#458;font-weight:bold">double</span> radius) { r = radius; }
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Radius { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> r; }}
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">override</span> <span style="color:#458;font-weight:bold">double</span> Area { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> Math.PI * r * r; }}
+}
+
+<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ShapeAreaComparer</span> : System.Collections.Generic.IComparer&lt;Shape&gt;
+{
+    <span style="color:#458;font-weight:bold">int</span> IComparer&lt;Shape&gt;.Compare(Shape a, Shape b) 
+    { 
+        <span style="color:#000;font-weight:bold">if</span> (a == <span style="color:#000;font-weight:bold">null</span>) <span style="color:#000;font-weight:bold">return</span> b == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#099">0</span> : -<span style="color:#099">1</span>;
+        <span style="color:#000;font-weight:bold">return</span> b == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#099">1</span> : a.Area.CompareTo(b.Area);
+    }
+}
+
+<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+{
+    <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main()
+    {
+        <span style="color:#998;font-style:italic">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,
+</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// even though the constructor for SortedSet&lt;Circle&gt; expects 
+</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// IComparer&lt;Circle&gt;, because type parameter T of IComparer&lt;T&gt; is
+</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// contravariant.
+</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer
+</span><span style="color:#998;font-style:italic"></span>        SortedSet&lt;Circle&gt; circlesByArea = 
+            <span style="color:#000;font-weight:bold">new</span> SortedSet&lt;Circle&gt;(<span style="color:#000;font-weight:bold">new</span> ShapeAreaComparer()) 
+                { <span style="color:#000;font-weight:bold">new</span> Circle(<span style="color:#099">7.2</span>), <span style="color:#000;font-weight:bold">new</span> Circle(<span style="color:#099">100</span>), <span style="color:#000;font-weight:bold">null</span>, <span style="color:#000;font-weight:bold">new</span> Circle(.<span style="color:#099">01</span>) };
+
+        <span style="color:#000;font-weight:bold">foreach</span> (Circle c <span style="color:#000;font-weight:bold">in</span> circlesByArea)
+        {
+            Console.WriteLine(c == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#d14">&#34;null&#34;</span> : <span style="color:#d14">&#34;Circle with area &#34;</span> + c.Area);
+        }
+    }
+}
+
+<span style="color:#998;font-style:italic">/* This code example produces the following output:
+</span><span style="color:#998;font-style:italic">
+</span><span style="color:#998;font-style:italic">null
+</span><span style="color:#998;font-style:italic">Circle with area 0.000314159265358979
+</span><span style="color:#998;font-style:italic">Circle with area 162.860163162095
+</span><span style="color:#998;font-style:italic">Circle with area 31415.9265358979
+</span><span style="color:#998;font-style:italic"> */</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="注意">注意</h2>
+<ul>
+<li>协变逆变是针对构造类型的，注意和赋值兼容的区别</li>
+<li>协变逆变适用于引用类型，不支持值类型</li>
+<li>在 .NET Framework 4 中，Variant 类型参数仅限于泛型接口和泛型委托类型。</li>
+</ul>
+<h2 id="代码">代码:</h2>
+<p><a href="https://github.com/prime167/csharp-covariance-contravariance.git">https://github.com/prime167/csharp-covariance-contravariance.git</a></p>
+<h2 id="参考扩展阅读">参考、扩展阅读</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/generics/covariance-and-contravariance">泛型中的协变和逆变</a></li>
+<li><a href="https://devblogs.microsoft.com/csharpfaq/covariance-and-contravariance-faq/">Covariance and Contravariance FAQ</a></li>
+<li><a href="http://tomasp.net/blog/variance-explained.aspx/">The theory behind covariance and contravariance in C# 4</a></li>
+<li><a href="https://weblogs.asp.net/dixin/understanding-csharp-features-8-covariance-and-contravariance">Understanding C# Features (8) Covariance and Contravariance</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/ericlippert/tag/covariance-and-contravariance/page/3/">Eric Lippert 协变逆变文章</a></li>
+<li><a href="https://stackoverflow.com/a/37469171/65994">Why does C# use contravariance (not covariance) in input parameters with delegate?</a></li>
+<li><a href="https://www.cnblogs.com/VVStudy/p/11404300.html">C# - 协变、逆变 看完这篇就懂了</a></li>
+<li><a href="https://web.archive.org/web/20160310155242/http://adamnathan.co.uk/?p=75">COVARIANCE, CONTRAVARIANCE AND WHY CAT LOVERS ARE EVIL</a></li>
+</ul>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://prime167.github.io">Codest</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/">https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/2019-09-23-dotnet-timers/">.NET 中的 timer</a></li>
+        
+        <li><a href="/post/2019-09-06-dotnet-safe-ui-app/">编写线程安全的UI程序</a></li>
+        
+        <li><a href="/post/2019-08-16-csharp-struct-parameter/">c# 传递结构体参数的那些事儿</a></li>
+        
+        <li><a href="/post/2019-07-30-csharp-error-cs1612/">C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量</a></li>
+        
+        <li><a href="/post/2019-11-25-hugo-setup/">Hugo 配置记录</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/.NET'>.NET</a></li>
+                
+                <li><a href='/tags/csharp'>csharp</a></li>
+                
+                <li><a href='/tags/covariance'>covariance</a></li>
+                
+                <li><a href='/tags/contravariance'>contravariance</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "prime167/prime167.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://prime167.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://prime167.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://prime167.github.io/post/2020-06-12-sln-file-notes/" title="Visual Studio 解决方案文件格式拾遗">Visual Studio 解决方案文件格式拾遗</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2020-01-15-intall-netfx4.x-offline/" title="在Windows 7 SP1 下离线安装 .NET Framework 4.8">在Windows 7 SP1 下离线安装 .NET Framework 4.8</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-12-31-a-math-inequalit/" title="一个有趣的不等式的证明">一个有趣的不等式的证明</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/" title="修改NuGet全局缓存路径">修改NuGet全局缓存路径</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-12-24-local-nuget-server/" title="局域网搭建私有nuget服务器">局域网搭建私有nuget服务器</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-12-23-fix-win10-search/" title="修复Windows 10 搜索功能">修复Windows 10 搜索功能</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-12-16-doubleendedlist/" title="双端链表">双端链表</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-11-21-dotnet-knowledge/" title=".NET 知识梳理">.NET 知识梳理</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-10-23-config-firefox/" title="Firefox 70 配置记录">Firefox 70 配置记录</a>
+    </li>
+    
+    <li>
+        <a href="https://prime167.github.io/post/2019-10-17-my-favorite-software-2019/" title="我常用的软件 (2019版)">我常用的软件 (2019版)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://prime167.github.io/categories/blog/">blog (2)</a></li>
+    
+    <li><a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">技术 (17)</a></li>
+    
+    <li><a href="https://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/">数学 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://prime167.github.io/tags/.NET/">.NET</a>
+    
+    <a href="https://prime167.github.io/tags/CS1612/">CS1612</a>
+    
+    <a href="https://prime167.github.io/tags/bug/">bug</a>
+    
+    <a href="https://prime167.github.io/tags/contravariance/">contravariance</a>
+    
+    <a href="https://prime167.github.io/tags/covariance/">covariance</a>
+    
+    <a href="https://prime167.github.io/tags/csharp/">csharp</a>
+    
+    <a href="https://prime167.github.io/tags/firefox/">firefox</a>
+    
+    <a href="https://prime167.github.io/tags/git/">git</a>
+    
+    <a href="https://prime167.github.io/tags/git-worktree/">git worktree</a>
+    
+    <a href="https://prime167.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://prime167.github.io/tags/math/">math</a>
+    
+    <a href="https://prime167.github.io/tags/meta/">meta</a>
+    
+    <a href="https://prime167.github.io/tags/nuget/">nuget</a>
+    
+    <a href="https://prime167.github.io/tags/scm/">scm</a>
+    
+    <a href="https://prime167.github.io/tags/search/">search</a>
+    
+    <a href="https://prime167.github.io/tags/struct/">struct</a>
+    
+    <a href="https://prime167.github.io/tags/thread/">thread</a>
+    
+    <a href="https://prime167.github.io/tags/timer/">timer</a>
+    
+    <a href="https://prime167.github.io/tags/tool/">tool</a>
+    
+    <a href="https://prime167.github.io/tags/wince/">wince</a>
+    
+    <a href="https://prime167.github.io/tags/windows-10/">windows 10</a>
+    
+    <a href="https://prime167.github.io/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/">共享配置</a>
+    
+    <a href="https://prime167.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://prime167.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>contravariance on 静静地坐着</title>
+    <link>https://prime167.github.io/tags/contravariance/</link>
+    <description>Recent content in contravariance on 静静地坐着</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Oct 2019 13:22:58 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/contravariance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C# 的协变和逆变</title>
+      <link>https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</link>
+      <pubDate>Tue, 08 Oct 2019 13:22:58 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</guid>
+      <description>&lt;p&gt;协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
