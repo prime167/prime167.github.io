@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Jun 2020 16:28:28 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo</title>
+      <link>https://prime167.github.io/tags/hugo/</link>
+      <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>meta</title>
+      <link>https://prime167.github.io/tags/meta/</link>
+      <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/tags/meta/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>.NET</title>
       <link>https://prime167.github.io/tags/.NET/</link>
@@ -130,24 +148,6 @@
       <pubDate>Fri, 16 Aug 2019 16:36:27 +0800</pubDate>
       
       <guid>https://prime167.github.io/tags/struct/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://prime167.github.io/tags/hugo/</link>
-      <pubDate>Wed, 07 Aug 2019 16:36:46 +0800</pubDate>
-      
-      <guid>https://prime167.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>meta</title>
-      <link>https://prime167.github.io/tags/meta/</link>
-      <pubDate>Wed, 07 Aug 2019 16:36:46 +0800</pubDate>
-      
-      <guid>https://prime167.github.io/tags/meta/</guid>
       <description></description>
     </item>
     
