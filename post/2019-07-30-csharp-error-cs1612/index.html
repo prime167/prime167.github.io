@@ -232,38 +232,38 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System</span>;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">using</span> System;
 
-<span style="color:#000;font-weight:bold">namespace</span> <span style="color:#555">Cs1612Demo</span>
+<span style="color:#00f">namespace</span> Cs1612Demo
 {
-    <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+    <span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
     {
-        <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main(<span style="color:#458;font-weight:bold">string</span>[] args)
+        <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main(<span style="color:#2b91af">string</span>[] args)
         {
-            Player p = <span style="color:#000;font-weight:bold">new</span> Player();
+            Player p = <span style="color:#00f">new</span> Player();
             p.ShowLocation();
-            p.Location.x = <span style="color:#099">6</span>; <span style="color:#998;font-style:italic">// CS1612
-</span><span style="color:#998;font-style:italic"></span>            p.Location.y = <span style="color:#099">2</span>; <span style="color:#998;font-style:italic">// CS1612
-</span><span style="color:#998;font-style:italic"></span>            p.ShowLocation();
-            List&lt;Point&gt; <span style="color:#099">_l</span>ocations = <span style="color:#000;font-weight:bold">new</span> List&lt;Point&gt;();
-            <span style="color:#998;font-style:italic">// add..
-</span><span style="color:#998;font-style:italic"></span>            <span style="color:#099">_l</span>ocations[<span style="color:#099">0</span>].x = <span style="color:#099">3</span>;<span style="color:#998;font-style:italic">// CS1612
-</span><span style="color:#998;font-style:italic"></span>        }
+            p.Location.x = 6; <span style="color:#008000">// CS1612
+</span><span style="color:#008000"></span>            p.Location.y = 2; <span style="color:#008000">// CS1612
+</span><span style="color:#008000"></span>            p.ShowLocation();
+            List&lt;Point&gt; _locations = <span style="color:#00f">new</span> List&lt;Point&gt;();
+            <span style="color:#008000">// add..
+</span><span style="color:#008000"></span>            _locations[0].x = 3;<span style="color:#008000">// CS1612
+</span><span style="color:#008000"></span>        }
     }
 
-    <span style="color:#000;font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Point</span>
+    <span style="color:#00f">struct</span> <span style="color:#2b91af">Point</span>
     {
-        <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">float</span> x;
-        <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">float</span> y;
+        <span style="color:#00f">public</span> <span style="color:#2b91af">float</span> x;
+        <span style="color:#00f">public</span> <span style="color:#2b91af">float</span> y;
     }
 
-    <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Player</span>
+    <span style="color:#00f">class</span> <span style="color:#2b91af">Player</span>
     {
-        <span style="color:#000;font-weight:bold">public</span> Point Location { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+        <span style="color:#00f">public</span> Point Location { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-        <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> ShowLocation()
+        <span style="color:#00f">public</span> <span style="color:#00f">void</span> ShowLocation()
         {
-            Console.WriteLine(Location.x + <span style="color:#d14">&#34;,&#34;</span> + Location.y);
+            Console.WriteLine(Location.x + <span style="color:#a31515">&#34;,&#34;</span> + Location.y);
         }
     }
 }
@@ -304,16 +304,16 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#998;font-style:italic">//p.Location.x = 6; // 报错 CS1612
-</span><span style="color:#998;font-style:italic"></span> <span style="color:#998;font-style:italic">//p.Location.y = 2; // 报错 CS1612
-</span><span style="color:#998;font-style:italic"></span> <span style="color:#458;font-weight:bold">var</span> location = p.Location;
- location.x = <span style="color:#099">6</span>;
- location.y = <span style="color:#099">2</span>;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#008000">//p.Location.x = 6; // 报错 CS1612
+</span><span style="color:#008000"></span> <span style="color:#008000">//p.Location.y = 2; // 报错 CS1612
+</span><span style="color:#008000"></span> <span style="color:#2b91af">var</span> location = p.Location;
+ location.x = 6;
+ location.y = 2;
  p.Location = location;
 
- <span style="color:#458;font-weight:bold">var</span> temp = <span style="color:#099">_l</span>ocations[<span style="color:#099">0</span>];
- temp.x = <span style="color:#099">3</span>;
- <span style="color:#099">_l</span>ocations[<span style="color:#099">0</span>] = temp;
+ <span style="color:#2b91af">var</span> temp = _locations[0];
+ temp.x = 3;
+ _locations[0] = temp;
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -356,37 +356,37 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System</span>;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">using</span> System;
 
- <span style="color:#000;font-weight:bold">namespace</span> <span style="color:#555">Cs1612Demo</span>
+ <span style="color:#00f">namespace</span> Cs1612Demo
  {
-     <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+     <span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
      {
-         <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main(<span style="color:#458;font-weight:bold">string</span>[] args)
+         <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main(<span style="color:#2b91af">string</span>[] args)
          {
-             Player p = <span style="color:#000;font-weight:bold">new</span> Player();
+             Player p = <span style="color:#00f">new</span> Player();
              p.ShowLocation();
-             p.Location.x = <span style="color:#099">6</span>;
-             p.Location.y = <span style="color:#099">2</span>;
+             p.Location.x = 6;
+             p.Location.y = 2;
              p.ShowLocation();
          }
      }
 
-     <span style="color:#000;font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Point</span>
+     <span style="color:#00f">struct</span> <span style="color:#2b91af">Point</span>
      {
-         <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">float</span> x;
-         <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">float</span> y;
+         <span style="color:#00f">public</span> <span style="color:#2b91af">float</span> x;
+         <span style="color:#00f">public</span> <span style="color:#2b91af">float</span> y;
      }
 
-     <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Player</span>
+     <span style="color:#00f">class</span> <span style="color:#2b91af">Player</span>
      {
-         Point <span style="color:#099">_l</span>ocation;
+         Point _location;
 
-         <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">ref</span> Point Location { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">ref</span> <span style="color:#099">_l</span>ocation; } }
+         <span style="color:#00f">public</span> <span style="color:#00f">ref</span> Point Location { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> <span style="color:#00f">ref</span> _location; } }
 
-         <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> ShowLocation()
+         <span style="color:#00f">public</span> <span style="color:#00f">void</span> ShowLocation()
          {
-             Console.WriteLine(Location.x + <span style="color:#d14">&#34;,&#34;</span> + Location.y);
+             Console.WriteLine(Location.x + <span style="color:#a31515">&#34;,&#34;</span> + Location.y);
          }
      }
 </code></pre></td></tr></table>

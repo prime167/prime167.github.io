@@ -299,56 +299,56 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#d14">&#34;https://xxxxxx.github.io&#34;</span>
-languageCode = <span style="color:#d14">&#34;zh-cn&#34;</span>
-defaultContentLanguage = <span style="color:#d14">&#34;zh-cn&#34;</span>                             <span style="color:#998;font-style:italic"># en / zh-cn / ... (This field determines which i18n file to use)</span>
-title = <span style="color:#d14">&#34;我的博客&#34;</span>
-preserveTaxonomyNames = <span style="color:#000;font-weight:bold">true</span>
-enableRobotsTXT = <span style="color:#000;font-weight:bold">true</span>
-enableEmoji = <span style="color:#000;font-weight:bold">true</span>
-theme = <span style="color:#d14">&#34;even&#34;</span>
-enableGitInfo = <span style="color:#000;font-weight:bold">false</span> <span style="color:#998;font-style:italic"># use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#a31515">&#34;https://xxxxxx.github.io&#34;</span>
+languageCode = <span style="color:#a31515">&#34;zh-cn&#34;</span>
+defaultContentLanguage = <span style="color:#a31515">&#34;zh-cn&#34;</span>                             <span style="color:#008000"># en / zh-cn / ... (This field determines which i18n file to use)</span>
+title = <span style="color:#a31515">&#34;我的博客&#34;</span>
+preserveTaxonomyNames = <span style="color:#00f">true</span>
+enableRobotsTXT = <span style="color:#00f">true</span>
+enableEmoji = <span style="color:#00f">true</span>
+theme = <span style="color:#a31515">&#34;even&#34;</span>
+enableGitInfo = <span style="color:#00f">false</span> <span style="color:#008000"># use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。</span>
 
-<span style="color:#998;font-style:italic"># Syntax highlighting by Chroma. NOTE: Don&#39;t enable `highlightInClient` and `chroma` at the same time!</span>
-pygmentsOptions = <span style="color:#d14">&#34;linenos=table&#34;</span>
-pygmentsCodefences = <span style="color:#000;font-weight:bold">true</span>
-pygmentsUseClasses = <span style="color:#000;font-weight:bold">true</span>
-pygmentsCodefencesGuessSyntax = <span style="color:#000;font-weight:bold">true</span>
+<span style="color:#008000"># Syntax highlighting by Chroma. NOTE: Don&#39;t enable `highlightInClient` and `chroma` at the same time!</span>
+pygmentsOptions = <span style="color:#a31515">&#34;linenos=table&#34;</span>
+pygmentsCodefences = <span style="color:#00f">true</span>
+pygmentsUseClasses = <span style="color:#00f">true</span>
+pygmentsCodefencesGuessSyntax = <span style="color:#00f">true</span>
 
-hasCJKLanguage = <span style="color:#000;font-weight:bold">true</span>     <span style="color:#998;font-style:italic"># has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文</span>
-paginate = <span style="color:#099">5</span>                                              <span style="color:#998;font-style:italic"># 首页每页显示的文章数</span>
-disqusShortname = <span style="color:#d14">&#34;&#34;</span>      <span style="color:#998;font-style:italic"># disqus_shortname</span>
-googleAnalytics = <span style="color:#d14">&#34;&#34;</span>      <span style="color:#998;font-style:italic"># UA-XXXXXXXX-X</span>
-copyright = <span style="color:#d14">&#34;&#34;</span>            <span style="color:#998;font-style:italic"># default: author.name ↓        # 默认为下面配置的author.name ↓</span>
+hasCJKLanguage = <span style="color:#00f">true</span>     <span style="color:#008000"># has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文</span>
+paginate = 5                                              <span style="color:#008000"># 首页每页显示的文章数</span>
+disqusShortname = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># disqus_shortname</span>
+googleAnalytics = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># UA-XXXXXXXX-X</span>
+copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style="color:#008000"># default: author.name ↓        # 默认为下面配置的author.name ↓</span>
 
-[author]                  <span style="color:#998;font-style:italic"># essential                     # 必需</span>
-  name = <span style="color:#d14">&#34;Codest&#34;</span>
+[author]                  <span style="color:#008000"># essential                     # 必需</span>
+  name = <span style="color:#a31515">&#34;Codest&#34;</span>
 
-[sitemap]                 <span style="color:#998;font-style:italic"># essential                     # 必需</span>
-  changefreq = <span style="color:#d14">&#34;weekly&#34;</span>
-  priority = <span style="color:#099">0.5</span>
-  filename = <span style="color:#d14">&#34;sitemap.xml&#34;</span>
+[sitemap]                 <span style="color:#008000"># essential                     # 必需</span>
+  changefreq = <span style="color:#a31515">&#34;weekly&#34;</span>
+  priority = 0.5
+  filename = <span style="color:#a31515">&#34;sitemap.xml&#34;</span>
 
-[[menu.main]]             <span style="color:#998;font-style:italic"># config your menu              # 配置目录</span>
-  name = <span style="color:#d14">&#34;主页&#34;</span>
-  weight = <span style="color:#099">10</span>
-  identifier = <span style="color:#d14">&#34;home&#34;</span>
-  url = <span style="color:#d14">&#34;/&#34;</span>
+[[menu.main]]             <span style="color:#008000"># config your menu              # 配置目录</span>
+  name = <span style="color:#a31515">&#34;主页&#34;</span>
+  weight = 10
+  identifier = <span style="color:#a31515">&#34;home&#34;</span>
+  url = <span style="color:#a31515">&#34;/&#34;</span>
 [[menu.main]]
-  name = <span style="color:#d14">&#34;归档&#34;</span>
-  weight = <span style="color:#099">20</span>
-  identifier = <span style="color:#d14">&#34;archives&#34;</span>
-  url = <span style="color:#d14">&#34;/post/&#34;</span>
+  name = <span style="color:#a31515">&#34;归档&#34;</span>
+  weight = 20
+  identifier = <span style="color:#a31515">&#34;archives&#34;</span>
+  url = <span style="color:#a31515">&#34;/post/&#34;</span>
 [[menu.main]]
-  name = <span style="color:#d14">&#34;标签&#34;</span>
-  weight = <span style="color:#099">30</span>
-  identifier = <span style="color:#d14">&#34;tags&#34;</span>
-  url = <span style="color:#d14">&#34;/tags/&#34;</span>
+  name = <span style="color:#a31515">&#34;标签&#34;</span>
+  weight = 30
+  identifier = <span style="color:#a31515">&#34;tags&#34;</span>
+  url = <span style="color:#a31515">&#34;/tags/&#34;</span>
 [[menu.main]]
-  name = <span style="color:#d14">&#34;类别&#34;</span>
-  weight = <span style="color:#099">40</span>
-  identifier = <span style="color:#d14">&#34;categories&#34;</span>
-  url = <span style="color:#d14">&#34;/categories/&#34;</span>
+  name = <span style="color:#a31515">&#34;类别&#34;</span>
+  weight = 40
+  identifier = <span style="color:#a31515">&#34;categories&#34;</span>
+  url = <span style="color:#a31515">&#34;/categories/&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="配置内容过期提醒">配置内容过期提醒</h2>
@@ -361,9 +361,9 @@ copyright = <span style="color:#d14">&#34;&#34;</span>            <span style="c
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.outdatedInfoWarning]
-    enable = <span style="color:#000;font-weight:bold">true</span>
-    hint = <span style="color:#099">30</span>               <span style="color:#998;font-style:italic"># Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒</span>
-    warn = <span style="color:#099">180</span>              <span style="color:#998;font-style:italic"># Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告</span>
+    enable = <span style="color:#00f">true</span>
+    hint = 30               <span style="color:#008000"># Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒</span>
+    warn = 180              <span style="color:#008000"># Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你写的内容具有很强的时效性，可以通过配置此项达到提醒读者的目的 如果正在浏览的某篇文章的更新时间在设置的天数之前，则会以不同的底色显示提醒或警告</p>
@@ -381,11 +381,11 @@ copyright = <span style="color:#d14">&#34;&#34;</span>            <span style="c
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.gitment]          <span style="color:#998;font-style:italic"># Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment</span>
-  owner = <span style="color:#d14">&#34;&#34;</span>              <span style="color:#998;font-style:italic"># 你的 GitHub ID</span>
-  repo = <span style="color:#d14">&#34;&#34;</span>               <span style="color:#998;font-style:italic"># 保存评论的repo</span>
-  clientId = <span style="color:#d14">&#34;&#34;</span>           <span style="color:#998;font-style:italic"># 你的 client ID</span>
-  clientSecret = <span style="color:#d14">&#34;&#34;</span>       <span style="color:#998;font-style:italic"># 你的 client secret</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.gitment]          <span style="color:#008000"># Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment</span>
+  owner = <span style="color:#a31515">&#34;&#34;</span>              <span style="color:#008000"># 你的 GitHub ID</span>
+  repo = <span style="color:#a31515">&#34;&#34;</span>               <span style="color:#008000"># 保存评论的repo</span>
+  clientId = <span style="color:#a31515">&#34;&#34;</span>           <span style="color:#008000"># 你的 client ID</span>
+  clientSecret = <span style="color:#a31515">&#34;&#34;</span>       <span style="color:#008000"># 你的 client secret</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -416,12 +416,12 @@ copyright = <span style="color:#d14">&#34;&#34;</span>            <span style="c
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#d14">&#34;Hello World&#34;</span>
-date<span style="color:#a61717;background-color:#e3d2d2">:</span> 2019-08-07T16:26:41+08:00
-lastmod<span style="color:#a61717;background-color:#e3d2d2">:</span> 2020-06-16T07:26:41+08:00
-draft<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#000;font-weight:bold">false</span>
+title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
+date<span style="">:</span> 2019-08-07T16:26:41+08:00
+lastmod<span style="">:</span> 2020-06-16T07:26:41+08:00
+draft<span style="">:</span> <span style="color:#00f">false</span>
 ---
-<span style="color:#a61717;background-color:#e3d2d2">文章的开头，在两个</span>---<span style="color:#a61717;background-color:#e3d2d2">之间的叫</span>front matter<span style="color:#a61717;background-color:#e3d2d2">，控制文章的标题，发布时间、最后修改时间等元数据。在下面接着用</span>markdown<span style="color:#a61717;background-color:#e3d2d2">写正文就可以了</span>
+<span style="">文章的开头，在两个</span>---<span style="">之间的叫</span>front matter<span style="">，控制文章的标题，发布时间、最后修改时间等元数据。在下面接着用</span>markdown<span style="">写正文就可以了</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -437,10 +437,10 @@ draft<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#d14">&#34;Hello World&#34;</span>
-date<span style="color:#a61717;background-color:#e3d2d2">:</span> 2019-08-07T16:26:41+08:00
-draft<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#000;font-weight:bold">true</span>
-tags<span style="color:#a61717;background-color:#e3d2d2">:</span> [<span style="color:#d14">&#34;git&#34;</span>,<span style="color:#d14">&#34;git worktree&#34;</span>, <span style="color:#d14">&#34;scm&#34;</span>]
+title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
+date<span style="">:</span> 2019-08-07T16:26:41+08:00
+draft<span style="">:</span> <span style="color:#00f">true</span>
+tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
 ---
 </code></pre></td></tr></table>
 </div>
@@ -457,16 +457,16 @@ tags<span style="color:#a61717;background-color:#e3d2d2">:</span> [<span style="
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#d14">&#34;git worktree 命令的使用&#34;</span>
-date<span style="color:#a61717;background-color:#e3d2d2">:</span> 2019-07-26T14:05:29+08:00
-draft<span style="color:#a61717;background-color:#e3d2d2">:</span> <span style="color:#000;font-weight:bold">false</span>
-tags<span style="color:#a61717;background-color:#e3d2d2">:</span> [<span style="color:#d14">&#34;git&#34;</span>,<span style="color:#d14">&#34;git worktree&#34;</span>, <span style="color:#d14">&#34;scm&#34;</span>]
-categories<span style="color:#a61717;background-color:#e3d2d2">:</span> [<span style="color:#d14">&#34;技术&#34;</span>]
+title<span style="">:</span> <span style="color:#a31515">&#34;git worktree 命令的使用&#34;</span>
+date<span style="">:</span> 2019-07-26T14:05:29+08:00
+draft<span style="">:</span> <span style="color:#00f">false</span>
+tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
+categories<span style="">:</span> [<span style="color:#a31515">&#34;技术&#34;</span>]
 ---
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="设置文章摘要">设置文章摘要</h3>
-<p>hugo 默认把文章的前70个字符作为摘要，有时候会断的莫名其妙，可以在正文任意位置插入*<!-- raw HTML omitted -->&lt;!--more--&gt;<!-- raw HTML omitted -->* ,之前的是摘要，之后的是正文。</p>
+<p>hugo 默认把文章的前70个字符作为摘要，有时候会断的莫名其妙，可以在正文任意位置插入*<code>&lt;!--more--&gt;</code>* ,之前的是摘要，之后的是正文。</p>
 <h3 id="本地预览">本地预览</h3>
 <p>运行</p>
 <pre tabindex="0"><code>hugo server -D

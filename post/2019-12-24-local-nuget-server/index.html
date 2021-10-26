@@ -325,27 +325,27 @@ NOTE: This is a shared key (password) for all users.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-<span style="color:#000080">&lt;package&gt;</span>
-    <span style="color:#000080">&lt;metadata&gt;</span>
-        <span style="color:#000080">&lt;id&gt;</span>$id$<span style="color:#000080">&lt;/id&gt;</span>
-        <span style="color:#000080">&lt;version&gt;</span>$version$<span style="color:#000080">&lt;/version&gt;</span>
-        <span style="color:#000080">&lt;title&gt;</span>$title$<span style="color:#000080">&lt;/title&gt;</span>
-        <span style="color:#000080">&lt;authors&gt;</span>$author$<span style="color:#000080">&lt;/authors&gt;</span>
-        <span style="color:#000080">&lt;owners&gt;</span>$author$<span style="color:#000080">&lt;/owners&gt;</span>
-        <span style="color:#000080">&lt;requireLicenseAcceptance&gt;</span>false<span style="color:#000080">&lt;/requireLicenseAcceptance&gt;</span>
-        <span style="color:#000080">&lt;license</span> <span style="color:#008080">type=</span><span style="color:#d14">&#34;expression&#34;</span><span style="color:#000080">&gt;</span>MIT<span style="color:#000080">&lt;/license&gt;</span>
-        <span style="color:#000080">&lt;projectUrl&gt;</span>http://project_url_here_or_delete_this_line/<span style="color:#000080">&lt;/projectUrl&gt;</span>
-        <span style="color:#000080">&lt;iconUrl&gt;</span>http://icon_url_here_or_delete_this_line/<span style="color:#000080">&lt;/iconUrl&gt;</span>
-        <span style="color:#000080">&lt;description&gt;</span>$description$<span style="color:#000080">&lt;/description&gt;</span>
-        <span style="color:#000080">&lt;releaseNotes&gt;</span>Summary of changes made in this release of the package.<span style="color:#000080">&lt;/releaseNotes&gt;</span>
-        <span style="color:#000080">&lt;copyright&gt;</span>Copyright 2019<span style="color:#000080">&lt;/copyright&gt;</span>
-        <span style="color:#000080">&lt;tags&gt;</span>Tag1 Tag2<span style="color:#000080">&lt;/tags&gt;</span>
-        <span style="color:#000080">&lt;dependencies&gt;</span>
-            <span style="color:#000080">&lt;group</span> <span style="color:#008080">targetFramework=</span><span style="color:#d14">&#34;.NETFramework4.8&#34;</span><span style="color:#000080">/&gt;</span>
-        <span style="color:#000080">&lt;/dependencies&gt;</span>
-    <span style="color:#000080">&lt;/metadata&gt;</span>
-<span style="color:#000080">&lt;/package&gt;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#00f">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+&lt;package&gt;
+    &lt;metadata&gt;
+        &lt;id&gt;$id$&lt;/id&gt;
+        &lt;version&gt;$version$&lt;/version&gt;
+        &lt;title&gt;$title$&lt;/title&gt;
+        &lt;authors&gt;$author$&lt;/authors&gt;
+        &lt;owners&gt;$author$&lt;/owners&gt;
+        &lt;requireLicenseAcceptance&gt;false&lt;/requireLicenseAcceptance&gt;
+        &lt;license type=<span style="color:#a31515">&#34;expression&#34;</span>&gt;MIT&lt;/license&gt;
+        &lt;projectUrl&gt;http://project_url_here_or_delete_this_line/&lt;/projectUrl&gt;
+        &lt;iconUrl&gt;http://icon_url_here_or_delete_this_line/&lt;/iconUrl&gt;
+        &lt;description&gt;$description$&lt;/description&gt;
+        &lt;releaseNotes&gt;Summary of changes made in this release of the package.&lt;/releaseNotes&gt;
+        &lt;copyright&gt;Copyright 2019&lt;/copyright&gt;
+        &lt;tags&gt;Tag1 Tag2&lt;/tags&gt;
+        &lt;dependencies&gt;
+            &lt;group targetFramework=<span style="color:#a31515">&#34;.NETFramework4.8&#34;</span>/&gt;
+        &lt;/dependencies&gt;
+    &lt;/metadata&gt;
+&lt;/package&gt;
 </code></pre></td></tr></table>
 </div>
 </div><p>id 唯一标识 version 版本号(SemVer),如 1.0.0 其他的根据情况填写，$xxx$的为必填项。</p>
@@ -374,17 +374,17 @@ NOTE: This is a shared key (password) for all users.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000080">&lt;Project</span> <span style="color:#008080">Sdk=</span><span style="color:#d14">&#34;Microsoft.NET.Sdk&#34;</span><span style="color:#000080">&gt;</span>
-    <span style="color:#000080">&lt;PropertyGroup&gt;</span>
-        <span style="color:#000080">&lt;TargetFramework&gt;</span>netcoreapp3.1<span style="color:#000080">&lt;/TargetFramework&gt;</span>
-        <span style="color:#998;font-style:italic">&lt;!--添加以下内容--&gt;</span>
-        <span style="color:#000080">&lt;GeneratePackageOnBuild&gt;</span>true<span style="color:#000080">&lt;/GeneratePackageOnBuild&gt;</span>
-        <span style="color:#000080">&lt;PackageId&gt;</span>myLib2<span style="color:#000080">&lt;/PackageId&gt;</span>
-        <span style="color:#000080">&lt;Version&gt;</span>1.0.1<span style="color:#000080">&lt;/Version&gt;</span>
-        <span style="color:#000080">&lt;Authors&gt;</span>your_name<span style="color:#000080">&lt;/Authors&gt;</span>
-        <span style="color:#000080">&lt;Company&gt;</span>your_company<span style="color:#000080">&lt;/Company&gt;</span>
-    <span style="color:#000080">&lt;/PropertyGroup&gt;</span>
-<span style="color:#000080">&lt;/Project&gt;</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&lt;Project Sdk=<span style="color:#a31515">&#34;Microsoft.NET.Sdk&#34;</span>&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;netcoreapp3.1&lt;/TargetFramework&gt;
+        <span style="color:#008000">&lt;!--添加以下内容--&gt;</span>
+        &lt;GeneratePackageOnBuild&gt;true&lt;/GeneratePackageOnBuild&gt;
+        &lt;PackageId&gt;myLib2&lt;/PackageId&gt;
+        &lt;Version&gt;1.0.1&lt;/Version&gt;
+        &lt;Authors&gt;your_name&lt;/Authors&gt;
+        &lt;Company&gt;your_company&lt;/Company&gt;
+    &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
 </code></pre></td></tr></table>
 </div>
 </div></li>

@@ -263,9 +263,9 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 先初始化一个 repo</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#008000"># 先初始化一个 repo</span>
 mkdir projectX
-<span style="color:#0086b3">cd</span> projectX
+cd projectX
 touch readme.md
 git init
 git add .
@@ -273,34 +273,34 @@ git commit -m init
 git remote add origin https://github.com/prime167/projectX.git
 git push
 
-<span style="color:#998;font-style:italic"># 初始化 dev 分支</span>
+<span style="color:#008000"># 初始化 dev 分支</span>
 git checkout -b dev
 touch a.cs
 git add .
-git commit -m <span style="color:#d14">&#34;add a.cs&#34;</span>
+git commit -m <span style="color:#a31515">&#34;add a.cs&#34;</span>
 git push
 
-<span style="color:#998;font-style:italic"># 从现有本地分支新建一个worktree</span>
+<span style="color:#008000"># 从现有本地分支新建一个worktree</span>
 git checkout master
 git worktree add ../projectX-dev dev 
 
-<span style="color:#998;font-style:italic"># 从现有tag新建一个worktree</span>
+<span style="color:#008000"># 从现有tag新建一个worktree</span>
 git worktree add ../projectX-v0.1 v0.1 
 
-<span style="color:#998;font-style:italic">#从现有远程分支新建一个worktree</span>
+<span style="color:#008000">#从现有远程分支新建一个worktree</span>
 git fetch
 git worktree add ../projectX-hotfix1 hotfix1
 
-<span style="color:#998;font-style:italic"># 新建分支并添加worktree，最后的master为基础commit-ish，如果不指定，则默认为HEAD</span>
+<span style="color:#008000"># 新建分支并添加worktree，最后的master为基础commit-ish，如果不指定，则默认为HEAD</span>
 git worktree add -b feature-A ../projectX-feature-A master
 
-<span style="color:#998;font-style:italic">#列出worktree</span>
+<span style="color:#008000">#列出worktree</span>
 git worktree list
 
-<span style="color:#998;font-style:italic"># 移动worktree (git 2.17 新增)</span>
+<span style="color:#008000"># 移动worktree (git 2.17 新增)</span>
 git worktree move ../projectX-feature-hotfix2 ../projectX-hotfix2 
 
-<span style="color:#998;font-style:italic"># 删除worktree的话，直接删除目录即可</span>
+<span style="color:#008000"># 删除worktree的话，直接删除目录即可</span>
 rm -rf ../projectX-hotfix2
 git worktree prune
 </code></pre></td></tr></table>

@@ -214,22 +214,22 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">partial</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Form1</span> : Form
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">partial</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Form1</span> : Form
 {
-    <span style="color:#000;font-weight:bold">private</span> System.Threading.Timer <span style="color:#099">_</span>timer;
-    <span style="color:#000;font-weight:bold">public</span> Form1()
+    <span style="color:#00f">private</span> System.Threading.Timer _timer;
+    <span style="color:#00f">public</span> Form1()
     {
         InitializeComponent();
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> Form1_Load(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> Form1_Load(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>timer = <span style="color:#000;font-weight:bold">new</span> System.Threading.Timer(UpdateTime, <span style="color:#000;font-weight:bold">null</span>, <span style="color:#099">0</span>, <span style="color:#099">20</span>);
+        _timer = <span style="color:#00f">new</span> System.Threading.Timer(UpdateTime, <span style="color:#00f">null</span>, 0, 20);
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> UpdateTime(<span style="color:#458;font-weight:bold">object</span> state)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> UpdateTime(<span style="color:#2b91af">object</span> state)
     {
-        lblTime.Text = DateTime.Now.ToString(<span style="color:#d14">&#34;hh:mm:ss&#34;</span>);
+        lblTime.Text = DateTime.Now.ToString(<span style="color:#a31515">&#34;hh:mm:ss&#34;</span>);
     }
 }
 </code></pre></td></tr></table>

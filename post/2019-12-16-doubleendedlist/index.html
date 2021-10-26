@@ -381,16 +381,16 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">183
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">void</span> Main()
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">void</span> Main()
 {
-    DoubleEndedList list = <span style="color:#000;font-weight:bold">new</span> DoubleEndedList();
-    list.InsertHead(<span style="color:#099">2</span>);
-    list.InsertHead(<span style="color:#099">1</span>);
-    list.InsertTail(<span style="color:#099">3</span>);
-    list.InsertTail(<span style="color:#099">4</span>);
+    DoubleEndedList list = <span style="color:#00f">new</span> DoubleEndedList();
+    list.InsertHead(2);
+    list.InsertHead(1);
+    list.InsertTail(3);
+    list.InsertTail(4);
     list.DisplayList();
 
-    Console.WriteLine(<span style="color:#d14">&#34;======Delete tail======&#34;</span>);
+    Console.WriteLine(<span style="color:#a31515">&#34;======Delete tail======&#34;</span>);
 
     list.DeleteTail();
     list.DisplayList();
@@ -407,13 +407,13 @@
     list.DeleteTail();
     list.DisplayList();
 
-    list.InsertHead(<span style="color:#099">2</span>);
-    list.InsertHead(<span style="color:#099">1</span>);
-    list.InsertTail(<span style="color:#099">3</span>);
-    list.InsertTail(<span style="color:#099">4</span>);
+    list.InsertHead(2);
+    list.InsertHead(1);
+    list.InsertTail(3);
+    list.InsertTail(4);
     list.DisplayList();
 
-    Console.WriteLine(<span style="color:#d14">&#34;======Delete head======&#34;</span>);
+    Console.WriteLine(<span style="color:#a31515">&#34;======Delete head======&#34;</span>);
 
     list.DeleteHead();
     list.DisplayList();
@@ -431,28 +431,28 @@
     list.DisplayList();
 }
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">DoubleEndedList</span>
+<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">DoubleEndedList</span>
 {
-    <span style="color:#000;font-weight:bold">public</span> Node? Head { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+    <span style="color:#00f">public</span> Node? Head { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-    <span style="color:#000;font-weight:bold">public</span> Node? Tail { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+    <span style="color:#00f">public</span> Node? Tail { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-    <span style="color:#000;font-weight:bold">public</span> DoubleEndedList()
+    <span style="color:#00f">public</span> DoubleEndedList()
     {
-        Head = <span style="color:#000;font-weight:bold">null</span>;
-        Tail = <span style="color:#000;font-weight:bold">null</span>;
+        Head = <span style="color:#00f">null</span>;
+        Tail = <span style="color:#00f">null</span>;
     }
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">bool</span> IsEmpty()
+    <span style="color:#00f">public</span> <span style="color:#2b91af">bool</span> IsEmpty()
     {
-        <span style="color:#000;font-weight:bold">return</span> Head == <span style="color:#000;font-weight:bold">null</span>;
+        <span style="color:#00f">return</span> Head == <span style="color:#00f">null</span>;
     }
 
-    <span style="color:#998;font-style:italic">// 表头插入
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> InsertHead(<span style="color:#458;font-weight:bold">int</span> dd)
+    <span style="color:#008000">// 表头插入
+</span><span style="color:#008000"></span>    <span style="color:#00f">public</span> <span style="color:#00f">void</span> InsertHead(<span style="color:#2b91af">int</span> dd)
     {
-        Node newNode = <span style="color:#000;font-weight:bold">new</span> Node(dd);
-        <span style="color:#000;font-weight:bold">if</span> (IsEmpty())
+        Node newNode = <span style="color:#00f">new</span> Node(dd);
+        <span style="color:#00f">if</span> (IsEmpty())
         {
             Tail = newNode;
         }
@@ -461,15 +461,15 @@
         Head = newNode;
     }
 
-    <span style="color:#998;font-style:italic">// 表尾插入
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> InsertTail(<span style="color:#458;font-weight:bold">int</span> dd)
+    <span style="color:#008000">// 表尾插入
+</span><span style="color:#008000"></span>    <span style="color:#00f">public</span> <span style="color:#00f">void</span> InsertTail(<span style="color:#2b91af">int</span> dd)
     {
-        Node newNode = <span style="color:#000;font-weight:bold">new</span> Node(dd);
-        <span style="color:#000;font-weight:bold">if</span> (IsEmpty())
+        Node newNode = <span style="color:#00f">new</span> Node(dd);
+        <span style="color:#00f">if</span> (IsEmpty())
         {
             Head = newNode;
         }
-        <span style="color:#000;font-weight:bold">else</span>
+        <span style="color:#00f">else</span>
         {
             Tail.Next = newNode;
         }
@@ -477,62 +477,62 @@
         Tail = newNode;
     }
 
-    <span style="color:#998;font-style:italic">// 删除表头
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> DeleteHead()
+    <span style="color:#008000">// 删除表头
+</span><span style="color:#008000"></span>    <span style="color:#00f">public</span> <span style="color:#00f">void</span> DeleteHead()
     {
-        <span style="color:#000;font-weight:bold">if</span> (Head == <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">if</span> (Head == <span style="color:#00f">null</span>)
         {
-            <span style="color:#000;font-weight:bold">return</span>;
+            <span style="color:#00f">return</span>;
         }
 
-        Console.WriteLine(<span style="color:#d14">$&#34;Delete {Head.Value}&#34;</span>);
+        Console.WriteLine(<span style="color:#a31515">$&#34;Delete {Head.Value}&#34;</span>);
         Head = Head.Next;
-        <span style="color:#000;font-weight:bold">if</span> (Head == <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">if</span> (Head == <span style="color:#00f">null</span>)
         {
-            Tail = <span style="color:#000;font-weight:bold">null</span>;
+            Tail = <span style="color:#00f">null</span>;
         }
     }
 
-    <span style="color:#998;font-style:italic">// 删除表尾
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> DeleteTail()
+    <span style="color:#008000">// 删除表尾
+</span><span style="color:#008000"></span>    <span style="color:#00f">public</span> <span style="color:#00f">void</span> DeleteTail()
     {
-        <span style="color:#000;font-weight:bold">if</span> (Tail == <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">if</span> (Tail == <span style="color:#00f">null</span>)
         {
-            <span style="color:#000;font-weight:bold">return</span>;
+            <span style="color:#00f">return</span>;
         }
 
-        <span style="color:#000;font-weight:bold">if</span> (Head == Tail)
+        <span style="color:#00f">if</span> (Head == Tail)
         {
-            Console.WriteLine(<span style="color:#d14">$&#34;Delete {Tail.Value}&#34;</span>);
-            Head = <span style="color:#000;font-weight:bold">null</span>;
-            Tail = <span style="color:#000;font-weight:bold">null</span>;
+            Console.WriteLine(<span style="color:#a31515">$&#34;Delete {Tail.Value}&#34;</span>);
+            Head = <span style="color:#00f">null</span>;
+            Tail = <span style="color:#00f">null</span>;
         }
-        <span style="color:#000;font-weight:bold">else</span>
+        <span style="color:#00f">else</span>
         {
-            Node? before = <span style="color:#000;font-weight:bold">null</span>;
+            Node? before = <span style="color:#00f">null</span>;
             Node? current = Head;
-            <span style="color:#000;font-weight:bold">while</span> (current != Tail)
+            <span style="color:#00f">while</span> (current != Tail)
             {
                 before = current;
                 current = current.Next;
             }
 
             Tail = before;
-            Tail.Next = <span style="color:#000;font-weight:bold">null</span>;
-            Console.WriteLine(<span style="color:#d14">$&#34;Delete {current.Value}&#34;</span>);
+            Tail.Next = <span style="color:#00f">null</span>;
+            Console.WriteLine(<span style="color:#a31515">$&#34;Delete {current.Value}&#34;</span>);
         }
     }
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">void</span> DisplayList()
+    <span style="color:#00f">public</span> <span style="color:#00f">void</span> DisplayList()
     {
         Node? current = Head;
-        <span style="color:#000;font-weight:bold">if</span> (current == <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">if</span> (current == <span style="color:#00f">null</span>)
         {
-            Console.WriteLine(<span style="color:#d14">&#34;(Empty)&#34;</span>);
-            <span style="color:#000;font-weight:bold">return</span>;
+            Console.WriteLine(<span style="color:#a31515">&#34;(Empty)&#34;</span>);
+            <span style="color:#00f">return</span>;
         }
 
-        <span style="color:#000;font-weight:bold">while</span> (current != <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">while</span> (current != <span style="color:#00f">null</span>)
         {
             current.DisplayNode();
             current = current.Next;
@@ -540,25 +540,25 @@
     }
 }
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Node</span>
+<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Node</span>
 {
-    <span style="color:#000;font-weight:bold">public</span> Node? Next { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+    <span style="color:#00f">public</span> Node? Next { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">int</span> Value { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">int</span> Value { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-    <span style="color:#000;font-weight:bold">public</span> Node(<span style="color:#458;font-weight:bold">int</span> v)
+    <span style="color:#00f">public</span> Node(<span style="color:#2b91af">int</span> v)
     {
         Value = v;
     }
 
-    <span style="color:#000;font-weight:bold">internal</span> <span style="color:#000;font-weight:bold">void</span> DisplayNode()
+    <span style="color:#00f">internal</span> <span style="color:#00f">void</span> DisplayNode()
     {
         Console.Write(Value);
-        <span style="color:#000;font-weight:bold">if</span> (Next != <span style="color:#000;font-weight:bold">null</span>)
+        <span style="color:#00f">if</span> (Next != <span style="color:#00f">null</span>)
         {
-            Console.Write(<span style="color:#d14">&#34;-&gt;&#34;</span>);
+            Console.Write(<span style="color:#a31515">&#34;-&gt;&#34;</span>);
         }
-        <span style="color:#000;font-weight:bold">else</span>
+        <span style="color:#00f">else</span>
         {
             Console.Write(Environment.NewLine);
         }

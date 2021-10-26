@@ -209,7 +209,7 @@
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#458;font-weight:bold">object</span>[] objects = <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">string</span>[<span style="color:#099">2</span>];
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#2b91af">object</span>[] objects = <span style="color:#00f">new</span> <span style="color:#2b91af">string</span>[2];
 </code></pre></td></tr></table>
 </div>
 </div><p>上面的代码在C#中是合法的，其实这就是协变。 因为string继承自object，所以string是object的子类型，记作 string ≦ object。</p>
@@ -229,8 +229,8 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Animal[] animals = <span style="color:#000;font-weight:bold">new</span> Goldfish[<span style="color:#099">10</span>];
-animals[<span style="color:#099">0</span>] = <span style="color:#000;font-weight:bold">new</span> Tiger(); <span style="color:#998;font-style:italic">// 运行时异常 ArrayTypeMismatchException
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Animal[] animals = <span style="color:#00f">new</span> Goldfish[10];
+animals[0] = <span style="color:#00f">new</span> Tiger(); <span style="color:#008000">// 运行时异常 ArrayTypeMismatchException
 </span></code></pre></td></tr></table>
 </div>
 </div><p>因为运行时，objs[]的类型是string[],无法存储int型。所以回抛出异常。这个从Java中抄来的特性，被Eric Lippert 列为<a href="http://www.informit.com/articles/article.aspx?p=2425867">C#10大最糟糕特性</a>之首，实践中应避免使用。</p>
@@ -247,11 +247,11 @@ animals[<span style="color:#099">0</span>] = <span style="color:#000;font-weight
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L1</span> { }
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L1</span> { }
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L2</span> : L1 { }
+<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L2</span> : L1 { }
 
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">L3</span> : L2 { }
+<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L3</span> : L2 { }
 </code></pre></td></tr></table>
 </div>
 </div><p>定义一个委托</p>
@@ -281,18 +281,18 @@ animals[<span style="color:#099">0</span>] = <span style="color:#000;font-weight
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// 将签名完全匹配的方法赋值给委托，无需转换
-</span><span style="color:#998;font-style:italic"></span>SampleDelegate d1 = RL1PL3;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// 将签名完全匹配的方法赋值给委托，无需转换
+</span><span style="color:#008000"></span>SampleDelegate d1 = RL1PL3;
 
-<span style="color:#998;font-style:italic">// 将一个返回值的派生程度更大（协变），参数值的派生程度更小（逆变）的方法赋值给委托
-</span><span style="color:#998;font-style:italic"></span>SampleDelegate d2 = RL2PL2;
+<span style="color:#008000">// 将一个返回值的派生程度更大（协变），参数值的派生程度更小（逆变）的方法赋值给委托
+</span><span style="color:#008000"></span>SampleDelegate d2 = RL2PL2;
 
-<span style="color:#998;font-style:italic">// 方法返回值派生程度继续变大，参数值的派生程度继续变小
-</span><span style="color:#998;font-style:italic"></span>SampleDelegate dNonGenericConversion1 = RL3PL1;
+<span style="color:#008000">// 方法返回值派生程度继续变大，参数值的派生程度继续变小
+</span><span style="color:#008000"></span>SampleDelegate dNonGenericConversion1 = RL3PL1;
 
-<span style="color:#998;font-style:italic">// 一个委托就可以适用于全部返回值、参数组合
-</span><span style="color:#998;font-style:italic">// 使代码更通用
-</span><span style="color:#998;font-style:italic"></span>SampleDelegate sd1 = RL1PL1;
+<span style="color:#008000">// 一个委托就可以适用于全部返回值、参数组合
+</span><span style="color:#008000">// 使代码更通用
+</span><span style="color:#008000"></span>SampleDelegate sd1 = RL1PL1;
 SampleDelegate sd2 = RL1PL2;
 SampleDelegate sd3 = RL1PL3;
 SampleDelegate sd4 = RL2PL1;
@@ -313,7 +313,7 @@ SampleDelegate sd9 = RL3PL3;
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Action&lt;Base&gt; b = (target) =&gt; { Console.WriteLine(target.GetType().Name); };
 Action&lt;Derived&gt; d = b;
-d(<span style="color:#000;font-weight:bold">new</span> Derived());
+d(<span style="color:#00f">new</span> Derived());
 </code></pre></td></tr></table>
 </div>
 </div><p>由于 lambda 表达式与其自身所分配到的委托相匹配，因此定义了一个方法，此方法采用一个类型 Base 的参数且没有返回值。 可以将结果委托分配给类型类型 Action 的变量，因为 T 委托的类型参数 Action 是逆变类型参数。 由于 T 指定了一个参数类型，因此该代码是类型安全代码。 在调用类型 Action 的委托（就像它是类型 Action的委托一样）时，其参数必须属于类型 Derived。 始终可以将此实参安全地传递给基础方法，因为该方法的形参属于类型 Base。</p>
@@ -328,10 +328,10 @@ d(<span style="color:#000;font-weight:bold">new</span> Derived());
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">List&lt;Giraffe&gt; giraffes = <span style="color:#000;font-weight:bold">new</span> List&lt;Giraffe&gt;();
-giraffes.Add(<span style="color:#000;font-weight:bold">new</span> Giraffe());
-<span style="color:#998;font-style:italic">//List&lt;Animal&gt; animals = giraffes; // 编译错误
-</span><span style="color:#998;font-style:italic">//animals.Add(new Lion()); // Aargh!
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">List&lt;Giraffe&gt; giraffes = <span style="color:#00f">new</span> List&lt;Giraffe&gt;();
+giraffes.Add(<span style="color:#00f">new</span> Giraffe());
+<span style="color:#008000">//List&lt;Animal&gt; animals = giraffes; // 编译错误
+</span><span style="color:#008000">//animals.Add(new Lion()); // Aargh!
 </span></code></pre></td></tr></table>
 </div>
 </div><p>如果第3行是合法的，那么第4行也是合法,但animails的实际类型是List，你不可能把Lion添加到里面。</p>
@@ -342,7 +342,7 @@ giraffes.Add(<span style="color:#000;font-weight:bold">new</span> Giraffe());
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> R SampleGenericDelegate&lt;P, R&gt;(P a);
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> R SampleGenericDelegate&lt;P, R&gt;(P a);
 </code></pre></td></tr></table>
 </div>
 </div><p>类似非泛型委托,9种函数组合，一个委托就够了：</p>
@@ -383,10 +383,10 @@ SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> TResult SampleGenericDelegate&lt;<span style="color:#000;font-weight:bold">in</span> TP, <span style="color:#000;font-weight:bold">out</span> TResult&gt;(TP a);
-<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">delegate</span> T SampleGenericDelegate1&lt;<span style="color:#000;font-weight:bold">out</span> T&gt;();
-<span style="color:#000;font-weight:bold">delegate</span> <span style="color:#000;font-weight:bold">void</span> Action&lt;<span style="color:#000;font-weight:bold">in</span> T&gt;(T t);
-<span style="color:#000;font-weight:bold">delegate</span> TResult Func&lt;<span style="color:#000;font-weight:bold">out</span> TResult&gt;();
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> TResult SampleGenericDelegate&lt;<span style="color:#00f">in</span> TP, <span style="color:#00f">out</span> TResult&gt;(TP a);
+<span style="color:#00f">public</span> <span style="color:#00f">delegate</span> T SampleGenericDelegate1&lt;<span style="color:#00f">out</span> T&gt;();
+<span style="color:#00f">delegate</span> <span style="color:#00f">void</span> Action&lt;<span style="color:#00f">in</span> T&gt;(T t);
+<span style="color:#00f">delegate</span> TResult Func&lt;<span style="color:#00f">out</span> TResult&gt;();
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="泛型接口">泛型接口</h2>
@@ -411,18 +411,18 @@ SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">interface</span> IVariant&lt;<span style="color:#000;font-weight:bold">out</span> R, <span style="color:#000;font-weight:bold">in</span> A&gt;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">interface</span> IVariant&lt;<span style="color:#00f">out</span> R, <span style="color:#00f">in</span> A&gt;
 {
-    <span style="color:#998;font-style:italic">// 符合规则.
-</span><span style="color:#998;font-style:italic"></span>    R GetR();
-    <span style="color:#000;font-weight:bold">void</span> SetA(A sampleArg);
+    <span style="color:#008000">// 符合规则.
+</span><span style="color:#008000"></span>    R GetR();
+    <span style="color:#00f">void</span> SetA(A sampleArg);
     R GetRSetA(A sampleArg);
 
-    <span style="color:#998;font-style:italic">// 不符合规则.
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// A GetA();
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// void SetR(R sampleArg);
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// A GetASetR(R sampleArg);
-</span><span style="color:#998;font-style:italic"></span>}
+    <span style="color:#008000">// 不符合规则.
+</span><span style="color:#008000"></span>    <span style="color:#008000">// A GetA();
+</span><span style="color:#008000"></span>    <span style="color:#008000">// void SetR(R sampleArg);
+</span><span style="color:#008000"></span>    <span style="color:#008000">// A GetASetR(R sampleArg);
+</span><span style="color:#008000"></span>}
 </code></pre></td></tr></table>
 </div>
 </div><p>内置的一些接口：</p>
@@ -458,9 +458,9 @@ SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// 协变
-</span><span style="color:#998;font-style:italic"></span>IEnumerable&lt;<span style="color:#458;font-weight:bold">string</span>&gt; listL3 = <span style="color:#000;font-weight:bold">new</span> List&lt;<span style="color:#458;font-weight:bold">string</span>&gt;();
-IEnumerable&lt;<span style="color:#458;font-weight:bold">object</span>&gt; lis = listL3;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// 协变
+</span><span style="color:#008000"></span>IEnumerable&lt;<span style="color:#2b91af">string</span>&gt; listL3 = <span style="color:#00f">new</span> List&lt;<span style="color:#2b91af">string</span>&gt;();
+IEnumerable&lt;<span style="color:#2b91af">object</span>&gt; lis = listL3;
 </code></pre></td></tr></table>
 </div>
 </div><p>方法的参数使用IEnumerable编写更通用的方法:</p>
@@ -485,20 +485,20 @@ IEnumerable&lt;<span style="color:#458;font-weight:bold">object</span>&gt; lis =
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
 {
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> PrintFullName(IEnumerable&lt;Person&gt; persons)
+    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> PrintFullName(IEnumerable&lt;Person&gt; persons)
     {
         
     }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main()
+    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
     {
-        <span style="color:#998;font-style:italic">// 协变
-</span><span style="color:#998;font-style:italic"></span>        List&lt;Teacher&gt; employees = <span style="color:#000;font-weight:bold">new</span> List&lt;Teacher&gt;();
+        <span style="color:#008000">// 协变
+</span><span style="color:#008000"></span>        List&lt;Teacher&gt; employees = <span style="color:#00f">new</span> List&lt;Teacher&gt;();
         PrintFullName(employees);
         
-        <span style="color:#998;font-style:italic">// 协变
-</span><span style="color:#998;font-style:italic"></span>        List&lt;Student&gt; students = <span style="color:#000;font-weight:bold">new</span> List&lt;Student&gt;();
+        <span style="color:#008000">// 协变
+</span><span style="color:#008000"></span>        List&lt;Student&gt; students = <span style="color:#00f">new</span> List&lt;Student&gt;();
         PrintFullName(students);
     }
 }
@@ -562,58 +562,58 @@ IEnumerable&lt;<span style="color:#458;font-weight:bold">object</span>&gt; lis =
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System</span>;
-<span style="color:#000;font-weight:bold">using</span> <span style="color:#555">System.Collections.Generic</span>;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">using</span> System;
+<span style="color:#00f">using</span> System.Collections.Generic;
 
-<span style="color:#000;font-weight:bold">abstract</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Shape</span>
+<span style="color:#00f">abstract</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Shape</span>
 {
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">virtual</span> <span style="color:#458;font-weight:bold">double</span> Area { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>; }}
+    <span style="color:#00f">public</span> <span style="color:#00f">virtual</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> 0; }}
 }
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Circle</span> : Shape
+<span style="color:#00f">class</span> <span style="color:#2b91af">Circle</span> : Shape
 {
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">double</span> r;
-    <span style="color:#000;font-weight:bold">public</span> Circle(<span style="color:#458;font-weight:bold">double</span> radius) { r = radius; }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Radius { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> r; }}
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">override</span> <span style="color:#458;font-weight:bold">double</span> Area { <span style="color:#000;font-weight:bold">get</span> { <span style="color:#000;font-weight:bold">return</span> Math.PI * r * r; }}
+    <span style="color:#00f">private</span> <span style="color:#2b91af">double</span> r;
+    <span style="color:#00f">public</span> Circle(<span style="color:#2b91af">double</span> radius) { r = radius; }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Radius { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> r; }}
+    <span style="color:#00f">public</span> <span style="color:#00f">override</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> Math.PI * r * r; }}
 }
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">ShapeAreaComparer</span> : System.Collections.Generic.IComparer&lt;Shape&gt;
+<span style="color:#00f">class</span> <span style="color:#2b91af">ShapeAreaComparer</span> : System.Collections.Generic.IComparer&lt;Shape&gt;
 {
-    <span style="color:#458;font-weight:bold">int</span> IComparer&lt;Shape&gt;.Compare(Shape a, Shape b) 
+    <span style="color:#2b91af">int</span> IComparer&lt;Shape&gt;.Compare(Shape a, Shape b) 
     { 
-        <span style="color:#000;font-weight:bold">if</span> (a == <span style="color:#000;font-weight:bold">null</span>) <span style="color:#000;font-weight:bold">return</span> b == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#099">0</span> : -<span style="color:#099">1</span>;
-        <span style="color:#000;font-weight:bold">return</span> b == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#099">1</span> : a.Area.CompareTo(b.Area);
+        <span style="color:#00f">if</span> (a == <span style="color:#00f">null</span>) <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 0 : -1;
+        <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 1 : a.Area.CompareTo(b.Area);
     }
 }
 
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Program</span>
+<span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
 {
-    <span style="color:#000;font-weight:bold">static</span> <span style="color:#000;font-weight:bold">void</span> Main()
+    <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
     {
-        <span style="color:#998;font-style:italic">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// even though the constructor for SortedSet&lt;Circle&gt; expects 
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// IComparer&lt;Circle&gt;, because type parameter T of IComparer&lt;T&gt; is
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// contravariant.
-</span><span style="color:#998;font-style:italic"></span>        <span style="color:#998;font-style:italic">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer
-</span><span style="color:#998;font-style:italic"></span>        SortedSet&lt;Circle&gt; circlesByArea = 
-            <span style="color:#000;font-weight:bold">new</span> SortedSet&lt;Circle&gt;(<span style="color:#000;font-weight:bold">new</span> ShapeAreaComparer()) 
-                { <span style="color:#000;font-weight:bold">new</span> Circle(<span style="color:#099">7.2</span>), <span style="color:#000;font-weight:bold">new</span> Circle(<span style="color:#099">100</span>), <span style="color:#000;font-weight:bold">null</span>, <span style="color:#000;font-weight:bold">new</span> Circle(.<span style="color:#099">01</span>) };
+        <span style="color:#008000">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,
+</span><span style="color:#008000"></span>        <span style="color:#008000">// even though the constructor for SortedSet&lt;Circle&gt; expects 
+</span><span style="color:#008000"></span>        <span style="color:#008000">// IComparer&lt;Circle&gt;, because type parameter T of IComparer&lt;T&gt; is
+</span><span style="color:#008000"></span>        <span style="color:#008000">// contravariant.
+</span><span style="color:#008000"></span>        <span style="color:#008000">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer
+</span><span style="color:#008000"></span>        SortedSet&lt;Circle&gt; circlesByArea = 
+            <span style="color:#00f">new</span> SortedSet&lt;Circle&gt;(<span style="color:#00f">new</span> ShapeAreaComparer()) 
+                { <span style="color:#00f">new</span> Circle(7.2), <span style="color:#00f">new</span> Circle(100), <span style="color:#00f">null</span>, <span style="color:#00f">new</span> Circle(.01) };
 
-        <span style="color:#000;font-weight:bold">foreach</span> (Circle c <span style="color:#000;font-weight:bold">in</span> circlesByArea)
+        <span style="color:#00f">foreach</span> (Circle c <span style="color:#00f">in</span> circlesByArea)
         {
-            Console.WriteLine(c == <span style="color:#000;font-weight:bold">null</span> ? <span style="color:#d14">&#34;null&#34;</span> : <span style="color:#d14">&#34;Circle with area &#34;</span> + c.Area);
+            Console.WriteLine(c == <span style="color:#00f">null</span> ? <span style="color:#a31515">&#34;null&#34;</span> : <span style="color:#a31515">&#34;Circle with area &#34;</span> + c.Area);
         }
     }
 }
 
-<span style="color:#998;font-style:italic">/* This code example produces the following output:
-</span><span style="color:#998;font-style:italic">
-</span><span style="color:#998;font-style:italic">null
-</span><span style="color:#998;font-style:italic">Circle with area 0.000314159265358979
-</span><span style="color:#998;font-style:italic">Circle with area 162.860163162095
-</span><span style="color:#998;font-style:italic">Circle with area 31415.9265358979
-</span><span style="color:#998;font-style:italic"> */</span>
+<span style="color:#008000">/* This code example produces the following output:
+</span><span style="color:#008000">
+</span><span style="color:#008000">null
+</span><span style="color:#008000">Circle with area 0.000314159265358979
+</span><span style="color:#008000">Circle with area 162.860163162095
+</span><span style="color:#008000">Circle with area 31415.9265358979
+</span><span style="color:#008000"> */</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="注意">注意</h2>

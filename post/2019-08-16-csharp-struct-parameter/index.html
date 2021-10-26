@@ -231,25 +231,25 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// 按值传递参数
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Calculate(Point3D point1, Point3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// 按值传递参数
+</span><span style="color:#008000"></span><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Calculate(Point3D point1, Point3D point2)
 {
-    <span style="color:#458;font-weight:bold">double</span> xDifference = point1.X - point2.X;
-    <span style="color:#458;font-weight:bold">double</span> yDifference = point1.Y - point2.Y;
-    <span style="color:#458;font-weight:bold">double</span> zDifference = point1.Z - point2.Z;
+    <span style="color:#2b91af">double</span> xDifference = point1.X - point2.X;
+    <span style="color:#2b91af">double</span> yDifference = point1.Y - point2.Y;
+    <span style="color:#2b91af">double</span> zDifference = point1.Z - point2.Z;
 
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
+    <span style="color:#00f">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
 }
 
 ...
 
-<span style="color:#000;font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Point3D</span>
+<span style="color:#00f">struct</span> <span style="color:#2b91af">Point3D</span>
 {
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> X { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Y { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Z { <span style="color:#000;font-weight:bold">get</span>; <span style="color:#000;font-weight:bold">set</span>; }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> X { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Y { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Z { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
 
-    <span style="color:#000;font-weight:bold">public</span> Point3D(<span style="color:#458;font-weight:bold">double</span> x, <span style="color:#458;font-weight:bold">double</span> y, <span style="color:#458;font-weight:bold">double</span> z)
+    <span style="color:#00f">public</span> Point3D(<span style="color:#2b91af">double</span> x, <span style="color:#2b91af">double</span> y, <span style="color:#2b91af">double</span> z)
     {
         X = x;
         Y = y;
@@ -280,18 +280,18 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#998;font-style:italic">// ref传递
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateRef(<span style="color:#000;font-weight:bold">ref</span> Point3D point1,<span style="color:#000;font-weight:bold">ref</span> Point3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// ref传递
+</span><span style="color:#008000"></span><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateRef(<span style="color:#00f">ref</span> Point3D point1,<span style="color:#00f">ref</span> Point3D point2)
 {
-    <span style="color:#458;font-weight:bold">double</span> xDifference = point1.X - point2.X;
-    <span style="color:#458;font-weight:bold">double</span> yDifference = point1.Y - point2.Y;
-    <span style="color:#458;font-weight:bold">double</span> zDifference = point1.Z - point2.Z;
+    <span style="color:#2b91af">double</span> xDifference = point1.X - point2.X;
+    <span style="color:#2b91af">double</span> yDifference = point1.Y - point2.Y;
+    <span style="color:#2b91af">double</span> zDifference = point1.Z - point2.Z;
 
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
+    <span style="color:#00f">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
 }
 
-<span style="color:#998;font-style:italic">// 调用：
-</span><span style="color:#998;font-style:italic"></span><span style="color:#458;font-weight:bold">var</span> r2 = CalculateRef(<span style="color:#000;font-weight:bold">ref</span> p1,<span style="color:#000;font-weight:bold">ref</span> p2);
+<span style="color:#008000">// 调用：
+</span><span style="color:#008000"></span><span style="color:#2b91af">var</span> r2 = CalculateRef(<span style="color:#00f">ref</span> p1,<span style="color:#00f">ref</span> p2);
 </code></pre></td></tr></table>
 </div>
 </div><p>IL代码, 注意参数类型是Point3D&amp;，即传递的是地址</p>
@@ -322,10 +322,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateOut(<span style="color:#000;font-weight:bold">out</span> Point3D point1)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateOut(<span style="color:#00f">out</span> Point3D point1)
 {
-    point1 = <span style="color:#000;font-weight:bold">new</span> Point3D(<span style="color:#099">2</span>,<span style="color:#099">2</span>,<span style="color:#099">2</span>);
-    <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">0</span>;
+    point1 = <span style="color:#00f">new</span> Point3D(2,2,2);
+    <span style="color:#00f">return</span> 0;
 }
 </code></pre></td></tr></table>
 </div>
@@ -366,16 +366,16 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateIn(<span style="color:#000;font-weight:bold">in</span> Point3D point1,<span style="color:#000;font-weight:bold">in</span> Point3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateIn(<span style="color:#00f">in</span> Point3D point1,<span style="color:#00f">in</span> Point3D point2)
 {
-    <span style="color:#998;font-style:italic">//error CS8332: Cannot assign to a member of variable &#39;in Point3D&#39; because it is a readonly variable
-</span><span style="color:#998;font-style:italic"></span>
-    <span style="color:#998;font-style:italic">//point1.X = 33;
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#458;font-weight:bold">double</span> xDifference = point1.X - point2.X;
-    <span style="color:#458;font-weight:bold">double</span> yDifference = point1.Y - point2.Y;
-    <span style="color:#458;font-weight:bold">double</span> zDifference = point1.Z - point2.Z;
+    <span style="color:#008000">//error CS8332: Cannot assign to a member of variable &#39;in Point3D&#39; because it is a readonly variable
+</span><span style="color:#008000"></span>
+    <span style="color:#008000">//point1.X = 33;
+</span><span style="color:#008000"></span>    <span style="color:#2b91af">double</span> xDifference = point1.X - point2.X;
+    <span style="color:#2b91af">double</span> yDifference = point1.Y - point2.Y;
+    <span style="color:#2b91af">double</span> zDifference = point1.Z - point2.Z;
 
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
+    <span style="color:#00f">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
 }
 </code></pre></td></tr></table>
 </div>
@@ -404,25 +404,25 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateIn([In] [IsReadOnly] <span style="color:#000;font-weight:bold">ref</span> Point3D point1, [In] [IsReadOnly] <span style="color:#000;font-weight:bold">ref</span> Point3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateIn([In] [IsReadOnly] <span style="color:#00f">ref</span> Point3D point1, [In] [IsReadOnly] <span style="color:#00f">ref</span> Point3D point2)
 {
     Point3D point3D = point1;
-    <span style="color:#458;font-weight:bold">double</span> x = point3D.X;
+    <span style="color:#2b91af">double</span> x = point3D.X;
     point3D = point2;
-    <span style="color:#458;font-weight:bold">double</span> num = x - point3D.X;
+    <span style="color:#2b91af">double</span> num = x - point3D.X;
     point3D = point1;
-    <span style="color:#458;font-weight:bold">double</span> y = point3D.Y;
+    <span style="color:#2b91af">double</span> y = point3D.Y;
     point3D = point2;
-    <span style="color:#458;font-weight:bold">double</span> num2 = y - point3D.Y;
+    <span style="color:#2b91af">double</span> num2 = y - point3D.Y;
     point3D = point1;
-    <span style="color:#458;font-weight:bold">double</span> z = point3D.Z;
+    <span style="color:#2b91af">double</span> z = point3D.Z;
     point3D = point2;
-    <span style="color:#458;font-weight:bold">double</span> num3 = z - point3D.Z;
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(num * num + num2 * num2 + num3 * num3);
+    <span style="color:#2b91af">double</span> num3 = z - point3D.Z;
+    <span style="color:#00f">return</span> Math.Sqrt(num * num + num2 * num2 + num3 * num3);
 }
 
-<span style="color:#998;font-style:italic">// 调用方，不需要添加in
-</span><span style="color:#998;font-style:italic"></span><span style="color:#458;font-weight:bold">var</span> r4 = CalculateIn(p1,p2);
+<span style="color:#008000">// 调用方，不需要添加in
+</span><span style="color:#008000"></span><span style="color:#2b91af">var</span> r4 = CalculateIn(p1,p2);
 </code></pre></td></tr></table>
 </div>
 </div><p>每个变量都生成了防御性副本(defensive copy)。</p>
@@ -487,23 +487,23 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateReadonlyIn(<span style="color:#000;font-weight:bold">in</span> ReadonlyPoint3D point1,<span style="color:#000;font-weight:bold">in</span> ReadonlyPoint3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateReadonlyIn(<span style="color:#00f">in</span> ReadonlyPoint3D point1,<span style="color:#00f">in</span> ReadonlyPoint3D point2)
 {
-    <span style="color:#458;font-weight:bold">double</span> xDifference = point1.X - point2.X;
-    <span style="color:#458;font-weight:bold">double</span> yDifference = point1.Y - point2.Y;
-    <span style="color:#458;font-weight:bold">double</span> zDifference = point1.Z - point2.Z;
+    <span style="color:#2b91af">double</span> xDifference = point1.X - point2.X;
+    <span style="color:#2b91af">double</span> yDifference = point1.Y - point2.Y;
+    <span style="color:#2b91af">double</span> zDifference = point1.Z - point2.Z;
 
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
+    <span style="color:#00f">return</span> Math.Sqrt(xDifference * xDifference + yDifference * yDifference + zDifference * zDifference);
 }
 
-<span style="color:#000;font-weight:bold">readonly</span> <span style="color:#000;font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">ReadonlyPoint3D</span>
+<span style="color:#00f">readonly</span> <span style="color:#00f">struct</span> <span style="color:#2b91af">ReadonlyPoint3D</span>
 {
-    <span style="color:#998;font-style:italic">// 所有字段必须是只读的
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> X { <span style="color:#000;font-weight:bold">get</span>;  }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Y { <span style="color:#000;font-weight:bold">get</span>;  }
-    <span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> Z { <span style="color:#000;font-weight:bold">get</span>;  }
+    <span style="color:#008000">// 所有字段必须是只读的
+</span><span style="color:#008000"></span>    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> X { <span style="color:#00f">get</span>;  }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Y { <span style="color:#00f">get</span>;  }
+    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Z { <span style="color:#00f">get</span>;  }
 
-    <span style="color:#000;font-weight:bold">public</span> ReadonlyPoint3D(<span style="color:#458;font-weight:bold">double</span> x, <span style="color:#458;font-weight:bold">double</span> y, <span style="color:#458;font-weight:bold">double</span> z)
+    <span style="color:#00f">public</span> ReadonlyPoint3D(<span style="color:#2b91af">double</span> x, <span style="color:#2b91af">double</span> y, <span style="color:#2b91af">double</span> z)
     {
         X = x;
         Y = y;
@@ -524,12 +524,12 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#458;font-weight:bold">double</span> CalculateReadonlyIn([In] [IsReadOnly] <span style="color:#000;font-weight:bold">ref</span> ReadonlyPoint3D point1, [In] [IsReadOnly] <span style="color:#000;font-weight:bold">ref</span> ReadonlyPoint3D point2)
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#2b91af">double</span> CalculateReadonlyIn([In] [IsReadOnly] <span style="color:#00f">ref</span> ReadonlyPoint3D point1, [In] [IsReadOnly] <span style="color:#00f">ref</span> ReadonlyPoint3D point2)
 {
-    <span style="color:#458;font-weight:bold">double</span> num = point1.X - point2.X;
-    <span style="color:#458;font-weight:bold">double</span> num2 = point1.Y - point2.Y;
-    <span style="color:#458;font-weight:bold">double</span> num3 = point1.Z - point2.Z;
-    <span style="color:#000;font-weight:bold">return</span> Math.Sqrt(num * num + num2 * num2 + num3 * num3);
+    <span style="color:#2b91af">double</span> num = point1.X - point2.X;
+    <span style="color:#2b91af">double</span> num2 = point1.Y - point2.Y;
+    <span style="color:#2b91af">double</span> num3 = point1.Z - point2.Z;
+    <span style="color:#00f">return</span> Math.Sqrt(num * num + num2 * num2 + num3 * num3);
 }
 </code></pre></td></tr></table>
 </div>

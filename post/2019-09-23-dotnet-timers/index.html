@@ -242,34 +242,34 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">partial</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Form1</span> : Form
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">partial</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Form1</span> : Form
 {
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#099">_</span>count;
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> Timer <span style="color:#099">_</span>timer = <span style="color:#000;font-weight:bold">new</span> Timer();
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> Label <span style="color:#099">_l</span>blCount = <span style="color:#000;font-weight:bold">new</span> Label();
+    <span style="color:#00f">private</span> <span style="color:#2b91af">int</span> _count;
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> Timer _timer = <span style="color:#00f">new</span> Timer();
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> Label _lblCount = <span style="color:#00f">new</span> Label();
 
-    <span style="color:#000;font-weight:bold">public</span> Form1()
+    <span style="color:#00f">public</span> Form1()
     {
         InitializeComponent();
-        Size = <span style="color:#000;font-weight:bold">new</span> Size(<span style="color:#099">450</span>, <span style="color:#099">450</span>);
-        Controls.Add(<span style="color:#099">_l</span>blCount);
-        <span style="color:#099">_l</span>blCount.Location = <span style="color:#000;font-weight:bold">new</span> Point(<span style="color:#099">200</span>, <span style="color:#099">200</span>);
-        <span style="color:#099">_</span>timer.Interval = <span style="color:#099">100</span>;
-        <span style="color:#099">_</span>timer.Tick += timer1_Tick;
+        Size = <span style="color:#00f">new</span> Size(450, 450);
+        Controls.Add(_lblCount);
+        _lblCount.Location = <span style="color:#00f">new</span> Point(200, 200);
+        _timer.Interval = 100;
+        _timer.Tick += timer1_Tick;
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> Form1_Load(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> Form1_Load(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>timer.Start();
+        _timer.Start();
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> timer1_Tick(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> timer1_Tick(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>count++;
-        <span style="color:#099">_l</span>blCount.Text = <span style="color:#099">_</span>count.ToString(<span style="color:#d14">&#34;0000&#34;</span>);
-        <span style="color:#000;font-weight:bold">if</span> (<span style="color:#099">_</span>count &gt;= <span style="color:#099">30</span>)
+        _count++;
+        _lblCount.Text = _count.ToString(<span style="color:#a31515">&#34;0000&#34;</span>);
+        <span style="color:#00f">if</span> (_count &gt;= 30)
         {
-            <span style="color:#099">_</span>timer.Stop();
+            _timer.Stop();
         }
     }
 }
@@ -311,31 +311,31 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">partial</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">MainWindow</span> : Window
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">partial</span> <span style="color:#00f">class</span> <span style="color:#2b91af">MainWindow</span> : Window
 {
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#099">_</span>count = <span style="color:#099">0</span>;
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> DispatcherTimer <span style="color:#099">_</span>timer = <span style="color:#000;font-weight:bold">new</span> DispatcherTimer();
+    <span style="color:#00f">private</span> <span style="color:#2b91af">int</span> _count = 0;
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> DispatcherTimer _timer = <span style="color:#00f">new</span> DispatcherTimer();
 
-    <span style="color:#000;font-weight:bold">public</span> MainWindow()
+    <span style="color:#00f">public</span> MainWindow()
     {
         InitializeComponent();
-        <span style="color:#099">_</span>timer.Interval = TimeSpan.FromMilliseconds(<span style="color:#099">100</span>);
-        <span style="color:#099">_</span>timer.Tick += <span style="color:#099">_</span>timer_Tick;
+        _timer.Interval = TimeSpan.FromMilliseconds(100);
+        _timer.Tick += _timer_Tick;
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> <span style="color:#099">_</span>timer_Tick(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> _timer_Tick(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>count++;
-        lblCount.Content = <span style="color:#099">_</span>count.ToString(<span style="color:#d14">&#34;0000&#34;</span>);
-        <span style="color:#000;font-weight:bold">if</span> (<span style="color:#099">_</span>count &gt;= <span style="color:#099">30</span>)
+        _count++;
+        lblCount.Content = _count.ToString(<span style="color:#a31515">&#34;0000&#34;</span>);
+        <span style="color:#00f">if</span> (_count &gt;= 30)
         {
-            <span style="color:#099">_</span>timer.Stop();
+            _timer.Stop();
         }
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> MainWindow_OnLoaded(<span style="color:#458;font-weight:bold">object</span> sender, RoutedEventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> MainWindow_OnLoaded(<span style="color:#2b91af">object</span> sender, RoutedEventArgs e)
     {
-        <span style="color:#099">_</span>timer.Start();
+        _timer.Start();
     }
 }
 </code></pre></td></tr></table>
@@ -381,36 +381,36 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">partial</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Form3</span> : Form
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">partial</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Form3</span> : Form
 {
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#099">_</span>count;
-    <span style="color:#000;font-weight:bold">private</span> System.Threading.Timer <span style="color:#099">_</span>timer;
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> Label <span style="color:#099">_l</span>blCount = <span style="color:#000;font-weight:bold">new</span> Label();
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> SynchronizationContext <span style="color:#099">_</span>context;
+    <span style="color:#00f">private</span> <span style="color:#2b91af">int</span> _count;
+    <span style="color:#00f">private</span> System.Threading.Timer _timer;
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> Label _lblCount = <span style="color:#00f">new</span> Label();
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> SynchronizationContext _context;
 
-    <span style="color:#000;font-weight:bold">public</span> Form3()
+    <span style="color:#00f">public</span> Form3()
     {
         InitializeComponent();
-        <span style="color:#099">_l</span>blCount.Text = <span style="color:#d14">&#34;0000&#34;</span>;
-        <span style="color:#099">_</span>context = SynchronizationContext.Current ?? <span style="color:#000;font-weight:bold">new</span> SynchronizationContext();
-        Size = <span style="color:#000;font-weight:bold">new</span> Size(<span style="color:#099">450</span>,<span style="color:#099">450</span>);
-        Controls.Add(<span style="color:#099">_l</span>blCount);
-        <span style="color:#099">_l</span>blCount.Location = <span style="color:#000;font-weight:bold">new</span> Point(<span style="color:#099">200</span>, <span style="color:#099">200</span>);
+        _lblCount.Text = <span style="color:#a31515">&#34;0000&#34;</span>;
+        _context = SynchronizationContext.Current ?? <span style="color:#00f">new</span> SynchronizationContext();
+        Size = <span style="color:#00f">new</span> Size(450,450);
+        Controls.Add(_lblCount);
+        _lblCount.Location = <span style="color:#00f">new</span> Point(200, 200);
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> UpdateCount(<span style="color:#458;font-weight:bold">object</span> state)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> UpdateCount(<span style="color:#2b91af">object</span> state)
     {
-        <span style="color:#099">_</span>count++;
-        <span style="color:#099">_</span>context.Send(<span style="color:#000;font-weight:bold">delegate</span> { <span style="color:#099">_l</span>blCount.Text = <span style="color:#099">_</span>count.ToString(<span style="color:#d14">&#34;0000&#34;</span>); }, <span style="color:#000;font-weight:bold">null</span>);
-        <span style="color:#000;font-weight:bold">if</span> (<span style="color:#099">_</span>count &gt;= <span style="color:#099">30</span>)
+        _count++;
+        _context.Send(<span style="color:#00f">delegate</span> { _lblCount.Text = _count.ToString(<span style="color:#a31515">&#34;0000&#34;</span>); }, <span style="color:#00f">null</span>);
+        <span style="color:#00f">if</span> (_count &gt;= 30)
         {
-            <span style="color:#099">_</span>timer.Change(Timeout.Infinite, Timeout.Infinite);
+            _timer.Change(Timeout.Infinite, Timeout.Infinite);
         }
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> Form3_Shown(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> Form3_Shown(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>timer = <span style="color:#000;font-weight:bold">new</span> System.Threading.Timer(UpdateCount, <span style="color:#000;font-weight:bold">null</span>, <span style="color:#099">1000</span>, <span style="color:#099">100</span>);
+        _timer = <span style="color:#00f">new</span> System.Threading.Timer(UpdateCount, <span style="color:#00f">null</span>, 1000, 100);
     }
 }
 </code></pre></td></tr></table>
@@ -458,36 +458,36 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">partial</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Form2</span> : Form
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">partial</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Form2</span> : Form
 {
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#458;font-weight:bold">int</span> <span style="color:#099">_</span>count;
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> System.Timers.Timer <span style="color:#099">_</span>timer = <span style="color:#000;font-weight:bold">new</span> System.Timers.Timer();
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">readonly</span> Label <span style="color:#099">_l</span>blCount = <span style="color:#000;font-weight:bold">new</span> Label();
+    <span style="color:#00f">private</span> <span style="color:#2b91af">int</span> _count;
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> System.Timers.Timer _timer = <span style="color:#00f">new</span> System.Timers.Timer();
+    <span style="color:#00f">private</span> <span style="color:#00f">readonly</span> Label _lblCount = <span style="color:#00f">new</span> Label();
 
-    <span style="color:#000;font-weight:bold">public</span> Form2()
+    <span style="color:#00f">public</span> Form2()
     {
         InitializeComponent();
-        Size = <span style="color:#000;font-weight:bold">new</span> Size(<span style="color:#099">450</span>,<span style="color:#099">450</span>);
-        Controls.Add(<span style="color:#099">_l</span>blCount);
-        <span style="color:#099">_l</span>blCount.Location = <span style="color:#000;font-weight:bold">new</span> Point(<span style="color:#099">200</span>, <span style="color:#099">200</span>);
-        <span style="color:#099">_</span>timer.Interval = <span style="color:#099">100</span>;
-        <span style="color:#099">_</span>timer.SynchronizingObject = <span style="color:#000;font-weight:bold">this</span>;
-        <span style="color:#099">_</span>timer.Elapsed += <span style="color:#099">_</span>timer_Elapsed;
+        Size = <span style="color:#00f">new</span> Size(450,450);
+        Controls.Add(_lblCount);
+        _lblCount.Location = <span style="color:#00f">new</span> Point(200, 200);
+        _timer.Interval = 100;
+        _timer.SynchronizingObject = <span style="color:#00f">this</span>;
+        _timer.Elapsed += _timer_Elapsed;
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> <span style="color:#099">_</span>timer_Elapsed(<span style="color:#458;font-weight:bold">object</span> sender, System.Timers.ElapsedEventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> _timer_Elapsed(<span style="color:#2b91af">object</span> sender, System.Timers.ElapsedEventArgs e)
     {
-        <span style="color:#099">_</span>count++;
-        <span style="color:#099">_l</span>blCount.Text = <span style="color:#099">_</span>count.ToString(<span style="color:#d14">&#34;0000&#34;</span>);
-        <span style="color:#000;font-weight:bold">if</span> (<span style="color:#099">_</span>count &gt;= <span style="color:#099">30</span>)
+        _count++;
+        _lblCount.Text = _count.ToString(<span style="color:#a31515">&#34;0000&#34;</span>);
+        <span style="color:#00f">if</span> (_count &gt;= 30)
         {
-            <span style="color:#099">_</span>timer.Stop();
+            _timer.Stop();
         }
     }
 
-    <span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> Form1_Load(<span style="color:#458;font-weight:bold">object</span> sender, EventArgs e)
+    <span style="color:#00f">private</span> <span style="color:#00f">void</span> Form1_Load(<span style="color:#2b91af">object</span> sender, EventArgs e)
     {
-        <span style="color:#099">_</span>timer.Start();
+        _timer.Start();
     }
 }
 </code></pre></td></tr></table>
@@ -525,31 +525,31 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#000;font-weight:bold">private</span> <span style="color:#000;font-weight:bold">void</span> MyTimerCallback(<span style="color:#458;font-weight:bold">object</span> state) {
-    <span style="color:#998;font-style:italic">// System.Threading.Timer will not cancel the work item queued before the timer is stopped.
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#998;font-style:italic">// We don&#39;t want to handle the callback after a timer is stopped.
-</span><span style="color:#998;font-style:italic"></span>    <span style="color:#000;font-weight:bold">if</span>( state != cookie) { 
-        <span style="color:#000;font-weight:bold">return</span>;
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">private</span> <span style="color:#00f">void</span> MyTimerCallback(<span style="color:#2b91af">object</span> state) {
+    <span style="color:#008000">// System.Threading.Timer will not cancel the work item queued before the timer is stopped.
+</span><span style="color:#008000"></span>    <span style="color:#008000">// We don&#39;t want to handle the callback after a timer is stopped.
+</span><span style="color:#008000"></span>    <span style="color:#00f">if</span>( state != cookie) { 
+        <span style="color:#00f">return</span>;
     } 
     
-    <span style="color:#000;font-weight:bold">if</span> (!<span style="color:#000;font-weight:bold">this</span>.autoReset) {
-        enabled = <span style="color:#000;font-weight:bold">false</span>;
+    <span style="color:#00f">if</span> (!<span style="color:#00f">this</span>.autoReset) {
+        enabled = <span style="color:#00f">false</span>;
     }
 
-    FILE_TIME filetime = <span style="color:#000;font-weight:bold">new</span> FILE_TIME();
-    GetSystemTimeAsFileTime(<span style="color:#000;font-weight:bold">ref</span> filetime);
-    ElapsedEventArgs elapsedEventArgs = <span style="color:#000;font-weight:bold">new</span> ElapsedEventArgs(filetime.ftTimeLow, filetime.ftTimeHigh); 
-    <span style="color:#000;font-weight:bold">try</span> {                                            
-        <span style="color:#998;font-style:italic">// To avoid ---- between remove handler and raising the event
-</span><span style="color:#998;font-style:italic"></span>        ElapsedEventHandler intervalElapsed = <span style="color:#000;font-weight:bold">this</span>.onIntervalElapsed;
-        <span style="color:#000;font-weight:bold">if</span> (intervalElapsed != <span style="color:#000;font-weight:bold">null</span>) {
-            <span style="color:#000;font-weight:bold">if</span> (<span style="color:#000;font-weight:bold">this</span>.SynchronizingObject != <span style="color:#000;font-weight:bold">null</span> &amp;&amp; <span style="color:#000;font-weight:bold">this</span>.SynchronizingObject.InvokeRequired)
-                <span style="color:#000;font-weight:bold">this</span>.SynchronizingObject.BeginInvoke(intervalElapsed, <span style="color:#000;font-weight:bold">new</span> <span style="color:#458;font-weight:bold">object</span>[]{<span style="color:#000;font-weight:bold">this</span>, elapsedEventArgs});
-            <span style="color:#000;font-weight:bold">else</span>                        
-                intervalElapsed(<span style="color:#000;font-weight:bold">this</span>,  elapsedEventArgs);                                   
+    FILE_TIME filetime = <span style="color:#00f">new</span> FILE_TIME();
+    GetSystemTimeAsFileTime(<span style="color:#00f">ref</span> filetime);
+    ElapsedEventArgs elapsedEventArgs = <span style="color:#00f">new</span> ElapsedEventArgs(filetime.ftTimeLow, filetime.ftTimeHigh); 
+    <span style="color:#00f">try</span> {                                            
+        <span style="color:#008000">// To avoid ---- between remove handler and raising the event
+</span><span style="color:#008000"></span>        ElapsedEventHandler intervalElapsed = <span style="color:#00f">this</span>.onIntervalElapsed;
+        <span style="color:#00f">if</span> (intervalElapsed != <span style="color:#00f">null</span>) {
+            <span style="color:#00f">if</span> (<span style="color:#00f">this</span>.SynchronizingObject != <span style="color:#00f">null</span> &amp;&amp; <span style="color:#00f">this</span>.SynchronizingObject.InvokeRequired)
+                <span style="color:#00f">this</span>.SynchronizingObject.BeginInvoke(intervalElapsed, <span style="color:#00f">new</span> <span style="color:#2b91af">object</span>[]{<span style="color:#00f">this</span>, elapsedEventArgs});
+            <span style="color:#00f">else</span>                        
+                intervalElapsed(<span style="color:#00f">this</span>,  elapsedEventArgs);                                   
         }
     }
-    <span style="color:#000;font-weight:bold">catch</span> 
+    <span style="color:#00f">catch</span> 
     {
     }
 }
