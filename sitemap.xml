@@ -5,28 +5,43 @@
     <loc>https://prime167.github.io/tab/about/</loc>
     <lastmod>2019-07-10T21:41:52+08:00</lastmod>
   </url><url>
+    <loc>https://prime167.github.io/tags/.gitconfig/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/categories/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/git/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/includeif/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/post/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/categories/TIL/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/</loc>
+    <lastmod>2021-10-27T09:53:28+08:00</lastmod>
+  </url><url>
     <loc>https://prime167.github.io/categories/blog/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/post/2021-10-25-Blog-Reborn/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://prime167.github.io/categories/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://prime167.github.io/tags/hugo/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/tags/meta/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/post/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/tags/</loc>
-    <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/tags/.NET/</loc>
@@ -133,9 +148,6 @@
   </url><url>
     <loc>https://prime167.github.io/post/2019-07-26-about-fix-bugs/</loc>
     <lastmod>2019-07-26T14:57:43+08:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/tags/git/</loc>
-    <lastmod>2019-07-26T14:05:29+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/tags/git-worktree/</loc>
     <lastmod>2019-07-26T14:05:29+08:00</lastmod>

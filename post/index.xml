@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate><atom:link href="https://prime167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="https://prime167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git 使用includeIf配置多用户隔离</title>
+      <link>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</link>
+      <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</guid>
+      <description>起因 前天重新配置blog，在重新编写blog并推送到GitHub之后，发现使用的是公司的用户名和邮箱，原因是创建git repo后, commit 之前忘记修改.git/config,并添加GitHub用户名 [user] name = xxx email = xxx+xxx@users.noreply.github.com 无奈只好重新来一遍：删除GitHub仓库，删除本地.git 目录，git in</description>
+    </item>
+    
     <item>
       <title>Blog 重新开张</title>
       <link>https://prime167.github.io/post/2021-10-25-Blog-Reborn/</link>

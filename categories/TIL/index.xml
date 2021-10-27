@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TIL on 静静地坐着</title>
+    <link>https://prime167.github.io/categories/TIL/</link>
+    <description>Recent content in TIL on 静静地坐着</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 27 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="https://prime167.github.io/categories/TIL/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git 使用includeIf配置多用户隔离</title>
+      <link>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</link>
+      <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</guid>
+      <description>起因 前天重新配置blog，在重新编写blog并推送到GitHub之后，发现使用的是公司的用户名和邮箱，原因是创建git repo后, commit 之前忘记修改.git/config,并添加GitHub用户名 [user] name = xxx email = xxx+xxx@users.noreply.github.com 无奈只好重新来一遍：删除GitHub仓库，删除本地.git 目录，git in</description>
+    </item>
+    
+  </channel>
+</rss>
