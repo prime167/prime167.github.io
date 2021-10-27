@@ -199,7 +199,7 @@
 <pre tabindex="0"><code>[user]
     name = xxx
     email = xxx+xxx@users.noreply.github.com
-</code></pre><p>无奈只好重新来一遍：删除GitHub仓库，删除本地.git 目录，git init，添加上述配置，提交，重新推送</p>
+</code></pre><p>无奈只好重新来一遍：删除GitHub仓库，删除本地.git 目录，git init，添加上述配置，提交，重新推送。</p>
 <h2 id="git-配置文件层级">git 配置文件层级</h2>
 <p>如上所述，在 git 中，有三个层级的配置文件：</p>
 <ul>
@@ -227,18 +227,71 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 </ul>
 <p>个人项目与公司项目的差异点在：第一、使用的邮箱名不同， 个人项目会使用个人邮箱，公司项目使用公司邮箱。</p>
 <p>首先配置用户级的.gitconfig，在这里，我把默认用户配置为GitHub用户</p>
-<pre tabindex="0"><code>[user]
-    name = xxx
-    email = xxx+xxx@users.noreply.github.com
-</code></pre><p>然后在这之后添加公司使用的用户</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[user]</span>
+    name = <span style="color:#a31515">xxx
+</span><span style="color:#a31515">    email = xxx+xxx@users.noreply.github.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后在这之后添加公司使用的用户</p>
 <pre tabindex="0"><code># E:/work/git/ 下面的所有仓库引入 `.gitconfig-work` 中的配置
 [includeIf &quot;gitdir/i:E:/work/git/&quot;]
     path = .gitconfig-work
 </code></pre><p>最后创建公司项目统一的配置文件%USERPROFILE%.gitconfig-work：</p>
-<pre tabindex="0"><code>[user]
-    name = 张三
-    email = zhangsan@somecorp.com
-</code></pre><p>这样，除了E:/work/git/ 下面的repo使用公司的用户外，其他目录都是用GitHub用户。你可以根据自己的实际情况设置默认用户、创建并使用不同情景下使用的用户信息</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[user]</span>
+    name = <span style="color:#a31515">张三
+</span><span style="color:#a31515">    email = zhangsan@somecorp.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>或者将默认的用户也放到另一个config名为.gitconfig-github,然后使用<strong>include</strong>包含进.gitconfig</p>
+<p><strong>.gitconfig-github</strong>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[user]</span>
+    name = <span style="color:#a31515">xxx
+</span><span style="color:#a31515">    email = xxx+xxx@users.noreply.github.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>.gitconfig</strong>:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig">...
+<span style="color:#00f">[include]</span>
+    path =<span style="color:#a31515">.gitconfig-github</span>
+
+<span style="color:#00f">[includeIf &#34;gitdir/i:E:/work/git/&#34;]</span>
+    path =<span style="color:#a31515">.gitconfig-work</span>
+...
+</code></pre></td></tr></table>
+</div>
+</div><p>这样，除了E:/work/git/ 下面的repo使用公司的用户外，其他目录都是用GitHub用户。你可以根据自己的实际情况设置默认用户、创建并使用不同情景下使用的用户信息</p>
 <h2 id="gui-支持">GUI 支持</h2>
 <ul>
 <li>Sourcetree 完美支持</li>
