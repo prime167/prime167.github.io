@@ -147,7 +147,7 @@
     <li><a href="#设置主题">设置主题</a></li>
     <li><a href="#基本配置">基本配置</a></li>
     <li><a href="#配置内容过期提醒">配置内容过期提醒</a></li>
-    <li><a href="#配置gitment评论系统">配置Gitment评论系统</a></li>
+    <li><a href="#配置utteranc评论系统">配置utteranc评论系统</a></li>
     <li><a href="#添加新文章">添加新文章</a></li>
     <li><a href="#编辑">编辑</a>
       <ul>
@@ -214,6 +214,7 @@
 <li>2019/10/18 添加Gitmen评论系统</li>
 <li>2019/11/25 添加 .nojekyll 文件解决以“.”开头的tag页面显示404问题</li>
 <li>2020/6/16 内容过期提醒</li>
+<li>2021/10/25 重写丢失的blog，更换maupassant主题，配置utteranc评论系统</li>
 </ul>
 <h2 id="注册github">注册GitHub</h2>
 <p>这个没什么好说的，输入用户名、密码、邮箱创建账户就可以了。</p>
@@ -370,8 +371,11 @@ copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style
 <blockquote>
 <p>【注意】最后更新于 6月前，文中内容可能已过时，请谨慎使用。</p>
 </blockquote>
-<h2 id="配置gitment评论系统">配置Gitment评论系统</h2>
-<p>event 主题继承了Gitment的配置</p>
+<h2 id="配置utteranc评论系统">配置utteranc评论系统</h2>
+<p><a href="https://github.com/utterance/utterances">utterances</a> 是一款基于 GitHub issues 的评论工具。
+首先创建评论存储库，例如https://github.com/prime167/BlogComment
+然后打开https://github.com/apps/utterances，安装utterances到刚才创建的库
+config.toml 添加配置</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -381,23 +385,14 @@ copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.gitment]          <span style="color:#008000"># Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment</span>
-  owner = <span style="color:#a31515">&#34;&#34;</span>              <span style="color:#008000"># 你的 GitHub ID</span>
-  repo = <span style="color:#a31515">&#34;&#34;</span>               <span style="color:#008000"># 保存评论的repo</span>
-  clientId = <span style="color:#a31515">&#34;&#34;</span>           <span style="color:#008000"># 你的 client ID</span>
-  clientSecret = <span style="color:#a31515">&#34;&#34;</span>       <span style="color:#008000"># 你的 client secret</span>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.utteranc]
+  enable = <span style="color:#00f">true</span>
+  repo = <span style="color:#a31515">&#34;prime167/BlogComment&#34;</span>
+  issueTerm = <span style="color:#a31515">&#34;title&#34;</span>
+  theme = <span style="color:#a31515">&#34;github-light&#34;</span>
 </code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>创建保存评论的repo，例如 BlogComment</li>
-<li>注册一个新的 OAuth Application</li>
-<li>点击此处 注册一个新的 OAuth Application。callback URL 填你当前blog地址，例如我的是 <a href="https://prime167.github.io/">https://prime167.github.io/</a> 其他项目随意填写。点击注册应用后会得到一个 client ID 和一个 client secret。</li>
-<li>填入toml配置</li>
-<li>初始化</li>
-</ul>
-<p>页面发布后，你需要访问页面并使用你的 GitHub 账号登录（请确保你的账号是第二步所填 repo 的 owner），点击初始化按钮。之后其他用户即可在该页面发表评论。</p>
-<p>通过查看repo可以发现，评论是以issue的方式保存的，初始化就是创建以文章标题为名的issue，他人在博客文章下的评论会保存在对应issue里</p>
-<h2 id="添加新文章">添加新文章</h2>
+</div><h2 id="添加新文章">添加新文章</h2>
 <p>运行</p>
 <pre tabindex="0"><code>hugo new post/hello-world.md
 </code></pre><p>文件就会生成到 <em>content\post\hello-world.md</em></p>
