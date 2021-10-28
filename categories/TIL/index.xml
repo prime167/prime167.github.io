@@ -22,7 +22,7 @@
       <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
       
       <guid>https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</guid>
-      <description>起因 前天重新配置blog，在重新编写blog并推送到GitHub之后，发现使用的是公司的用户名和邮箱，原因是创建git repo后, commit 之前忘记修改.git/config,并添加GitHub用户名 [user] name = xxx email = xxx+xxx@users.noreply.github.com 无奈只好重新来一遍：删除GitHub仓库，删除本地.git 目录，git in</description>
+      <description>问题 作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）： 公司的项目使用自己的名字和公司的邮箱: 张三 &amp;lt;zhansan@somecorp.com&amp;gt; 开源项目我会使用昵称和私人邮箱: Jack &amp;lt;xxx+xxx@users.noreply.github.com&amp;gt; 在~/.gitconfig（Windows 为%USERPROF</description>
     </item>
     
   </channel>
