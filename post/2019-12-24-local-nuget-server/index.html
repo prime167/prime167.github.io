@@ -139,18 +139,27 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#传统类库分发方式">传统类库分发方式</a>
       <ul>
-        <li><a href="#目的">目的</a></li>
-        <li><a href="#传统类库分发方式">传统类库分发方式</a></li>
-        <li><a href="#部署">部署</a></li>
-        <li><a href="#visual-studio-添加程序包源">Visual Studio 添加程序包源</a></li>
-        <li><a href="#创建nuget包">创建NuGet包</a></li>
-        <li><a href="#发布nuget包">发布NuGet包</a></li>
-        <li><a href="#设置默认source">设置默认source</a></li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#源代码方式">源代码方式</a></li>
+        <li><a href="#以dll方式分发">以DLL方式分发</a></li>
       </ul>
     </li>
+    <li><a href="#部署">部署</a></li>
+    <li><a href="#visual-studio-添加程序包源">Visual Studio 添加程序包源</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#创建nuget包">创建NuGet包</a>
+      <ul>
+        <li><a href="#1-通过nuget命令行">1. 通过NuGet命令行</a></li>
+        <li><a href="#2-使用-dotnet-命令行创建">2. 使用 dotnet 命令行创建</a></li>
+        <li><a href="#3-使用-visual-studio-创建">3. 使用 Visual Studio 创建</a></li>
+        <li><a href="#4通过-nuget-package-explorer-创建">4.通过 NuGet Package Explorer 创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#发布nuget包">发布NuGet包</a></li>
+    <li><a href="#设置默认source">设置默认source</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
     </div>
@@ -201,11 +210,11 @@
         
         <div class="post-content">
             <p>昨天在公司局域网搭建了一个nuget服务器，记录一下过程</p>
-<h3 id="目的">目的</h3>
+<h2 id="目的">目的</h2>
 <p>首先，在本地搭建服务器的目的不是在本地复制一个 nuget.org，而是为了解决公司内部常用类库的分发问题。</p>
 <p>目前公用代码主要有两种分发方式：</p>
-<h3 id="传统类库分发方式">传统类库分发方式</h3>
-<h4 id="源代码方式">源代码方式</h4>
+<h2 id="传统类库分发方式">传统类库分发方式</h2>
+<h3 id="源代码方式">源代码方式</h3>
 <p>在解决方案中直接添加类库的项目文件，再在需要的项目中添加引用</p>
 <ul>
 <li>
@@ -221,7 +230,7 @@
     &lt;ProjectReference Include=&quot;..\..\..\..\PC_Shared\Utils\PC.Shared.csproj&quot;&gt;
 ...
 </code></pre><p>新开发必须据此规划路径并克隆Lib1</p>
-<h4 id="以dll方式分发">以DLL方式分发</h4>
+<h3 id="以dll方式分发">以DLL方式分发</h3>
 <p>Lib1的负责人编译出dll，使用的人放到Solution1下的lib文件夹下，项目中再引用dll。</p>
 <ul>
 <li>
@@ -231,7 +240,7 @@
 <p>缺点：版本不易维护</p>
 </li>
 </ul>
-<h3 id="部署">部署</h3>
+<h2 id="部署">部署</h2>
 <p>我选择了官方的Nuget.Server,部署起来非常简单</p>
 <ol>
 <li>
@@ -266,21 +275,21 @@ NOTE: This is a shared key (password) for all users.
 &lt;add key=&quot;apiKey&quot; value=&quot;your api key&quot; /&gt;
 </code></pre></li>
 </ol>
-<h3 id="visual-studio-添加程序包源">Visual Studio 添加程序包源</h3>
+<h2 id="visual-studio-添加程序包源">Visual Studio 添加程序包源</h2>
 <p>工具 =&gt; 选项 =&gt; NuGet包管理器 =&gt; 程序包源,点击右侧加号添加源</p>
 <ul>
 <li>名称随便写，比如local</li>
 <li>源写上一步配置好的地址，如 http://192.168.13.96:9006/nuget</li>
 <li>点击确定</li>
 </ul>
-<h4 id="测试">测试</h4>
+<h2 id="测试">测试</h2>
 <ol>
 <li>随便找个NuGet包，放到IIS路径下的Packages文件夹下，服务器会自动解析包，并生成文件夹结构。</li>
 <li>打开包管理器，源选择local，搜索刚才的包名字，是不是出现在搜索结果里了？</li>
 </ol>
-<h3 id="创建nuget包">创建NuGet包</h3>
+<h2 id="创建nuget包">创建NuGet包</h2>
 <p>目前可以通过3种方式创建一个NuGet包：</p>
-<h4 id="1-通过nuget命令行">1. 通过NuGet命令行</h4>
+<h3 id="1-通过nuget命令行">1. 通过NuGet命令行</h3>
 <p>这种方法适用于传统的基于 .NET Framework的类库</p>
 <ol>
 <li>
@@ -347,7 +356,7 @@ NOTE: This is a shared key (password) for all users.
 </code></pre><p>就会生成格式为id.version.nupkg的包了，其实就是一个zip格式的文件，可以添加.zip后缀解压查看。</p>
 </li>
 </ol>
-<h4 id="2-使用-dotnet-命令行创建">2. 使用 dotnet 命令行创建</h4>
+<h3 id="2-使用-dotnet-命令行创建">2. 使用 dotnet 命令行创建</h3>
 <ol>
 <li>编辑项目文件
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -383,19 +392,19 @@ NOTE: This is a shared key (password) for all users.
 <pre tabindex="0"><code>dotnet pack
 </code></pre></li>
 </ol>
-<h4 id="3-使用-visual-studio-创建">3. 使用 Visual Studio 创建</h4>
+<h3 id="3-使用-visual-studio-创建">3. 使用 Visual Studio 创建</h3>
 <p>适用于基于.NET Core 或者 .NET Standard 的类库，在项目属性，打包界面填入必须的信息，勾选 “在构建时生成NuGet包” 就会在输出文件夹生成包了。
 
         <img class="mx-auto" alt="qq" src="/images/vspack.png" />   
     </p>
-<h4 id="4通过-nuget-package-explorer-创建">4.通过 NuGet Package Explorer 创建</h4>
+<h3 id="4通过-nuget-package-explorer-创建">4.通过 NuGet Package Explorer 创建</h3>
 <p>和第一种类似，只不过是GUI的方式。</p>
 <ol>
 <li>Create Package</li>
 <li>Edit Package Metadata</li>
 <li>Add Package Content</li>
 </ol>
-<h3 id="发布nuget包">发布NuGet包</h3>
+<h2 id="发布nuget包">发布NuGet包</h2>
 <p>四种方法</p>
 <ol>
 <li>
@@ -413,7 +422,7 @@ NOTE: This is a shared key (password) for all users.
 <p>如果有权限，当然可以直接把包拷贝到服务器</p>
 </li>
 </ol>
-<h3 id="设置默认source">设置默认source</h3>
+<h2 id="设置默认source">设置默认source</h2>
 <p>老是输入api key和 推送目的地址也是挺繁琐的，可以根据实际情况将配置添加到</p>
 <ol>
 <li>用户级的nuget.config(%appdata%/nuget/nuget.config)
@@ -452,7 +461,7 @@ NOTE: This is a shared key (password) for all users.
 nuget config -Set DefaultPushSource=http://192.168.13.96:9006/nuget -configfile nuget.config
 </code></pre><p>之后发布包，只需要执行</p>
 <pre tabindex="0"><code>nuget push packagename
-</code></pre><h3 id="参考">参考</h3>
+</code></pre><h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/">NuGet 官方文档</a></li>
 </ul>
