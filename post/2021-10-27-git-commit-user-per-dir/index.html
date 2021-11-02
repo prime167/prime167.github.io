@@ -139,13 +139,17 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#问题">问题</a></li>
-    <li><a href="#includeif">[includeIf]</a></li>
-    <li><a href="#解决方案">解决方案</a></li>
-    <li><a href="#举例">举例</a></li>
-    <li><a href="#gui-支持">GUI 支持</a></li>
-    <li><a href="#总结">总结</a></li>
-    <li><a href="#参考">参考</a></li>
+    <li>
+      <ul>
+        <li><a href="#问题">问题</a></li>
+        <li><a href="#includeif">[includeIf]</a></li>
+        <li><a href="#解决方案">解决方案</a></li>
+        <li><a href="#举例">举例</a></li>
+        <li><a href="#gui-支持">GUI 支持</a></li>
+        <li><a href="#总结">总结</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -195,7 +199,7 @@
         
         
         <div class="post-content">
-            <h2 id="问题">问题</h2>
+            <h3 id="问题">问题</h3>
 <p>作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）：</p>
 <ul>
 <li>公司的项目使用自己的名字和公司的邮箱: <code>张三 &lt;zhansan@somecorp.com&gt;</code></li>
@@ -203,7 +207,7 @@
 </ul>
 <p>在~/.gitconfig（Windows 为%USERPROFILE%.gitconfig）只能声明一组name和email组合作为默认身份。虽然可以在每个repo下简单的通过运行 <code>git config user.email &lt;EMAIL&gt;</code> 和 <code>git config user.name &lt;NAME&gt;</code>命令来更改，问题是对于每个项目我都要运行这两个命令，难免有时候也会忘了设置，导致使用了错误的身份提交。</p>
 <p>幸运的是，git为我们提供解决此问题的方法</p>
-<h2 id="includeif">[includeIf]</h2>
+<h3 id="includeif">[includeIf]</h3>
 <p>从 git 2.13.0 开始，git 配置文件开始支持 Conditional Includes 的配置。通过设置 includeIf.<condition>.path，可以向命中 condition 的 git 仓库引入 path 指向的一个 git 配置文件中配置。</p>
 <p>[includeIf] 的语法如下，<keyword> 为关键词，<data> 是与关键词关联的数据， 具体意义由关键词决定。</p>
 <p>[includeIf &ldquo;<keyword>:<data>&quot;]
@@ -213,7 +217,7 @@ path = path/to/gitconfig
 gitdir/i：gitdir的大小写不敏感版本。
 onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码仓库中分支名匹配 <data>，那么条件命中。
 就我们的需求，使用 gitdir 完全可以。</p>
-<h2 id="解决方案">解决方案</h2>
+<h3 id="解决方案">解决方案</h3>
 <p>加入我们有以下两个目录</p>
 <pre tabindex="0"><code>|-Work
 |-Personal
@@ -266,7 +270,7 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 </code></pre></td></tr></table>
 </div>
 </div><p>这样，:E:/Work/下的所有项目都会使用张三这个身份，E:/Personal/下的所有项目则使用Jack这个身份。</p>
-<h2 id="举例">举例</h2>
+<h3 id="举例">举例</h3>
 <p>除了公司的工作项目，我目前还使用用GitHub，上面有我一些小的项目和这个托管在GitHub Pages 上的blog，我的配置如下</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -285,7 +289,7 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 </code></pre></td></tr></table>
 </div>
 </div><p>这样，把默认身份为个人身份。除了E:/work/git/下的项目用工作身份提交外，其他所有目录的都用个人身份提交。</p>
-<h2 id="gui-支持">GUI 支持</h2>
+<h3 id="gui-支持">GUI 支持</h3>
 <ul>
 <li>Sourcetree 完美支持</li>
 <li>Git Extensions：commit 对话框左下角始终显示默认的用户信息，但是实际签入的时候是调用的底层的系统git，所以能够使用正确的用户签入。</li>
@@ -295,9 +299,9 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 <li><a href="https://github.com/gitextensions/gitextensions/issues/8374">Author information incorrect when using multiple GitHub accounts (via conditional includes)</a></li>
 <li><a href="https://github.com/gitextensions/gitextensions/issues/5492">Support for .gitconfig conditional includes</a></li>
 </ul>
-<h2 id="总结">总结</h2>
+<h3 id="总结">总结</h3>
 <p>使用 <strong>includeif</strong>，可以按照文件夹为不同的组织、公司、项目指定不同的身份，不需要每次都给新的repo指定 <code>user.name</code> 和 <code>user.email</code>。</p>
-<h2 id="参考">参考</h2>
+<h3 id="参考">参考</h3>
 <p><a href="https://git-scm.com/docs/git-config#_conditional_includes">Conditional includes</a></p>
 
         </div>
