@@ -6,7 +6,7 @@
     <description>Recent content on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="https://prime167.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Nov 2021 09:14:00 +0800</lastBuildDate><atom:link href="https://prime167.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>https://prime167.github.io/tab/about/</link>
@@ -14,6 +14,15 @@
       
       <guid>https://prime167.github.io/tab/about/</guid>
       <description>NullReferenceException</description>
+    </item>
+    
+    <item>
+      <title>VLSM与CIDR的区别</title>
+      <link>https://prime167.github.io/post/2021-11-04-vlsm-and-cidr/</link>
+      <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2021-11-04-vlsm-and-cidr/</guid>
+      <description>VLSM （Variable Length Subnetwork Mask 可变长子网掩码） VLSM(Variable Length Subnet Mask 可变长子网掩码)，这是一种产生不同大小子网的网络分配机制，指一个网络可以配置不同的掩码。开发可变长度子网掩码的想法就是在每个子网上保留足够的主机数的同时，把一个网分成多个子网时有更大的灵活性。如果没有VLSM，一个子网掩码只能提供</description>
     </item>
     
     <item>

@@ -5,22 +5,40 @@
     <loc>https://prime167.github.io/tab/about/</loc>
     <lastmod>2019-07-10T21:41:52+08:00</lastmod>
   </url><url>
-    <loc>https://prime167.github.io/tags/.port/</loc>
-    <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-  </url><url>
     <loc>https://prime167.github.io/categories/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/cidr/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/network/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/post/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/vlsm/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/post/2021-11-04-vlsm-and-cidr/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/</loc>
+    <lastmod>2021-11-04T09:14:00+08:00</lastmod>
+  </url><url>
+    <loc>https://prime167.github.io/tags/.port/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/tags/hyper-V/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/categories/port/</loc>
-    <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/post/</loc>
-    <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/tags/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/categories/TIL/</loc>
@@ -30,9 +48,6 @@
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/post/2021-10-28-Windows10-Port/</loc>
-    <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-  </url><url>
-    <loc>https://prime167.github.io/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
   </url><url>
     <loc>https://prime167.github.io/tags/.gitconfig/</loc>
