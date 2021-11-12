@@ -196,13 +196,14 @@
         <div class="post-content">
             <p>今天简单介绍一下 .NET framework中的timer</p>
 <h2 id="概述">概述</h2>
-<p>目前，.NET framework中有如下几种 timer：</p>
+<p>目前，.NET Framework中有如下几种 timer：</p>
 <ol>
 <li>System.Timers.Timer</li>
 <li>System.Threading.Timer</li>
 <li>System.Windows.Forms.Timer</li>
 <li>System.Windows.Threading.DispatcherTimer</li>
 <li>System.Web.UI.Timer</li>
+<li>PeriodicTimer</li>
 </ol>
 <p>其中前两个是通用的，即可用于客户端，也可用于服务器；第三个用于winform下，第四个用于WPF下，第五个是传统的Asp.NET Page下的控件</p>
 <h2 id="systemwindowsformstimer">System.Windows.Forms.Timer</h2>
@@ -523,6 +524,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">private</span> <span style="color:#00f">void</span> MyTimerCallback(<span style="color:#2b91af">object</span> state) {
@@ -539,14 +541,15 @@
     FILE_TIME filetime = <span style="color:#00f">new</span> FILE_TIME();
     GetSystemTimeAsFileTime(<span style="color:#00f">ref</span> filetime);
     ElapsedEventArgs elapsedEventArgs = <span style="color:#00f">new</span> ElapsedEventArgs(filetime.ftTimeLow, filetime.ftTimeHigh); 
-    <span style="color:#00f">try</span> {                                            
+    <span style="color:#00f">try</span> {
         <span style="color:#008000">// To avoid ---- between remove handler and raising the event
 </span><span style="color:#008000"></span>        ElapsedEventHandler intervalElapsed = <span style="color:#00f">this</span>.onIntervalElapsed;
-        <span style="color:#00f">if</span> (intervalElapsed != <span style="color:#00f">null</span>) {
+        <span style="color:#00f">if</span> (intervalElapsed != <span style="color:#00f">null</span>) 
+        {
             <span style="color:#00f">if</span> (<span style="color:#00f">this</span>.SynchronizingObject != <span style="color:#00f">null</span> &amp;&amp; <span style="color:#00f">this</span>.SynchronizingObject.InvokeRequired)
                 <span style="color:#00f">this</span>.SynchronizingObject.BeginInvoke(intervalElapsed, <span style="color:#00f">new</span> <span style="color:#2b91af">object</span>[]{<span style="color:#00f">this</span>, elapsedEventArgs});
-            <span style="color:#00f">else</span>                        
-                intervalElapsed(<span style="color:#00f">this</span>,  elapsedEventArgs);                                   
+            <span style="color:#00f">else</span>
+                intervalElapsed(<span style="color:#00f">this</span>,  elapsedEventArgs);
         }
     }
     <span style="color:#00f">catch</span> 
