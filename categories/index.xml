@@ -6,7 +6,16 @@
     <description>Recent content in Categories on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 Nov 2021 09:14:00 +0800</lastBuildDate><atom:link href="https://prime167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Dec 2021 09:07:43 +0800</lastBuildDate><atom:link href="https://prime167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术</title>
+      <link>https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Wed, 15 Dec 2021 09:07:43 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>网络</title>
       <link>https://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</link>
@@ -40,15 +49,6 @@
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
       
       <guid>https://prime167.github.io/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>技术</title>
-      <link>https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Fri, 12 Jun 2020 16:28:28 +0800</pubDate>
-      
-      <guid>https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     

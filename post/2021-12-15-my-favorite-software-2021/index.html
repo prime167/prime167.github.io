@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>meta | 静静地坐着</title>
-    <meta property="og:title" content="meta - 静静地坐着">
+    <title>我常用的软件 (2021版) | 静静地坐着</title>
+    <meta property="og:title" content="我常用的软件 (2021版) - 静静地坐着">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2021-12-15T09:07:43&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-12-15T09:07:43&#43;08:00'>
         
     <meta name="Keywords" content="C#,csharp,.NET">
-    <meta name="description" content="meta">
+    <meta name="description" content="我常用的软件 (2021版)">
         
     <meta name="author" content="Codest">
-    <meta property="og:url" content="https://prime167.github.io/tags/meta/">
+    <meta property="og:url" content="https://prime167.github.io/post/2021-12-15-my-favorite-software-2021/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://prime167.github.io/tags/meta/index.xml" title="静静地坐着" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -47,7 +50,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://prime167.github.io">首页</a>
+                    <a class="current" href="https://prime167.github.io">首页</a>
                     
                     <a  href="https://prime167.github.io/tab/archives/" title="归档">归档</a>
                     
@@ -70,91 +73,280 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">meta</span>
-        的文章
-    </h3>
-    
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 
-    
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#版本控制">版本控制</a></li>
+    <li><a href="#控制台">控制台</a></li>
+    <li><a href="#远程终端">远程终端</a></li>
+    <li><a href="#资源管理器增强">资源管理器增强</a></li>
+    <li><a href="#浏览器">浏览器</a></li>
+    <li><a href="#浏览器插件">浏览器插件</a></li>
+    <li><a href="#笔记">笔记</a></li>
+    <li><a href="#pdf-阅读">PDF 阅读</a></li>
+    <li><a href="#虚拟机">虚拟机</a></li>
+    <li><a href="#网站">网站</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2021-10-25-Blog-Reborn/">Blog 重新开张</a>
-            </h1>
+            <h1 class="post-title">我常用的软件 (2021版)</h1>
         </header>
         <date class="post-meta meta-date">
-            2021年10月25日
+            2021年12月15日
         </date>
         
-        <div class="post-meta meta-category">
-            |
+        <div class="post-meta">
+            <span>|</span>
             
-            <a href='/categories/blog'>blog</a>
+            <span class="meta-category"><a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a></span>
             
         </div>
         
+        
+        
         <div class="post-content">
-            去年只写了2篇blog，上个月想写的时候发现原始的markdown文件丢失了，幸好再另一台电脑找到了一个比较旧的备份，只有2019年的头几篇。就从发布的html重新写了一遍markdown，更换了maupassant主题，评论使用 utteranc 存储在单独的repo,创建了markdown源文……
-            <p class="readmore"><a href="https://prime167.github.io/post/2021-10-25-Blog-Reborn/">阅读全文</a></p>
+            <p>整理记录一下自己常用的一些软件</p>
+<p>操作系统为 Windows 10 21H1</p>
+<h2 id="开发工具">开发工具</h2>
+<ul>
+<li>Visual Studio 2019</li>
+<li>Visual Studio 2022 (64位)</li>
+<li>Visual Studio Code</li>
+<li>Linqpad (已购买Premium 7.0 版本)</li>
+<li>BeyondCompare</li>
+<li>Resharper</li>
+</ul>
+<h2 id="版本控制">版本控制</h2>
+<ul>
+<li>Fork</li>
+<li>SourceTree 基于WPF 更新慢</li>
+<li>GitExtension 可以创建worktree</li>
+<li>Git For Windows</li>
+</ul>
+<h2 id="控制台">控制台</h2>
+<ul>
+<li>cmder</li>
+<li>Windows Terminal</li>
+</ul>
+<h2 id="远程终端">远程终端</h2>
+<ul>
+<li>MobaXterm 用来管理 ubuntu 上的自建 Gitlab</li>
+</ul>
+<h2 id="资源管理器增强">资源管理器增强</h2>
+<ul>
+<li>Q-dir 多窗格文件资源管理器</li>
+<li>Everything 文件搜索</li>
+<li>Listary
+<ul>
+<li>对话框内自动打开当前窗口</li>
+<li>即时搜索</li>
+<li>桌面或者文件夹内双击呼出菜单，跳转到预先设置的文件夹</li>
+</ul>
+</li>
+<li>7+ Taskbar Tweaker
+<ul>
+<li>任务栏同类项目排序</li>
+<li>双击任务栏执行特定动作，如显示桌面</li>
+</ul>
+</li>
+</ul>
+<h2 id="浏览器">浏览器</h2>
+<ul>
+<li>Vivaldi 支持纵向tab</li>
+<li>Microsoft Chromium Edge</li>
+<li>Firefox*</li>
+<li>Chrome</li>
+</ul>
+<h2 id="浏览器插件">浏览器插件</h2>
+<ul>
+<li>uBlock origin 广告拦截</li>
+<li>暴力猴 开源userscript 管理器</li>
+<li>MSDN中英文切换</li>
+<li>Google Hit Hider by Domain 隐藏内容农场</li>
+<li>Pop up blocker for Chrome™ - Poper Blocker 拦截 Medium 类网站弹窗</li>
+<li>Lastpass 密码管理</li>
+<li>Bitwarden 密码管理，开源，跨平台，已逐步从Lastpass迁移过来</li>
+<li>Search Blocklist 隐藏搜索引擎内容农场，比Google Hit Hider by Domain 好用些，规则通用</li>
+</ul>
+<h2 id="笔记">笔记</h2>
+<ul>
+<li>印象笔记 (已购买，广告太多，正寻找替代)</li>
+</ul>
+<h2 id="pdf-阅读">PDF 阅读</h2>
+<ul>
+<li>Acrobat Reader DC</li>
+</ul>
+<h2 id="虚拟机">虚拟机</h2>
+<ul>
+<li>Vmware workstation</li>
+<li></li>
+<li>bandzip</li>
+<li>7zip</li>
+</ul>
+<h2 id="网站">网站</h2>
+<ul>
+<li>
+<p><a href="https://sharplab.io/">SharpLab</a></p>
+<p>非常强大的在线工具：反编译成没有语法糖的C#，反编译位IL，检查堆栈，运行代码，解释C#特性</p>
+</li>
+<li>
+<p><a href="https://regexr.com/">RegExr</a></p>
+<p>正则表达式构建，验证，学习</p>
+</li>
+</ul>
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://prime167.github.io">Codest</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://prime167.github.io/post/2021-12-15-my-favorite-software-2021/">https://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/2019-10-17-my-favorite-software-2019/">我常用的软件 (2019版)</a></li>
+        
+        <li><a href="/post/2021-11-04-vlsm-and-cidr/">VLSM与CIDR的区别</a></li>
+        
+        <li><a href="/post/2021-10-28-Windows10-Port/">Windows 10 解决端口被占用问题</a></li>
+        
+        <li><a href="/post/2021-10-27-git-commit-user-per-dir/">git 使用includeIf配置多身份隔离</a></li>
+        
+        <li><a href="/post/2021-10-25-Blog-Reborn/">Blog 重新开张</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/tool'>tool</a></li>
+                
+            </ul>
+            
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-11-25-hugo-setup/">Hugo 配置记录</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年8月7日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/blog'>blog</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>新博客配置的七七八八了，记录一下过程和未解决问题。</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-11-25-hugo-setup/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-07-10-hello-world/">Hello World</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年7月10日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/blog'>blog</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>新博客开张。</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-07-10-hello-world/">阅读全文</a></p>
-        </div>
-    </article>
     
 
     
-
-
-
-
-
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "prime167/BlogComment"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
 </div>
 
                     <footer id="footer">
@@ -177,6 +369,16 @@
 </footer>
 
 
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
