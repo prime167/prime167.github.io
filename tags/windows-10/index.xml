@@ -6,7 +6,16 @@
     <description>Recent content in windows 10 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Dec 2021 10:59:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修复Windows 10 更新错误0x800f0922</title>
+      <link>https://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</link>
+      <pubDate>Fri, 17 Dec 2021 10:59:20 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</guid>
+      <description>上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进入系统后发现只有操作系统所在的C盘了。下载DiskGenius，搜索分区，找回了丢失的数据分区，最后保存的时候提示此功能需要标准版，付费，保</description>
+    </item>
+    
     <item>
       <title>Windows 10 解决端口被占用问题</title>
       <link>https://prime167.github.io/post/2021-10-28-Windows10-Port/</link>
