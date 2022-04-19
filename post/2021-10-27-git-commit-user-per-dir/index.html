@@ -206,7 +206,7 @@
 <h2 id="includeif">[includeIf]</h2>
 <p>从 git 2.13.0 开始，git 配置文件开始支持 Conditional Includes 的配置。通过设置 includeIf.<condition>.path，可以向命中 condition 的 git 仓库引入 path 指向的一个 git 配置文件中配置。</p>
 <p>[includeIf] 的语法如下，<keyword> 为关键词，<data> 是与关键词关联的数据， 具体意义由关键词决定。</p>
-<p>[includeIf &ldquo;<keyword>:<data>&quot;]
+<p>[includeIf &ldquo;<keyword>:<data>&rdquo;]
 path = path/to/gitconfig
 其中支持的 keyword 有：</p>
 <p>gitdir: 其中 <data> 是一个 glob pattern 如果代码仓库的.git目录匹配 <data> 指定的 glob pattern，那么条件命中；
@@ -219,70 +219,70 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 |-Personal
 </code></pre><p>用公司身份提交的项目都存放在work目录，用个人身份提交的项目都存放在personal目录，
 在你的~/.gitconfig里，可以使用includeif，根据当前repo的所在目录来加载另一个gitconfig的文件内容：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig">...
-<span style="color:#00f">[includeIf &#34;gitdir/i:E:/Work/]</span>
-    path =<span style="color:#a31515">.gitconfig-work</span>
-
-<span style="color:#00f">[includeIf &#34;gitdir/i:E:/Personal/&#34;]</span>
-    path =<span style="color:#a31515">.gitconfig-personal</span>
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#00f">[includeIf &#34;gitdir/i:E:/Work/]</span>
+</span></span><span style="display:flex;"><span>    path =<span style="color:#a31515">.gitconfig-work</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">[includeIf &#34;gitdir/i:E:/Personal/&#34;]</span>
+</span></span><span style="display:flex;"><span>    path =<span style="color:#a31515">.gitconfig-personal</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>.gitconfig-work：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[user]</span>
-    name = <span style="color:#a31515">张三
-</span><span style="color:#a31515">    email = zhangsan@somecorp.com</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="display:flex;"><span><span style="color:#00f">[user]</span>
+</span></span><span style="display:flex;"><span>    name = <span style="color:#a31515">张三
+</span></span></span><span style="display:flex;"><span><span style="color:#a31515">    email = zhangsan@somecorp.com</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>.gitconfig-personal：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[user]</span>
-    name = <span style="color:#a31515">Jack
-</span><span style="color:#a31515">    email = xxx+xxx@users.noreply.github.com</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="display:flex;"><span><span style="color:#00f">[user]</span>
+</span></span><span style="display:flex;"><span>    name = <span style="color:#a31515">Jack
+</span></span></span><span style="display:flex;"><span><span style="color:#a31515">    email = xxx+xxx@users.noreply.github.com</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样，:E:/Work/下的所有项目都会使用张三这个身份，E:/Personal/下的所有项目则使用Jack这个身份。</p>
 <h2 id="举例">举例</h2>
 <p>除了公司的工作项目，我目前还使用用GitHub，上面有我一些小的项目和这个托管在GitHub Pages 上的blog，我的配置如下</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="color:#00f">[include]</span>
-	path =<span style="color:#a31515">.gitconfig-personal</span>
-
-<span style="color:#00f">[includeIf &#34;gitdir/i:E:/work/git/&#34;]</span>
-	path =<span style="color:#a31515">.gitconfig-work</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.gitconfig" data-lang=".gitconfig"><span style="display:flex;"><span><span style="color:#00f">[include]</span>
+</span></span><span style="display:flex;"><span>	path =<span style="color:#a31515">.gitconfig-personal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">[includeIf &#34;gitdir/i:E:/work/git/&#34;]</span>
+</span></span><span style="display:flex;"><span>	path =<span style="color:#a31515">.gitconfig-work</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样，把默认身份为个人身份。除了E:/work/git/下的项目用工作身份提交外，其他所有目录的都用个人身份提交。</p>
 <h2 id="gui-支持">GUI 支持</h2>
@@ -367,7 +367,7 @@ onbranch：其中 <data> 是匹配分支名的一个glob pattern。 假如代码
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
         
     </div>
     <br />

@@ -188,25 +188,25 @@
             <p>上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进入系统后发现只有操作系统所在的C盘了。下载DiskGenius，搜索分区，找回了丢失的数据分区，最后保存的时候提示此功能需要标准版，付费，保存。</p>
 <p>可是之后系统更新总提示失败，错误0x800f0922。原因在于Windows的 系统恢复分区变成了基本数据分区，可使用下列命令将分区改回EFI分区</p>
 <p>硬盘使用的GPT分区表</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batch" data-lang="batch">管理员运行CMD
-diskpart
-list disk
- sel disk 0  #这里选择你WIN10的系统所在硬盘（EFI分区所在硬盘）
- list part 
- sel part 1  （选择实际的EFI分区ID，卷标为WINRETOOLS）
-<span style="color:#00f">SET</span> ID=c12a7328-f81f-11d2-ba4b-00a0c93ec93b
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-batch" data-lang="batch"><span style="display:flex;"><span>管理员运行CMD
+</span></span><span style="display:flex;"><span>diskpart
+</span></span><span style="display:flex;"><span>list disk
+</span></span><span style="display:flex;"><span> sel disk 0  #这里选择你WIN10的系统所在硬盘（EFI分区所在硬盘）
+</span></span><span style="display:flex;"><span> list part 
+</span></span><span style="display:flex;"><span> sel part 1  （选择实际的EFI分区ID，卷标为WINRETOOLS）
+</span></span><span style="display:flex;"><span><span style="color:#00f">SET</span> ID=c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>之后操作系统就能正常更新了。</p>
 
@@ -275,7 +275,7 @@ list disk
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
         
     </div>
     <br />

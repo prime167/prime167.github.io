@@ -231,13 +231,13 @@
 </ol>
 <h2 id="创建blog">创建blog</h2>
 <p>在 <em>E:\Data\blog</em> 下运行</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site myBlog
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site myBlog
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>会在 <em>E:\Data\blog</em> 下生成目录 <em>myBlog</em></p>
 <h2 id="设置主题">设置主题</h2>
@@ -246,126 +246,126 @@
 </code></pre><p>然后将themes\even\exampleSite\config.toml 拷贝到根目录</p>
 <h2 id="基本配置">基本配置</h2>
 <p>用notepad++或者vscode打开config.toml,根据注释修改一些必要的设置:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">baseURL = <span style="color:#a31515">&#34;https://xxxxxx.github.io&#34;</span>
-languageCode = <span style="color:#a31515">&#34;zh-cn&#34;</span>
-defaultContentLanguage = <span style="color:#a31515">&#34;zh-cn&#34;</span>                             <span style="color:#008000"># en / zh-cn / ... (This field determines which i18n file to use)</span>
-title = <span style="color:#a31515">&#34;我的博客&#34;</span>
-preserveTaxonomyNames = <span style="color:#00f">true</span>
-enableRobotsTXT = <span style="color:#00f">true</span>
-enableEmoji = <span style="color:#00f">true</span>
-theme = <span style="color:#a31515">&#34;even&#34;</span>
-enableGitInfo = <span style="color:#00f">false</span> <span style="color:#008000"># use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。</span>
-
-<span style="color:#008000"># Syntax highlighting by Chroma. NOTE: Don&#39;t enable `highlightInClient` and `chroma` at the same time!</span>
-pygmentsOptions = <span style="color:#a31515">&#34;linenos=table&#34;</span>
-pygmentsCodefences = <span style="color:#00f">true</span>
-pygmentsUseClasses = <span style="color:#00f">true</span>
-pygmentsCodefencesGuessSyntax = <span style="color:#00f">true</span>
-
-hasCJKLanguage = <span style="color:#00f">true</span>     <span style="color:#008000"># has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文</span>
-paginate = 5                                              <span style="color:#008000"># 首页每页显示的文章数</span>
-disqusShortname = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># disqus_shortname</span>
-googleAnalytics = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># UA-XXXXXXXX-X</span>
-copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style="color:#008000"># default: author.name ↓        # 默认为下面配置的author.name ↓</span>
-
-[author]                  <span style="color:#008000"># essential                     # 必需</span>
-  name = <span style="color:#a31515">&#34;Codest&#34;</span>
-
-[sitemap]                 <span style="color:#008000"># essential                     # 必需</span>
-  changefreq = <span style="color:#a31515">&#34;weekly&#34;</span>
-  priority = 0.5
-  filename = <span style="color:#a31515">&#34;sitemap.xml&#34;</span>
-
-[[menu.main]]             <span style="color:#008000"># config your menu              # 配置目录</span>
-  name = <span style="color:#a31515">&#34;主页&#34;</span>
-  weight = 10
-  identifier = <span style="color:#a31515">&#34;home&#34;</span>
-  url = <span style="color:#a31515">&#34;/&#34;</span>
-[[menu.main]]
-  name = <span style="color:#a31515">&#34;归档&#34;</span>
-  weight = 20
-  identifier = <span style="color:#a31515">&#34;archives&#34;</span>
-  url = <span style="color:#a31515">&#34;/post/&#34;</span>
-[[menu.main]]
-  name = <span style="color:#a31515">&#34;标签&#34;</span>
-  weight = 30
-  identifier = <span style="color:#a31515">&#34;tags&#34;</span>
-  url = <span style="color:#a31515">&#34;/tags/&#34;</span>
-[[menu.main]]
-  name = <span style="color:#a31515">&#34;类别&#34;</span>
-  weight = 40
-  identifier = <span style="color:#a31515">&#34;categories&#34;</span>
-  url = <span style="color:#a31515">&#34;/categories/&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>baseURL = <span style="color:#a31515">&#34;https://xxxxxx.github.io&#34;</span>
+</span></span><span style="display:flex;"><span>languageCode = <span style="color:#a31515">&#34;zh-cn&#34;</span>
+</span></span><span style="display:flex;"><span>defaultContentLanguage = <span style="color:#a31515">&#34;zh-cn&#34;</span>                             <span style="color:#008000"># en / zh-cn / ... (This field determines which i18n file to use)</span>
+</span></span><span style="display:flex;"><span>title = <span style="color:#a31515">&#34;我的博客&#34;</span>
+</span></span><span style="display:flex;"><span>preserveTaxonomyNames = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>enableRobotsTXT = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>enableEmoji = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>theme = <span style="color:#a31515">&#34;even&#34;</span>
+</span></span><span style="display:flex;"><span>enableGitInfo = <span style="color:#00f">false</span> <span style="color:#008000"># use git commit log to generate lastmod record # 可根据 Git 中的提交生成最近更新记录。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000"># Syntax highlighting by Chroma. NOTE: Don&#39;t enable `highlightInClient` and `chroma` at the same time!</span>
+</span></span><span style="display:flex;"><span>pygmentsOptions = <span style="color:#a31515">&#34;linenos=table&#34;</span>
+</span></span><span style="display:flex;"><span>pygmentsCodefences = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>pygmentsUseClasses = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>pygmentsCodefencesGuessSyntax = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hasCJKLanguage = <span style="color:#00f">true</span>     <span style="color:#008000"># has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文</span>
+</span></span><span style="display:flex;"><span>paginate = 5                                              <span style="color:#008000"># 首页每页显示的文章数</span>
+</span></span><span style="display:flex;"><span>disqusShortname = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># disqus_shortname</span>
+</span></span><span style="display:flex;"><span>googleAnalytics = <span style="color:#a31515">&#34;&#34;</span>      <span style="color:#008000"># UA-XXXXXXXX-X</span>
+</span></span><span style="display:flex;"><span>copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style="color:#008000"># default: author.name ↓        # 默认为下面配置的author.name ↓</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[author]                  <span style="color:#008000"># essential                     # 必需</span>
+</span></span><span style="display:flex;"><span>  name = <span style="color:#a31515">&#34;Codest&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[sitemap]                 <span style="color:#008000"># essential                     # 必需</span>
+</span></span><span style="display:flex;"><span>  changefreq = <span style="color:#a31515">&#34;weekly&#34;</span>
+</span></span><span style="display:flex;"><span>  priority = 0.5
+</span></span><span style="display:flex;"><span>  filename = <span style="color:#a31515">&#34;sitemap.xml&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[menu.main]]             <span style="color:#008000"># config your menu              # 配置目录</span>
+</span></span><span style="display:flex;"><span>  name = <span style="color:#a31515">&#34;主页&#34;</span>
+</span></span><span style="display:flex;"><span>  weight = 10
+</span></span><span style="display:flex;"><span>  identifier = <span style="color:#a31515">&#34;home&#34;</span>
+</span></span><span style="display:flex;"><span>  url = <span style="color:#a31515">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>[[menu.main]]
+</span></span><span style="display:flex;"><span>  name = <span style="color:#a31515">&#34;归档&#34;</span>
+</span></span><span style="display:flex;"><span>  weight = 20
+</span></span><span style="display:flex;"><span>  identifier = <span style="color:#a31515">&#34;archives&#34;</span>
+</span></span><span style="display:flex;"><span>  url = <span style="color:#a31515">&#34;/post/&#34;</span>
+</span></span><span style="display:flex;"><span>[[menu.main]]
+</span></span><span style="display:flex;"><span>  name = <span style="color:#a31515">&#34;标签&#34;</span>
+</span></span><span style="display:flex;"><span>  weight = 30
+</span></span><span style="display:flex;"><span>  identifier = <span style="color:#a31515">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>  url = <span style="color:#a31515">&#34;/tags/&#34;</span>
+</span></span><span style="display:flex;"><span>[[menu.main]]
+</span></span><span style="display:flex;"><span>  name = <span style="color:#a31515">&#34;类别&#34;</span>
+</span></span><span style="display:flex;"><span>  weight = 40
+</span></span><span style="display:flex;"><span>  identifier = <span style="color:#a31515">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span>  url = <span style="color:#a31515">&#34;/categories/&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置内容过期提醒">配置内容过期提醒</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.outdatedInfoWarning]
-    enable = <span style="color:#00f">true</span>
-    hint = 30               <span style="color:#008000"># Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒</span>
-    warn = 180              <span style="color:#008000"># Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[params.outdatedInfoWarning]
+</span></span><span style="display:flex;"><span>    enable = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>    hint = 30               <span style="color:#008000"># Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒</span>
+</span></span><span style="display:flex;"><span>    warn = 180              <span style="color:#008000"># Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果你写的内容具有很强的时效性，可以通过配置此项达到提醒读者的目的 如果正在浏览的某篇文章的更新时间在设置的天数之前，则会以不同的底色显示提醒或警告</p>
 <blockquote>
@@ -376,21 +376,21 @@ copyright = <span style="color:#a31515">&#34;&#34;</span>            <span style
 首先创建评论存储库，例如https://github.com/prime167/BlogComment
 然后打开https://github.com/apps/utterances，安装utterances到刚才创建的库
 config.toml 添加配置</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[params.utteranc]
-  enable = <span style="color:#00f">true</span>
-  repo = <span style="color:#a31515">&#34;prime167/BlogComment&#34;</span>
-  issueTerm = <span style="color:#a31515">&#34;title&#34;</span>
-  theme = <span style="color:#a31515">&#34;github-light&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[params.utteranc]
+</span></span><span style="display:flex;"><span>  enable = <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>  repo = <span style="color:#a31515">&#34;prime167/BlogComment&#34;</span>
+</span></span><span style="display:flex;"><span>  issueTerm = <span style="color:#a31515">&#34;title&#34;</span>
+</span></span><span style="display:flex;"><span>  theme = <span style="color:#a31515">&#34;github-light&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="添加新文章">添加新文章</h2>
 <p>运行</p>
@@ -398,67 +398,65 @@ config.toml 添加配置</p>
 </code></pre><p>文件就会生成到 <em>content\post\hello-world.md</em></p>
 <h2 id="编辑">编辑</h2>
 <p>用vscode打开myBlog文件夹，编辑hell-world.md</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
-date<span style="">:</span> 2019-08-07T16:26:41+08:00
-lastmod<span style="">:</span> 2020-06-16T07:26:41+08:00
-draft<span style="">:</span> <span style="color:#00f">false</span>
----
-<span style="">文章的开头，在两个</span>---<span style="">之间的叫</span>front matter<span style="">，控制文章的标题，发布时间、最后修改时间等元数据。在下面接着用</span>markdown<span style="">写正文就可以了</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>date<span style="">:</span> 2019-08-07T16:26:41+08:00
+</span></span><span style="display:flex;"><span>lastmod<span style="">:</span> 2020-06-16T07:26:41+08:00
+</span></span><span style="display:flex;"><span>draft<span style="">:</span> <span style="color:#00f">false</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="">文章的开头，在两个</span>---<span style="">之间的叫</span>front matter<span style="">，控制文章的标题，发布时间、最后修改时间等元数据。在下面接着用</span>markdown<span style="">写正文就可以了</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="设置tag">设置tag</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
-date<span style="">:</span> 2019-08-07T16:26:41+08:00
-draft<span style="">:</span> <span style="color:#00f">true</span>
-tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
----
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title<span style="">:</span> <span style="color:#a31515">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>date<span style="">:</span> 2019-08-07T16:26:41+08:00
+</span></span><span style="display:flex;"><span>draft<span style="">:</span> <span style="color:#00f">true</span>
+</span></span><span style="display:flex;"><span>tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="设置分类">设置分类</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">---
-title<span style="">:</span> <span style="color:#a31515">&#34;git worktree 命令的使用&#34;</span>
-date<span style="">:</span> 2019-07-26T14:05:29+08:00
-draft<span style="">:</span> <span style="color:#00f">false</span>
-tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
-categories<span style="">:</span> [<span style="color:#a31515">&#34;技术&#34;</span>]
----
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title<span style="">:</span> <span style="color:#a31515">&#34;git worktree 命令的使用&#34;</span>
+</span></span><span style="display:flex;"><span>date<span style="">:</span> 2019-07-26T14:05:29+08:00
+</span></span><span style="display:flex;"><span>draft<span style="">:</span> <span style="color:#00f">false</span>
+</span></span><span style="display:flex;"><span>tags<span style="">:</span> [<span style="color:#a31515">&#34;git&#34;</span>,<span style="color:#a31515">&#34;git worktree&#34;</span>, <span style="color:#a31515">&#34;scm&#34;</span>]
+</span></span><span style="display:flex;"><span>categories<span style="">:</span> [<span style="color:#a31515">&#34;技术&#34;</span>]
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="设置文章摘要">设置文章摘要</h3>
 <p>hugo 默认把文章的前70个字符作为摘要，有时候会断的莫名其妙，可以在正文任意位置插入*<code>&lt;!--more--&gt;</code>* ,之前的是摘要，之后的是正文。</p>
@@ -533,7 +531,7 @@ categories<span style="">:</span> [<span style="color:#a31515">&#34;技术&#34;<
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
         
     </div>
     <br />

@@ -204,13 +204,13 @@
             <p>协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变</p>
 <h2 id="概念">概念</h2>
 <p>先从一段代码开始：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#2b91af">object</span>[] objects = <span style="color:#00f">new</span> <span style="color:#2b91af">string</span>[2];
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#2b91af">object</span>[] objects = <span style="color:#00f">new</span> <span style="color:#2b91af">string</span>[2];
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面的代码在C#中是合法的，其实这就是协变。 因为string继承自object，所以string是object的子类型，记作 string ≦ object。</p>
 <p>而oject的数组类型Object[]，是由object构造出来的一种新的类型,可以认为是一种构造类型，记f(object)，那么我们可以这么来描述协变和逆变：</p>
@@ -223,171 +223,171 @@
 </blockquote>
 <h2 id="数组的协变">数组的协变</h2>
 <p>如上所述，C#从一开始就支持数组类型的协变，但这不是类型安全的:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Animal[] animals = <span style="color:#00f">new</span> Goldfish[10];
-animals[0] = <span style="color:#00f">new</span> Tiger(); <span style="color:#008000">// 运行时异常 ArrayTypeMismatchException
-</span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>Animal[] animals = <span style="color:#00f">new</span> Goldfish[10];
+</span></span><span style="display:flex;"><span>animals[0] = <span style="color:#00f">new</span> Tiger(); <span style="color:#008000">// 运行时异常 ArrayTypeMismatchException</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>因为运行时，objs[]的类型是string[],无法存储int型。所以回抛出异常。这个从Java中抄来的特性，被Eric Lippert 列为<a href="http://www.informit.com/articles/article.aspx?p=2425867">C#10大最糟糕特性</a>之首，实践中应避免使用。</p>
 <h2 id="型委托的可变性">型委托的可变性</h2>
 <p>C# 2.0 引入了委托的变体支持，用于在 C# 中匹配所有委托的方法签名和委托类型。 这表明不仅可以将具有匹配签名的方法分配给委托，还可以将返回派生程度较大的派生类型的方法分配给委托（协变），或者如果方法所接受参数的派生类型所具有的派生程度小于委托类型指定的程度（逆变），也可将其分配给委托。即 对参数的逆变性和对返回值的协变性</p>
 <p>举例说明：</p>
 <p>定义如下继承关系</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L1</span> { }
-
-<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L2</span> : L1 { }
-
-<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L3</span> : L2 { }
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L1</span> { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L2</span> : L1 { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">L3</span> : L2 { }
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>定义一个委托</p>
 <pre tabindex="0"><code class="language-charp" data-lang="charp">public delegate L1 SampleDelegate(L3 t);
 </code></pre><p>使用：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// 将签名完全匹配的方法赋值给委托，无需转换
-</span><span style="color:#008000"></span>SampleDelegate d1 = RL1PL3;
-
-<span style="color:#008000">// 将一个返回值的派生程度更大（协变），参数值的派生程度更小（逆变）的方法赋值给委托
-</span><span style="color:#008000"></span>SampleDelegate d2 = RL2PL2;
-
-<span style="color:#008000">// 方法返回值派生程度继续变大，参数值的派生程度继续变小
-</span><span style="color:#008000"></span>SampleDelegate dNonGenericConversion1 = RL3PL1;
-
-<span style="color:#008000">// 一个委托就可以适用于全部返回值、参数组合
-</span><span style="color:#008000">// 使代码更通用
-</span><span style="color:#008000"></span>SampleDelegate sd1 = RL1PL1;
-SampleDelegate sd2 = RL1PL2;
-SampleDelegate sd3 = RL1PL3;
-SampleDelegate sd4 = RL2PL1;
-SampleDelegate sd5 = RL2PL2;
-SampleDelegate sd6 = RL2PL3;
-SampleDelegate sd7 = RL3PL1;
-SampleDelegate sd8 = RL3PL2;
-SampleDelegate sd9 = RL3PL3;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#008000">// 将签名完全匹配的方法赋值给委托，无需转换</span>
+</span></span><span style="display:flex;"><span>SampleDelegate d1 = RL1PL3;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">// 将一个返回值的派生程度更大（协变），参数值的派生程度更小（逆变）的方法赋值给委托</span>
+</span></span><span style="display:flex;"><span>SampleDelegate d2 = RL2PL2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">// 方法返回值派生程度继续变大，参数值的派生程度继续变小</span>
+</span></span><span style="display:flex;"><span>SampleDelegate dNonGenericConversion1 = RL3PL1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">// 一个委托就可以适用于全部返回值、参数组合</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">// 使代码更通用</span>
+</span></span><span style="display:flex;"><span>SampleDelegate sd1 = RL1PL1;
+</span></span><span style="display:flex;"><span>SampleDelegate sd2 = RL1PL2;
+</span></span><span style="display:flex;"><span>SampleDelegate sd3 = RL1PL3;
+</span></span><span style="display:flex;"><span>SampleDelegate sd4 = RL2PL1;
+</span></span><span style="display:flex;"><span>SampleDelegate sd5 = RL2PL2;
+</span></span><span style="display:flex;"><span>SampleDelegate sd6 = RL2PL3;
+</span></span><span style="display:flex;"><span>SampleDelegate sd7 = RL3PL1;
+</span></span><span style="display:flex;"><span>SampleDelegate sd8 = RL3PL2;
+</span></span><span style="display:flex;"><span>SampleDelegate sd9 = RL3PL3;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>逆变为什么是类型安全的？</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Action&lt;Base&gt; b = (target) =&gt; { Console.WriteLine(target.GetType().Name); };
-Action&lt;Derived&gt; d = b;
-d(<span style="color:#00f">new</span> Derived());
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>Action&lt;Base&gt; b = (target) =&gt; { Console.WriteLine(target.GetType().Name); };
+</span></span><span style="display:flex;"><span>Action&lt;Derived&gt; d = b;
+</span></span><span style="display:flex;"><span>d(<span style="color:#00f">new</span> Derived());
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>由于 lambda 表达式与其自身所分配到的委托相匹配，因此定义了一个方法，此方法采用一个类型 Base 的参数且没有返回值。 可以将结果委托分配给类型类型 Action 的变量，因为 T 委托的类型参数 Action 是逆变类型参数。 由于 T 指定了一个参数类型，因此该代码是类型安全代码。 在调用类型 Action 的委托（就像它是类型 Action的委托一样）时，其参数必须属于类型 Derived。 始终可以将此实参安全地传递给基础方法，因为该方法的形参属于类型 Base。</p>
 <h2 id="泛型中的可变性">泛型中的可变性</h2>
 <h3 id="泛型集合">泛型集合</h3>
 <p>C# 不支持泛型集合。考虑下面的代码:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">List&lt;Giraffe&gt; giraffes = <span style="color:#00f">new</span> List&lt;Giraffe&gt;();
-giraffes.Add(<span style="color:#00f">new</span> Giraffe());
-<span style="color:#008000">//List&lt;Animal&gt; animals = giraffes; // 编译错误
-</span><span style="color:#008000">//animals.Add(new Lion()); // Aargh!
-</span></code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>List&lt;Giraffe&gt; giraffes = <span style="color:#00f">new</span> List&lt;Giraffe&gt;();
+</span></span><span style="display:flex;"><span>giraffes.Add(<span style="color:#00f">new</span> Giraffe());
+</span></span><span style="display:flex;"><span><span style="color:#008000">//List&lt;Animal&gt; animals = giraffes; // 编译错误</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">//animals.Add(new Lion()); // Aargh!</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果第3行是合法的，那么第4行也是合法,但animails的实际类型是List，你不可能把Lion添加到里面。</p>
 <h3 id="泛型委托">泛型委托</h3>
 <p>对于委托</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> R SampleGenericDelegate&lt;P, R&gt;(P a);
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> R SampleGenericDelegate&lt;P, R&gt;(P a);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>类似非泛型委托,9种函数组合，一个委托就够了：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">SampleGenericDelegate&lt;L3, L1&gt; dg1 = RL1PL1;
-SampleGenericDelegate&lt;L3, L1&gt; dg2 = RL1PL2;
-SampleGenericDelegate&lt;L3, L1&gt; dg3 = RL1PL3;
-SampleGenericDelegate&lt;L3, L1&gt; dg4 = RL2PL1;
-SampleGenericDelegate&lt;L3, L1&gt; dg5 = RL2PL2;
-SampleGenericDelegate&lt;L3, L1&gt; dg6 = RL2PL3;
-SampleGenericDelegate&lt;L3, L1&gt; dg7 = RL3PL1;
-SampleGenericDelegate&lt;L3, L1&gt; dg8 = RL3PL2;
-SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg1 = RL1PL1;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg2 = RL1PL2;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg3 = RL1PL3;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg4 = RL2PL1;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg5 = RL2PL2;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg6 = RL2PL3;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg7 = RL3PL1;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg8 = RL3PL2;
+</span></span><span style="display:flex;"><span>SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>C# 4.0 使用 <strong>in</strong> 和 <strong>out</strong> 来限定泛型委托中参数的可变性：</p>
 <ul>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/out-generic-modifier">out</a>： 对于泛型类型参数，out 关键字指定该类型参数是协变的。 可以在泛型接口和委托中使用 out 关键字。</li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/in-generic-modifier">in</a>：对于泛型类型参数，in 关键字指定该类型参数是逆变的。 可以在泛型接口和委托中使用 in 关键字。</li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> TResult SampleGenericDelegate&lt;<span style="color:#00f">in</span> TP, <span style="color:#00f">out</span> TResult&gt;(TP a);
-<span style="color:#00f">public</span> <span style="color:#00f">delegate</span> T SampleGenericDelegate1&lt;<span style="color:#00f">out</span> T&gt;();
-<span style="color:#00f">delegate</span> <span style="color:#00f">void</span> Action&lt;<span style="color:#00f">in</span> T&gt;(T t);
-<span style="color:#00f">delegate</span> TResult Func&lt;<span style="color:#00f">out</span> TResult&gt;();
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> TResult SampleGenericDelegate&lt;<span style="color:#00f">in</span> TP, <span style="color:#00f">out</span> TResult&gt;(TP a);
+</span></span><span style="display:flex;"><span><span style="color:#00f">public</span> <span style="color:#00f">delegate</span> T SampleGenericDelegate1&lt;<span style="color:#00f">out</span> T&gt;();
+</span></span><span style="display:flex;"><span><span style="color:#00f">delegate</span> <span style="color:#00f">void</span> Action&lt;<span style="color:#00f">in</span> T&gt;(T t);
+</span></span><span style="display:flex;"><span><span style="color:#00f">delegate</span> TResult Func&lt;<span style="color:#00f">out</span> TResult&gt;();
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="泛型接口">泛型接口</h2>
 <p>.NET framework 4.0 使用 in 和 out 来定义接口的可变性，在这之前都是不可变的。</p>
@@ -395,35 +395,35 @@ SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
 <li>in 限定类型参数只能用于参数，即<strong>逆变</strong></li>
 <li>out 限定类型参数只能用于返回值，即<strong>协变</strong></li>
 </ul>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">interface</span> IVariant&lt;<span style="color:#00f">out</span> R, <span style="color:#00f">in</span> A&gt;
-{
-    <span style="color:#008000">// 符合规则.
-</span><span style="color:#008000"></span>    R GetR();
-    <span style="color:#00f">void</span> SetA(A sampleArg);
-    R GetRSetA(A sampleArg);
-
-    <span style="color:#008000">// 不符合规则.
-</span><span style="color:#008000"></span>    <span style="color:#008000">// A GetA();
-</span><span style="color:#008000"></span>    <span style="color:#008000">// void SetR(R sampleArg);
-</span><span style="color:#008000"></span>    <span style="color:#008000">// A GetASetR(R sampleArg);
-</span><span style="color:#008000"></span>}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">interface</span> <span style="color:#2b91af">IVariant</span>&lt;<span style="color:#00f">out</span> R, <span style="color:#00f">in</span> A&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">// 符合规则.</span>
+</span></span><span style="display:flex;"><span>    R GetR();
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">void</span> SetA(A sampleArg);
+</span></span><span style="display:flex;"><span>    R GetRSetA(A sampleArg);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">// 不符合规则.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">// A GetA();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">// void SetR(R sampleArg);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000">// A GetASetR(R sampleArg);</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>内置的一些接口：</p>
 <ul>
@@ -451,170 +451,170 @@ SampleGenericDelegate&lt;L3, L1&gt; dg9 = RL3PL3;
 </ul>
 <p>举例</p>
 <p>最常见的：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#008000">// 协变
-</span><span style="color:#008000"></span>IEnumerable&lt;<span style="color:#2b91af">string</span>&gt; listL3 = <span style="color:#00f">new</span> List&lt;<span style="color:#2b91af">string</span>&gt;();
-IEnumerable&lt;<span style="color:#2b91af">object</span>&gt; lis = listL3;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#008000">// 协变</span>
+</span></span><span style="display:flex;"><span>IEnumerable&lt;<span style="color:#2b91af">string</span>&gt; listL3 = <span style="color:#00f">new</span> List&lt;<span style="color:#2b91af">string</span>&gt;();
+</span></span><span style="display:flex;"><span>IEnumerable&lt;<span style="color:#2b91af">object</span>&gt; lis = listL3;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>方法的参数使用IEnumerable编写更通用的方法:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
-{
-    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> PrintFullName(IEnumerable&lt;Person&gt; persons)
-    {
-        
-    }
-    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
-    {
-        <span style="color:#008000">// 协变
-</span><span style="color:#008000"></span>        List&lt;Teacher&gt; employees = <span style="color:#00f">new</span> List&lt;Teacher&gt;();
-        PrintFullName(employees);
-        
-        <span style="color:#008000">// 协变
-</span><span style="color:#008000"></span>        List&lt;Student&gt; students = <span style="color:#00f">new</span> List&lt;Student&gt;();
-        PrintFullName(students);
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> PrintFullName(IEnumerable&lt;Person&gt; persons)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// 协变</span>
+</span></span><span style="display:flex;"><span>        List&lt;Teacher&gt; employees = <span style="color:#00f">new</span> List&lt;Teacher&gt;();
+</span></span><span style="display:flex;"><span>        PrintFullName(employees);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// 协变</span>
+</span></span><span style="display:flex;"><span>        List&lt;Student&gt; students = <span style="color:#00f">new</span> List&lt;Student&gt;();
+</span></span><span style="display:flex;"><span>        PrintFullName(students);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>因为 IEnumerable 是只读的，无法和List一样添加元素，所以此处是类型安全的。</p>
 <p>实现一个通用的Comparer (<a href="https://docs.microsoft.com/en-us/dotnet/standard/generics/covariance-and-contravariance">来源</a>)</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#00f">using</span> System;
-<span style="color:#00f">using</span> System.Collections.Generic;
-
-<span style="color:#00f">abstract</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Shape</span>
-{
-    <span style="color:#00f">public</span> <span style="color:#00f">virtual</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> 0; }}
-}
-
-<span style="color:#00f">class</span> <span style="color:#2b91af">Circle</span> : Shape
-{
-    <span style="color:#00f">private</span> <span style="color:#2b91af">double</span> r;
-    <span style="color:#00f">public</span> Circle(<span style="color:#2b91af">double</span> radius) { r = radius; }
-    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Radius { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> r; }}
-    <span style="color:#00f">public</span> <span style="color:#00f">override</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> Math.PI * r * r; }}
-}
-
-<span style="color:#00f">class</span> <span style="color:#2b91af">ShapeAreaComparer</span> : System.Collections.Generic.IComparer&lt;Shape&gt;
-{
-    <span style="color:#2b91af">int</span> IComparer&lt;Shape&gt;.Compare(Shape a, Shape b) 
-    { 
-        <span style="color:#00f">if</span> (a == <span style="color:#00f">null</span>) <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 0 : -1;
-        <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 1 : a.Area.CompareTo(b.Area);
-    }
-}
-
-<span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
-{
-    <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
-    {
-        <span style="color:#008000">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,
-</span><span style="color:#008000"></span>        <span style="color:#008000">// even though the constructor for SortedSet&lt;Circle&gt; expects 
-</span><span style="color:#008000"></span>        <span style="color:#008000">// IComparer&lt;Circle&gt;, because type parameter T of IComparer&lt;T&gt; is
-</span><span style="color:#008000"></span>        <span style="color:#008000">// contravariant.
-</span><span style="color:#008000"></span>        <span style="color:#008000">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer
-</span><span style="color:#008000"></span>        SortedSet&lt;Circle&gt; circlesByArea = 
-            <span style="color:#00f">new</span> SortedSet&lt;Circle&gt;(<span style="color:#00f">new</span> ShapeAreaComparer()) 
-                { <span style="color:#00f">new</span> Circle(7.2), <span style="color:#00f">new</span> Circle(100), <span style="color:#00f">null</span>, <span style="color:#00f">new</span> Circle(.01) };
-
-        <span style="color:#00f">foreach</span> (Circle c <span style="color:#00f">in</span> circlesByArea)
-        {
-            Console.WriteLine(c == <span style="color:#00f">null</span> ? <span style="color:#a31515">&#34;null&#34;</span> : <span style="color:#a31515">&#34;Circle with area &#34;</span> + c.Area);
-        }
-    }
-}
-
-<span style="color:#008000">/* This code example produces the following output:
-</span><span style="color:#008000">
-</span><span style="color:#008000">null
-</span><span style="color:#008000">Circle with area 0.000314159265358979
-</span><span style="color:#008000">Circle with area 162.860163162095
-</span><span style="color:#008000">Circle with area 31415.9265358979
-</span><span style="color:#008000"> */</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#00f">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#00f">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">abstract</span> <span style="color:#00f">class</span> <span style="color:#2b91af">Shape</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> <span style="color:#00f">virtual</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> 0; }}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">class</span> <span style="color:#2b91af">Circle</span> : Shape
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">private</span> <span style="color:#2b91af">double</span> r;
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> Circle(<span style="color:#2b91af">double</span> radius) { r = radius; }
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> <span style="color:#2b91af">double</span> Radius { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> r; }}
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">public</span> <span style="color:#00f">override</span> <span style="color:#2b91af">double</span> Area { <span style="color:#00f">get</span> { <span style="color:#00f">return</span> Math.PI * r * r; }}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">class</span> <span style="color:#2b91af">ShapeAreaComparer</span> : System.Collections.Generic.IComparer&lt;Shape&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#2b91af">int</span> IComparer&lt;Shape&gt;.Compare(Shape a, Shape b) 
+</span></span><span style="display:flex;"><span>    { 
+</span></span><span style="display:flex;"><span>        <span style="color:#00f">if</span> (a == <span style="color:#00f">null</span>) <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 0 : -1;
+</span></span><span style="display:flex;"><span>        <span style="color:#00f">return</span> b == <span style="color:#00f">null</span> ? 1 : a.Area.CompareTo(b.Area);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00f">class</span> <span style="color:#2b91af">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#00f">static</span> <span style="color:#00f">void</span> Main()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// even though the constructor for SortedSet&lt;Circle&gt; expects </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// IComparer&lt;Circle&gt;, because type parameter T of IComparer&lt;T&gt; is</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// contravariant.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer</span>
+</span></span><span style="display:flex;"><span>        SortedSet&lt;Circle&gt; circlesByArea = 
+</span></span><span style="display:flex;"><span>            <span style="color:#00f">new</span> SortedSet&lt;Circle&gt;(<span style="color:#00f">new</span> ShapeAreaComparer()) 
+</span></span><span style="display:flex;"><span>                { <span style="color:#00f">new</span> Circle(7.2), <span style="color:#00f">new</span> Circle(100), <span style="color:#00f">null</span>, <span style="color:#00f">new</span> Circle(.01) };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00f">foreach</span> (Circle c <span style="color:#00f">in</span> circlesByArea)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(c == <span style="color:#00f">null</span> ? <span style="color:#a31515">&#34;null&#34;</span> : <span style="color:#a31515">&#34;Circle with area &#34;</span> + c.Area);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000">/* This code example produces the following output:
+</span></span></span><span style="display:flex;"><span><span style="color:#008000">
+</span></span></span><span style="display:flex;"><span><span style="color:#008000">null
+</span></span></span><span style="display:flex;"><span><span style="color:#008000">Circle with area 0.000314159265358979
+</span></span></span><span style="display:flex;"><span><span style="color:#008000">Circle with area 162.860163162095
+</span></span></span><span style="display:flex;"><span><span style="color:#008000">Circle with area 31415.9265358979
+</span></span></span><span style="display:flex;"><span><span style="color:#008000"> */</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="注意">注意</h2>
 <ul>
@@ -704,7 +704,7 @@ IEnumerable&lt;<span style="color:#2b91af">object</span>&gt; lis = listL3;
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
         
     </div>
     <br />

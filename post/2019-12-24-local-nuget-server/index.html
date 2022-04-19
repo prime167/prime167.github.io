@@ -227,7 +227,7 @@
 <p>类库与使用它的代码通常不在一个源代码版本库里。假设Solution1 以这种方式引用了Lib1，新的开发克隆了Solution1之后打开，Lib1很大可能是不可用状态，打开引用Lib1的项目文件,可能会看到这样的代码：</p>
 <pre tabindex="0"><code>...
    &lt;ItemGroup&gt;
-    &lt;ProjectReference Include=&quot;..\..\..\..\PC_Shared\Utils\PC.Shared.csproj&quot;&gt;
+    &lt;ProjectReference Include=&#34;..\..\..\..\PC_Shared\Utils\PC.Shared.csproj&#34;&gt;
 ...
 </code></pre><p>新开发必须据此规划路径并克隆Lib1</p>
 <h3 id="以dll方式分发">以DLL方式分发</h3>
@@ -266,13 +266,13 @@
 <pre tabindex="0"><code>    &lt;!--
 Determines if an Api Key is required to push\delete packages from the server. 
 --&gt;
-&lt;add key=&quot;requireApiKey&quot; value=&quot;true&quot; /&gt;
+&lt;add key=&#34;requireApiKey&#34; value=&#34;true&#34; /&gt;
 
 &lt;!-- 
 Set the value here to allow people to push/delete packages from the server.
 NOTE: This is a shared key (password) for all users.
 --&gt;
-&lt;add key=&quot;apiKey&quot; value=&quot;your api key&quot; /&gt;
+&lt;add key=&#34;apiKey&#34; value=&#34;your api key&#34; /&gt;
 </code></pre></li>
 </ol>
 <h2 id="visual-studio-添加程序包源">Visual Studio 添加程序包源</h2>
@@ -300,53 +300,53 @@ NOTE: This is a shared key (password) for all users.
 <p>在类库.csproj 文件目录下打开命令行，运行</p>
 <pre tabindex="0"><code>nuget spec ClassLibrary1.csproj
 </code></pre><p>在目录下会生成一个 ClassLibrary1.nuspec，用文本编辑器打开，会看到如下内容：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#00f">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-&lt;package&gt;
-    &lt;metadata&gt;
-        &lt;id&gt;$id$&lt;/id&gt;
-        &lt;version&gt;$version$&lt;/version&gt;
-        &lt;title&gt;$title$&lt;/title&gt;
-        &lt;authors&gt;$author$&lt;/authors&gt;
-        &lt;owners&gt;$author$&lt;/owners&gt;
-        &lt;requireLicenseAcceptance&gt;false&lt;/requireLicenseAcceptance&gt;
-        &lt;license type=<span style="color:#a31515">&#34;expression&#34;</span>&gt;MIT&lt;/license&gt;
-        &lt;projectUrl&gt;http://project_url_here_or_delete_this_line/&lt;/projectUrl&gt;
-        &lt;iconUrl&gt;http://icon_url_here_or_delete_this_line/&lt;/iconUrl&gt;
-        &lt;description&gt;$description$&lt;/description&gt;
-        &lt;releaseNotes&gt;Summary of changes made in this release of the package.&lt;/releaseNotes&gt;
-        &lt;copyright&gt;Copyright 2019&lt;/copyright&gt;
-        &lt;tags&gt;Tag1 Tag2&lt;/tags&gt;
-        &lt;dependencies&gt;
-            &lt;group targetFramework=<span style="color:#a31515">&#34;.NETFramework4.8&#34;</span>/&gt;
-        &lt;/dependencies&gt;
-    &lt;/metadata&gt;
-&lt;/package&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#00f">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;package&gt;
+</span></span><span style="display:flex;"><span>    &lt;metadata&gt;
+</span></span><span style="display:flex;"><span>        &lt;id&gt;$id$&lt;/id&gt;
+</span></span><span style="display:flex;"><span>        &lt;version&gt;$version$&lt;/version&gt;
+</span></span><span style="display:flex;"><span>        &lt;title&gt;$title$&lt;/title&gt;
+</span></span><span style="display:flex;"><span>        &lt;authors&gt;$author$&lt;/authors&gt;
+</span></span><span style="display:flex;"><span>        &lt;owners&gt;$author$&lt;/owners&gt;
+</span></span><span style="display:flex;"><span>        &lt;requireLicenseAcceptance&gt;false&lt;/requireLicenseAcceptance&gt;
+</span></span><span style="display:flex;"><span>        &lt;license type=<span style="color:#a31515">&#34;expression&#34;</span>&gt;MIT&lt;/license&gt;
+</span></span><span style="display:flex;"><span>        &lt;projectUrl&gt;http://project_url_here_or_delete_this_line/&lt;/projectUrl&gt;
+</span></span><span style="display:flex;"><span>        &lt;iconUrl&gt;http://icon_url_here_or_delete_this_line/&lt;/iconUrl&gt;
+</span></span><span style="display:flex;"><span>        &lt;description&gt;$description$&lt;/description&gt;
+</span></span><span style="display:flex;"><span>        &lt;releaseNotes&gt;Summary of changes made in this release of the package.&lt;/releaseNotes&gt;
+</span></span><span style="display:flex;"><span>        &lt;copyright&gt;Copyright 2019&lt;/copyright&gt;
+</span></span><span style="display:flex;"><span>        &lt;tags&gt;Tag1 Tag2&lt;/tags&gt;
+</span></span><span style="display:flex;"><span>        &lt;dependencies&gt;
+</span></span><span style="display:flex;"><span>            &lt;group targetFramework=<span style="color:#a31515">&#34;.NETFramework4.8&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>        &lt;/dependencies&gt;
+</span></span><span style="display:flex;"><span>    &lt;/metadata&gt;
+</span></span><span style="display:flex;"><span>&lt;/package&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>id 唯一标识 version 版本号(SemVer),如 1.0.0 其他的根据情况填写，$xxx$的为必填项。</p>
 </li>
@@ -359,33 +359,33 @@ NOTE: This is a shared key (password) for all users.
 <h3 id="2-使用-dotnet-命令行创建">2. 使用 dotnet 命令行创建</h3>
 <ol>
 <li>编辑项目文件
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">&lt;Project Sdk=<span style="color:#a31515">&#34;Microsoft.NET.Sdk&#34;</span>&gt;
-    &lt;PropertyGroup&gt;
-        &lt;TargetFramework&gt;netcoreapp3.1&lt;/TargetFramework&gt;
-        <span style="color:#008000">&lt;!--添加以下内容--&gt;</span>
-        &lt;GeneratePackageOnBuild&gt;true&lt;/GeneratePackageOnBuild&gt;
-        &lt;PackageId&gt;myLib2&lt;/PackageId&gt;
-        &lt;Version&gt;1.0.1&lt;/Version&gt;
-        &lt;Authors&gt;your_name&lt;/Authors&gt;
-        &lt;Company&gt;your_company&lt;/Company&gt;
-    &lt;/PropertyGroup&gt;
-&lt;/Project&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>&lt;Project Sdk=<span style="color:#a31515">&#34;Microsoft.NET.Sdk&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;PropertyGroup&gt;
+</span></span><span style="display:flex;"><span>        &lt;TargetFramework&gt;netcoreapp3.1&lt;/TargetFramework&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">&lt;!--添加以下内容--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;GeneratePackageOnBuild&gt;true&lt;/GeneratePackageOnBuild&gt;
+</span></span><span style="display:flex;"><span>        &lt;PackageId&gt;myLib2&lt;/PackageId&gt;
+</span></span><span style="display:flex;"><span>        &lt;Version&gt;1.0.1&lt;/Version&gt;
+</span></span><span style="display:flex;"><span>        &lt;Authors&gt;your_name&lt;/Authors&gt;
+</span></span><span style="display:flex;"><span>        &lt;Company&gt;your_company&lt;/Company&gt;
+</span></span><span style="display:flex;"><span>    &lt;/PropertyGroup&gt;
+</span></span><span style="display:flex;"><span>&lt;/Project&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>在类库.csproj 文件目录下打开命令行，运行如下命令生成包
@@ -426,26 +426,26 @@ NOTE: This is a shared key (password) for all users.
 <p>老是输入api key和 推送目的地址也是挺繁琐的，可以根据实际情况将配置添加到</p>
 <ol>
 <li>用户级的nuget.config(%appdata%/nuget/nuget.config)
-<pre tabindex="0"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
 &lt;configuration&gt;
     &lt;config&gt;
-        &lt;add key=&quot;defaultPushSource&quot; value=&quot;http://192.168.13.96:9006/nuget&quot; /&gt;
+        &lt;add key=&#34;defaultPushSource&#34; value=&#34;http://192.168.13.96:9006/nuget&#34; /&gt;
     &lt;/config&gt;
     &lt;packageRestore&gt;
-        &lt;add key=&quot;enabled&quot; value=&quot;True&quot; /&gt;
-        &lt;add key=&quot;automatic&quot; value=&quot;True&quot; /&gt;
+        &lt;add key=&#34;enabled&#34; value=&#34;True&#34; /&gt;
+        &lt;add key=&#34;automatic&#34; value=&#34;True&#34; /&gt;
     &lt;/packageRestore&gt;
     &lt;activePackageSource&gt;
-        &lt;add key=&quot;nuget.org&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; /&gt;
+        &lt;add key=&#34;nuget.org&#34; value=&#34;https://api.nuget.org/v3/index.json&#34; /&gt;
     &lt;/activePackageSource&gt;
     &lt;packageSources&gt;
-        &lt;add key=&quot;nuget.org&quot; value=&quot;https://api.nuget.org/v3/index.json&quot; protocolVersion=&quot;3&quot; /&gt;
-        &lt;add key=&quot;nuget.org&quot; value=&quot;https://www.nuget.org/api/v2/&quot; /&gt;
-        &lt;add key=&quot;local&quot; value=&quot;http://192.168.13.96:9006/nuget&quot; /&gt;
-        &lt;add key=&quot;Microsoft Visual Studio Offline Packages&quot; value=&quot;C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\&quot; /&gt;
+        &lt;add key=&#34;nuget.org&#34; value=&#34;https://api.nuget.org/v3/index.json&#34; protocolVersion=&#34;3&#34; /&gt;
+        &lt;add key=&#34;nuget.org&#34; value=&#34;https://www.nuget.org/api/v2/&#34; /&gt;
+        &lt;add key=&#34;local&#34; value=&#34;http://192.168.13.96:9006/nuget&#34; /&gt;
+        &lt;add key=&#34;Microsoft Visual Studio Offline Packages&#34; value=&#34;C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\&#34; /&gt;
     &lt;/packageSources&gt;
     &lt;apikeys&gt;
-        &lt;add key=&quot;http://192.168.13.96:9006/nuget&quot; value=&quot;AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ05kAjZLg06Fp2kByyoGSQAAAAACAAAAAAAQZgAAAAEAACAAAADhe1QaKTEA1JzEKcUxrpKBUV8g0eMEN1qYmkPBex3JPAAAAAAOgAAAAAIAACAAAABVYU2JJIULSVYt7/pIytWRl6CWm6m/QsIyi+x+az8N3BAAAAAUEQGJoa8+exi85xKZcPW6QAAAAKMWHIZoaecy/NA+TfOIc1obyhgtnQVk2rv3RJkAva1D/+w5NrRlUMkzwVRkgSHffEexPPHVNbAnvad7N/HEF1c=&quot; /&gt;
+        &lt;add key=&#34;http://192.168.13.96:9006/nuget&#34; value=&#34;AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ05kAjZLg06Fp2kByyoGSQAAAAACAAAAAAAQZgAAAAEAACAAAADhe1QaKTEA1JzEKcUxrpKBUV8g0eMEN1qYmkPBex3JPAAAAAAOgAAAAAIAACAAAABVYU2JJIULSVYt7/pIytWRl6CWm6m/QsIyi+x+az8N3BAAAAAUEQGJoa8+exi85xKZcPW6QAAAAKMWHIZoaecy/NA+TfOIc1obyhgtnQVk2rv3RJkAva1D/+w5NrRlUMkzwVRkgSHffEexPPHVNbAnvad7N/HEF1c=&#34; /&gt;
     &lt;/apikeys&gt;
 &lt;/configuration&gt;
 </code></pre></li>
@@ -530,7 +530,7 @@ nuget config -Set DefaultPushSource=http://192.168.13.96:9006/nuget -configfile 
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
+        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
         
     </div>
     <br />
