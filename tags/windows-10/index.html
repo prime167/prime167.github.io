@@ -122,7 +122,7 @@
         </div>
         
         <div class="post-content">
-            前几天启动hugo server时提升1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用 1 netstat -ano | findstr 1883 没有任何返回 一番Google后得知某些端口被Hyper-V保留了。 解决方法： 关闭Hyper-V 1 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V 重启后设置你想保留的端口，这样……
+            前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用 1 netstat -ano | findstr 1883 没有任何返回 一番Google后得知某些端口被Hyper-V保留了。 解决方法： 关闭Hyper-V 1 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V 重启后设置你想保留的端口，这样……
             <p class="readmore"><a href="https://prime167.github.io/post/2021-10-28-Windows10-Port/">阅读全文</a></p>
         </div>
     </article>
