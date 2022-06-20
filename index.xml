@@ -6,7 +6,7 @@
     <description>Recent content on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 17 Dec 2021 10:59:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 14:57:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>https://prime167.github.io/tab/about/</link>
@@ -14,6 +14,15 @@
       
       <guid>https://prime167.github.io/tab/about/</guid>
       <description>NullReferenceException</description>
+    </item>
+    
+    <item>
+      <title>重装操作系统备忘录</title>
+      <link>https://prime167.github.io/post/2022-04-20-ReInstall-OS-Notes/</link>
+      <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2022-04-20-ReInstall-OS-Notes/</guid>
+      <description>缘起 公司电脑升级到Windows 10 21H2后出现了各种问题： 加密软件每天不定时失效，需要重启电脑才能解决 电脑无法休眠 WinCvs 闪退 Visual Studio 2019 &amp;amp; 2022 拷贝文本经常出现卡死 于是决定重装操作系统。由于之前吃过亏，我是先安装Windows 10 1607，安装加密软件和WinCvs后又升级到21H1，经过几天</description>
     </item>
     
     <item>
