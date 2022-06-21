@@ -6,7 +6,16 @@
     <description>Recent content in nuget on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 26 Dec 2019 16:10:06 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 16:42:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</title>
+      <link>https://prime167.github.io/post/2022-06-21-MSBuild-auto-copy-sqlite-native-dir/</link>
+      <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
+      
+      <guid>https://prime167.github.io/post/2022-06-21-MSBuild-auto-copy-sqlite-native-dir/</guid>
+      <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目，DataAccess项目引用nuget包System.Data.SQLite，编译后 DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll WPF输出文</description>
+    </item>
+    
     <item>
       <title>修改NuGet全局缓存路径</title>
       <link>https://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</link>
