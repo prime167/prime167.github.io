@@ -13,7 +13,7 @@
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
       
       <guid>https://prime167.github.io/post/2022-06-21-MSBuild-auto-copy-sqlite-native-dir/</guid>
-      <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目，DataAccess项目引用nuget包System.Data.SQLite，编译后 DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll WPF输出文</description>
+      <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目 DataAccess项目引用nuget包System.Data.SQLite， 编译后 DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll WPF输出文件</description>
     </item>
     
     <item>

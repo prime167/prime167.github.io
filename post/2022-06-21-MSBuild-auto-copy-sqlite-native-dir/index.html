@@ -196,7 +196,15 @@
 <p>&mdash;-Demo sln</p>
 <p>&mdash;&mdash;&ndash;WPF</p>
 <p>&mdash;&mdash;&ndash;DataAccess</p>
-<p>WPF 引用 DataAccess 项目，DataAccess项目引用nuget包System.Data.SQLite，编译后</p>
+<ul>
+<li>
+<p>WPF 引用 DataAccess 项目</p>
+</li>
+<li>
+<p>DataAccess项目引用nuget包System.Data.SQLite，</p>
+</li>
+</ul>
+<p>编译后</p>
 <ul>
 <li>DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll</li>
 <li>WPF输出文件夹仅存在System.Data.SQLite文件，需要手动从DataAccess输出文件夹拷贝X646和X86文件夹</li>
