@@ -13,7 +13,7 @@
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
       
       <guid>https://prime167.github.io/post/2022-07-29-undo-git-rebase/</guid>
-      <description>上次说了通过git rebase 合并多个提交，那如何撤销呢？ 先运行git reflog命令查看本地命令记录 1 2 3 4 5 6 7 8 9 10 11 12 13 ed8a955 (HEAD -&amp;gt; main) HEAD@{0}: rebase (finish): returning to refs/heads/main ed8a955 (HEAD -&amp;gt; main) HEAD@{1}: rebase (squash): 添加用户功能 2776eb0 HEAD@{2}: rebase (squash): # This is a combination of 4 commits. 2aade14 HEAD@{3}: rebase (squash): # This is a combination of 3 commits. ecb64a7 HEAD@{4}: rebase (squash): # This is a combination of 2 commits. 288ebcb HEAD@{5}: rebase (start): checkout HEAD~5 7e7af1b HEAD@{6}: commit: 完成 215353c HEAD@{7}: commit: 修改自测bug 5fcfa4f</description>
+      <description>&lt;p&gt;上次说了通过git rebase 合并多个提交，那如何撤销呢？&lt;/p&gt;</description>
     </item>
     
     <item>
