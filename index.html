@@ -73,6 +73,29 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://prime167.github.io/post/2022-07-29-undo-git-rebase/" title="如何撤销一个git rebase">如何撤销一个git rebase</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年7月29日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            上次说了通过git rebase 合并多个提交，那如何撤销呢？ 先运行git reflog命令查看本地命令记录 1 2 3 4 5 6 7 8 9 10 11 12 13 ed8a955 (HEAD -&gt; main) HEAD@{0}: rebase (finish): returning to refs/heads/main ed8a955 (HEAD -&gt; main) HEAD@{1}: rebase (squash): 添加用户功能 2776eb0 HEAD@{2}: rebase (squash): # This is a combination of 4 commits. 2aade14 HEAD@{3}: rebase (squash): # This is a combination of 3 commits. ecb64a7 HEAD@{4}: rebase (squash): # This is a combination of 2 commits. 288ebcb HEAD@{5}: rebase (start): checkout HEAD~5 7e7af1b HEAD@{6}: commit: 完成 215353c HEAD@{7}: commit: 修改自测bug 5fcfa4f……
+        </div>
+        <p class="readmore"><a href="https://prime167.github.io/post/2022-07-29-undo-git-rebase/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://prime167.github.io/post/2022-07-29-git-merge-local-commits/" title="如何合并多个git commits">如何合并多个git commits</a>
             </h1>
         </header>
@@ -279,29 +302,6 @@
         <p class="readmore"><a href="https://prime167.github.io/post/2021-10-25-Blog-Reborn/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2020-06-12-sln-file-notes/" title="Visual Studio 解决方案文件格式拾遗">Visual Studio 解决方案文件格式拾遗</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年6月12日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>关于解决方案文件sln的说明，官方文档已经说的很清楚的，这里不再重复，只说几个细节的地方</p>……
-        </div>
-        <p class="readmore"><a href="https://prime167.github.io/post/2020-06-12-sln-file-notes/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -380,6 +380,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://prime167.github.io/post/2022-07-29-undo-git-rebase/" title="如何撤销一个git rebase">如何撤销一个git rebase</a>
+    </li>
+    
+    <li>
         <a href="https://prime167.github.io/post/2022-07-29-git-merge-local-commits/" title="如何合并多个git commits">如何合并多个git commits</a>
     </li>
     
@@ -415,10 +419,6 @@
         <a href="https://prime167.github.io/post/2021-10-25-Blog-Reborn/" title="Blog 重新开张">Blog 重新开张</a>
     </li>
     
-    <li>
-        <a href="https://prime167.github.io/post/2020-06-12-sln-file-notes/" title="Visual Studio 解决方案文件格式拾遗">Visual Studio 解决方案文件格式拾遗</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -434,7 +434,7 @@
     
     <li><a href="https://prime167.github.io/categories/port/">port (1)</a></li>
     
-    <li><a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">技术 (19)</a></li>
+    <li><a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">技术 (20)</a></li>
     
     <li><a href="https://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/">数学 (1)</a></li>
     
@@ -490,6 +490,8 @@
     <a href="https://prime167.github.io/tags/network/">network</a>
     
     <a href="https://prime167.github.io/tags/nuget/">nuget</a>
+    
+    <a href="https://prime167.github.io/tags/rebase/">rebase</a>
     
     <a href="https://prime167.github.io/tags/scm/">scm</a>
     
