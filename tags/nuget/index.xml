@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nuget on 静静地坐着</title>
-    <link>http://localhost:1313/tags/nuget/</link>
+    <link>http://prime167.github.io/tags/nuget/</link>
     <description>Recent content in nuget on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Jun 2022 16:42:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 16:42:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</title>
-      <link>http://localhost:1313/post/2022-06-21-msbuild-auto-copy-native/</link>
+      <link>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2022-06-21-msbuild-auto-copy-native/</guid>
+      <guid>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</guid>
       <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目 DataAccess项目引用nuget包System.Data.SQLite， 编译后 Data</description>
     </item>
     
     <item>
       <title>修改NuGet全局缓存路径</title>
-      <link>http://localhost:1313/post/2019-12-26-nuget-change-global-cache-dir/</link>
+      <link>http://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</link>
       <pubDate>Thu, 26 Dec 2019 16:10:06 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2019-12-26-nuget-change-global-cache-dir/</guid>
+      <guid>http://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</guid>
       <description>&lt;p&gt;修改NuGet全局缓存路径&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>局域网搭建私有nuget服务器</title>
-      <link>http://localhost:1313/post/2019-12-24-local-nuget-server/</link>
+      <link>http://prime167.github.io/post/2019-12-24-local-nuget-server/</link>
       <pubDate>Tue, 24 Dec 2019 15:09:29 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/2019-12-24-local-nuget-server/</guid>
+      <guid>http://prime167.github.io/post/2019-12-24-local-nuget-server/</guid>
       <description>&lt;p&gt;昨天在公司局域网搭建了一个nuget服务器，记录一下过程&lt;/p&gt;</description>
     </item>
     

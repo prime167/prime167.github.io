@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 静静地坐着</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://prime167.github.io/categories/</link>
     <description>Recent content in Categories on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>技术</title>
-      <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</link>
+      <link>http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <guid>http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>维护</title>
-      <link>http://localhost:1313/categories/%E7%BB%B4%E6%8A%A4/</link>
+      <link>http://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/%E7%BB%B4%E6%8A%A4/</guid>
+      <guid>http://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/</guid>
       <description></description>
     </item>
     
     <item>
       <title>网络</title>
-      <link>http://localhost:1313/categories/%E7%BD%91%E7%BB%9C/</link>
+      <link>http://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/%E7%BD%91%E7%BB%9C/</guid>
+      <guid>http://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>port</title>
-      <link>http://localhost:1313/categories/port/</link>
+      <link>http://prime167.github.io/categories/port/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/port/</guid>
+      <guid>http://prime167.github.io/categories/port/</guid>
       <description></description>
     </item>
     
     <item>
       <title>TIL</title>
-      <link>http://localhost:1313/categories/til/</link>
+      <link>http://prime167.github.io/categories/til/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/til/</guid>
+      <guid>http://prime167.github.io/categories/til/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>http://localhost:1313/categories/blog/</link>
+      <link>http://prime167.github.io/categories/blog/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/blog/</guid>
+      <guid>http://prime167.github.io/categories/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数学</title>
-      <link>http://localhost:1313/categories/%E6%95%B0%E5%AD%A6/</link>
+      <link>http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</link>
       <pubDate>Tue, 31 Dec 2019 16:16:59 +0800</pubDate>
       
-      <guid>http://localhost:1313/categories/%E6%95%B0%E5%AD%A6/</guid>
+      <guid>http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
     
