@@ -2,314 +2,314 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git</title>
-      <link>https://prime167.github.io/tags/git/</link>
+      <link>http://localhost:1313/tags/git/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/git/</guid>
+      <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rebase</title>
-      <link>https://prime167.github.io/tags/rebase/</link>
+      <link>http://localhost:1313/tags/rebase/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/rebase/</guid>
+      <guid>http://localhost:1313/tags/rebase/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reflog</title>
-      <link>https://prime167.github.io/tags/reflog/</link>
+      <link>http://localhost:1313/tags/reflog/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/reflog/</guid>
+      <guid>http://localhost:1313/tags/reflog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.NET</title>
-      <link>https://prime167.github.io/tags/.NET/</link>
+      <link>http://localhost:1313/tags/.net/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/.NET/</guid>
+      <guid>http://localhost:1313/tags/.net/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nuget</title>
-      <link>https://prime167.github.io/tags/nuget/</link>
+      <link>http://localhost:1313/tags/nuget/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/nuget/</guid>
+      <guid>http://localhost:1313/tags/nuget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>System.Data.SQLite</title>
-      <link>https://prime167.github.io/tags/System.Data.SQLite/</link>
+      <link>http://localhost:1313/tags/system.data.sqlite/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/System.Data.SQLite/</guid>
+      <guid>http://localhost:1313/tags/system.data.sqlite/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows 10</title>
-      <link>https://prime167.github.io/tags/windows-10/</link>
+      <link>http://localhost:1313/tags/windows-10/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/windows-10/</guid>
+      <guid>http://localhost:1313/tags/windows-10/</guid>
       <description></description>
     </item>
     
     <item>
       <title>操作系统</title>
-      <link>https://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+      <link>http://localhost:1313/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>http://localhost:1313/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tool</title>
-      <link>https://prime167.github.io/tags/tool/</link>
+      <link>http://localhost:1313/tags/tool/</link>
       <pubDate>Wed, 15 Dec 2021 09:07:43 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/tool/</guid>
+      <guid>http://localhost:1313/tags/tool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cidr</title>
-      <link>https://prime167.github.io/tags/cidr/</link>
+      <link>http://localhost:1313/tags/cidr/</link>
       <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/cidr/</guid>
+      <guid>http://localhost:1313/tags/cidr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>network</title>
-      <link>https://prime167.github.io/tags/network/</link>
+      <link>http://localhost:1313/tags/network/</link>
       <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/network/</guid>
+      <guid>http://localhost:1313/tags/network/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vlsm</title>
-      <link>https://prime167.github.io/tags/vlsm/</link>
+      <link>http://localhost:1313/tags/vlsm/</link>
       <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/vlsm/</guid>
+      <guid>http://localhost:1313/tags/vlsm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.port</title>
-      <link>https://prime167.github.io/tags/.port/</link>
+      <link>http://localhost:1313/tags/.port/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/.port/</guid>
+      <guid>http://localhost:1313/tags/.port/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hyper-V</title>
-      <link>https://prime167.github.io/tags/hyper-V/</link>
+      <link>http://localhost:1313/tags/hyper-v/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/hyper-V/</guid>
+      <guid>http://localhost:1313/tags/hyper-v/</guid>
       <description></description>
     </item>
     
     <item>
       <title>.gitconfig</title>
-      <link>https://prime167.github.io/tags/.gitconfig/</link>
+      <link>http://localhost:1313/tags/.gitconfig/</link>
       <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/.gitconfig/</guid>
+      <guid>http://localhost:1313/tags/.gitconfig/</guid>
       <description></description>
     </item>
     
     <item>
       <title>includeif</title>
-      <link>https://prime167.github.io/tags/includeif/</link>
+      <link>http://localhost:1313/tags/includeif/</link>
       <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/includeif/</guid>
+      <guid>http://localhost:1313/tags/includeif/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://prime167.github.io/tags/hugo/</link>
+      <link>http://localhost:1313/tags/hugo/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/hugo/</guid>
+      <guid>http://localhost:1313/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>meta</title>
-      <link>https://prime167.github.io/tags/meta/</link>
+      <link>http://localhost:1313/tags/meta/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/meta/</guid>
+      <guid>http://localhost:1313/tags/meta/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>https://prime167.github.io/tags/math/</link>
+      <link>http://localhost:1313/tags/math/</link>
       <pubDate>Tue, 31 Dec 2019 16:16:59 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/math/</guid>
+      <guid>http://localhost:1313/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>search</title>
-      <link>https://prime167.github.io/tags/search/</link>
+      <link>http://localhost:1313/tags/search/</link>
       <pubDate>Mon, 23 Dec 2019 15:05:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/search/</guid>
+      <guid>http://localhost:1313/tags/search/</guid>
       <description></description>
     </item>
     
     <item>
       <title>csharp</title>
-      <link>https://prime167.github.io/tags/csharp/</link>
+      <link>http://localhost:1313/tags/csharp/</link>
       <pubDate>Mon, 16 Dec 2019 14:45:50 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/csharp/</guid>
+      <guid>http://localhost:1313/tags/csharp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>https://prime167.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Mon, 16 Dec 2019 14:45:50 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>firefox</title>
-      <link>https://prime167.github.io/tags/firefox/</link>
+      <link>http://localhost:1313/tags/firefox/</link>
       <pubDate>Wed, 23 Oct 2019 14:20:23 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/firefox/</guid>
+      <guid>http://localhost:1313/tags/firefox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>contravariance</title>
-      <link>https://prime167.github.io/tags/contravariance/</link>
+      <link>http://localhost:1313/tags/contravariance/</link>
       <pubDate>Tue, 08 Oct 2019 13:22:58 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/contravariance/</guid>
+      <guid>http://localhost:1313/tags/contravariance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>covariance</title>
-      <link>https://prime167.github.io/tags/covariance/</link>
+      <link>http://localhost:1313/tags/covariance/</link>
       <pubDate>Tue, 08 Oct 2019 13:22:58 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/covariance/</guid>
+      <guid>http://localhost:1313/tags/covariance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>timer</title>
-      <link>https://prime167.github.io/tags/timer/</link>
+      <link>http://localhost:1313/tags/timer/</link>
       <pubDate>Mon, 23 Sep 2019 11:47:39 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/timer/</guid>
+      <guid>http://localhost:1313/tags/timer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>thread</title>
-      <link>https://prime167.github.io/tags/thread/</link>
+      <link>http://localhost:1313/tags/thread/</link>
       <pubDate>Fri, 06 Sep 2019 16:43:48 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/thread/</guid>
+      <guid>http://localhost:1313/tags/thread/</guid>
       <description></description>
     </item>
     
     <item>
       <title>struct</title>
-      <link>https://prime167.github.io/tags/struct/</link>
+      <link>http://localhost:1313/tags/struct/</link>
       <pubDate>Fri, 16 Aug 2019 16:36:27 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/struct/</guid>
+      <guid>http://localhost:1313/tags/struct/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CS1612</title>
-      <link>https://prime167.github.io/tags/CS1612/</link>
+      <link>http://localhost:1313/tags/cs1612/</link>
       <pubDate>Tue, 30 Jul 2019 15:51:59 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/CS1612/</guid>
+      <guid>http://localhost:1313/tags/cs1612/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bug</title>
-      <link>https://prime167.github.io/tags/bug/</link>
+      <link>http://localhost:1313/tags/bug/</link>
       <pubDate>Fri, 26 Jul 2019 14:57:43 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/bug/</guid>
+      <guid>http://localhost:1313/tags/bug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git worktree</title>
-      <link>https://prime167.github.io/tags/git-worktree/</link>
+      <link>http://localhost:1313/tags/git-worktree/</link>
       <pubDate>Fri, 26 Jul 2019 14:05:29 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/git-worktree/</guid>
+      <guid>http://localhost:1313/tags/git-worktree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scm</title>
-      <link>https://prime167.github.io/tags/scm/</link>
+      <link>http://localhost:1313/tags/scm/</link>
       <pubDate>Fri, 26 Jul 2019 14:05:29 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/scm/</guid>
+      <guid>http://localhost:1313/tags/scm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wince</title>
-      <link>https://prime167.github.io/tags/wince/</link>
+      <link>http://localhost:1313/tags/wince/</link>
       <pubDate>Thu, 11 Jul 2019 17:40:12 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/wince/</guid>
+      <guid>http://localhost:1313/tags/wince/</guid>
       <description></description>
     </item>
     
     <item>
       <title>共享配置</title>
-      <link>https://prime167.github.io/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/</link>
+      <link>http://localhost:1313/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 11 Jul 2019 17:40:12 +0800</pubDate>
       
-      <guid>https://prime167.github.io/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/</guid>
+      <guid>http://localhost:1313/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/</guid>
       <description></description>
     </item>
     

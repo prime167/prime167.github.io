@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>thread on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/thread/</link>
+    <link>http://localhost:1313/tags/thread/</link>
     <description>Recent content in thread on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Sep 2019 16:43:48 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/thread/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Sep 2019 16:43:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/thread/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>编写线程安全的UI程序</title>
-      <link>https://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/</link>
+      <link>http://localhost:1313/post/2019-09-06-dotnet-safe-ui-app/</link>
       <pubDate>Fri, 06 Sep 2019 16:43:48 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/</guid>
+      <guid>http://localhost:1313/post/2019-09-06-dotnet-safe-ui-app/</guid>
       <description>&lt;p&gt;本篇讲一下如何编写线程安全的Winform 程序&lt;/p&gt;</description>
     </item>
     

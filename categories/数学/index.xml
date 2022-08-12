@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学 on 静静地坐着</title>
-    <link>https://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</link>
+    <link>http://localhost:1313/categories/%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 数学 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Dec 2019 16:16:59 +0800</lastBuildDate><atom:link href="https://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Dec 2019 16:16:59 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一个有趣的不等式的证明</title>
-      <link>https://prime167.github.io/post/2019-12-31-a-math-inequalit/</link>
+      <link>http://localhost:1313/post/2019-12-31-a-math-inequalit/</link>
       <pubDate>Tue, 31 Dec 2019 16:16:59 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-12-31-a-math-inequalit/</guid>
+      <guid>http://localhost:1313/post/2019-12-31-a-math-inequalit/</guid>
       <description>&lt;p&gt;已知b&amp;gt;a&amp;gt;e(自然对数的底数2.718281828…), 证明a^b&amp;gt;b^a&lt;/p&gt;</description>
     </item>
     

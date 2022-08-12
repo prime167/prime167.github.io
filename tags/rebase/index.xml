@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rebase on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/rebase/</link>
+    <link>http://localhost:1313/tags/rebase/</link>
     <description>Recent content in rebase on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何撤销一个 git rebase</title>
-      <link>https://prime167.github.io/post/2022-07-29-undo-git-rebase/</link>
+      <link>http://localhost:1313/post/2022-07-29-undo-git-rebase/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2022-07-29-undo-git-rebase/</guid>
+      <guid>http://localhost:1313/post/2022-07-29-undo-git-rebase/</guid>
       <description>&lt;p&gt;上次说了通过git rebase 合并多个提交，那如何撤销呢？&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>如何合并多个git commits</title>
-      <link>https://prime167.github.io/post/2022-07-29-git-merge-local-commits/</link>
+      <link>http://localhost:1313/post/2022-07-29-git-merge-local-commits/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2022-07-29-git-merge-local-commits/</guid>
-      <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。 工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样</description>
+      <guid>http://localhost:1313/post/2022-07-29-git-merge-local-commits/</guid>
+      <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添</description>
     </item>
     
   </channel>

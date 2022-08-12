@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CS1612 on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/CS1612/</link>
+    <link>http://localhost:1313/tags/cs1612/</link>
     <description>Recent content in CS1612 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 30 Jul 2019 15:51:59 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/CS1612/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2019 15:51:59 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/cs1612/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量</title>
-      <link>https://prime167.github.io/post/2019-07-30-csharp-error-cs1612/</link>
+      <link>http://localhost:1313/post/2019-07-30-csharp-error-cs1612/</link>
       <pubDate>Tue, 30 Jul 2019 15:51:59 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-07-30-csharp-error-cs1612/</guid>
+      <guid>http://localhost:1313/post/2019-07-30-csharp-error-cs1612/</guid>
       <description>&lt;p&gt;看似简单的问题，背后涉及了很多基础知识。&lt;/p&gt;</description>
     </item>
     

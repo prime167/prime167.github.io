@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bug on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/bug/</link>
+    <link>http://localhost:1313/tags/bug/</link>
     <description>Recent content in bug on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Jul 2019 14:57:43 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/bug/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jul 2019 14:57:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/bug/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于填坑</title>
-      <link>https://prime167.github.io/post/2019-07-26-about-fix-bugs/</link>
+      <link>http://localhost:1313/post/2019-07-26-about-fix-bugs/</link>
       <pubDate>Fri, 26 Jul 2019 14:57:43 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-07-26-about-fix-bugs/</guid>
+      <guid>http://localhost:1313/post/2019-07-26-about-fix-bugs/</guid>
       <description>&lt;p&gt;寓言一则&lt;/p&gt;</description>
     </item>
     

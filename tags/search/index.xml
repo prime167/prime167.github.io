@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>search on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/search/</link>
+    <link>http://localhost:1313/tags/search/</link>
     <description>Recent content in search on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 23 Dec 2019 15:05:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Dec 2019 15:05:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/search/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>修复Windows 10 搜索功能</title>
-      <link>https://prime167.github.io/post/2019-12-23-fix-win10-search/</link>
+      <link>http://localhost:1313/post/2019-12-23-fix-win10-search/</link>
       <pubDate>Mon, 23 Dec 2019 15:05:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-12-23-fix-win10-search/</guid>
+      <guid>http://localhost:1313/post/2019-12-23-fix-win10-search/</guid>
       <description>&lt;p&gt;很多人Win10 升级到1909后，点击搜索按钮，输入两个字符，搜索界面就消失了，非常不便。下面给出解决这个问题的方法。&lt;/p&gt;</description>
     </item>
     

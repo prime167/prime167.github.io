@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>windows 10 on 静静地坐着</title>
-    <link>https://prime167.github.io/tags/windows-10/</link>
+    <link>http://localhost:1313/tags/windows-10/</link>
     <description>Recent content in windows 10 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Apr 2022 14:57:20 +0800</lastBuildDate><atom:link href="https://prime167.github.io/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 14:57:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>重装操作系统备忘录</title>
-      <link>https://prime167.github.io/post/2022-04-20-ReInstall-OS-Notes/</link>
+      <link>http://localhost:1313/post/2022-04-20-reinstall-os-notes/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2022-04-20-ReInstall-OS-Notes/</guid>
-      <description>缘起 公司电脑升级到Windows 10 21H2后出现了各种问题： 加密软件每天不定时失效，需要重启电脑才能解决 电脑无法休眠 WinCvs 闪退 Visual Studio 2019 &amp;amp; 2022 拷贝文本经常出现卡死 于是决定重装操作系统。由于之前吃过亏，我是先安装Windows 10 1607，安装加密软件和WinCvs后又升级到21H1，经过几天</description>
+      <guid>http://localhost:1313/post/2022-04-20-reinstall-os-notes/</guid>
+      <description>缘起 公司电脑升级到Windows 10 21H2后出现了各种问题： 加密软件每天不定时失效，需要重启电脑才能解决 电脑无法休眠 WinCvs 闪退 Visual Studio 2019 &amp;amp; 2022 拷贝文本</description>
     </item>
     
     <item>
       <title>修复Windows 10 更新错误0x800f0922</title>
-      <link>https://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</link>
+      <link>http://localhost:1313/post/2021-12-17-fix-win10-update-error-0x800f0922/</link>
       <pubDate>Fri, 17 Dec 2021 10:59:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</guid>
-      <description>上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进入系统后发现只有操作系统所在的C盘了。下载DiskGenius，搜索分区，找回了丢失的数据分区，最后保存的时候提示此功能需要标准版，付费，保</description>
+      <guid>http://localhost:1313/post/2021-12-17-fix-win10-update-error-0x800f0922/</guid>
+      <description>上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进</description>
     </item>
     
     <item>
       <title>Windows 10 解决端口被占用问题</title>
-      <link>https://prime167.github.io/post/2021-10-28-Windows10-Port/</link>
+      <link>http://localhost:1313/post/2021-10-28-windows10-port/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2021-10-28-Windows10-Port/</guid>
-      <description>前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用 1 netstat -ano | findstr 1883 没有任何返回 一番Google后得知某些端口被Hyper-V保留了。 解决方法： 关闭Hyper-V 1 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V 重启后设置你想保留的端口，这样</description>
+      <guid>http://localhost:1313/post/2021-10-28-windows10-port/</guid>
+      <description>前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用 netstat -ano</description>
     </item>
     
     <item>
       <title>修复Windows 10 搜索功能</title>
-      <link>https://prime167.github.io/post/2019-12-23-fix-win10-search/</link>
+      <link>http://localhost:1313/post/2019-12-23-fix-win10-search/</link>
       <pubDate>Mon, 23 Dec 2019 15:05:20 +0800</pubDate>
       
-      <guid>https://prime167.github.io/post/2019-12-23-fix-win10-search/</guid>
+      <guid>http://localhost:1313/post/2019-12-23-fix-win10-search/</guid>
       <description>&lt;p&gt;很多人Win10 升级到1909后，点击搜索按钮，输入两个字符，搜索界面就消失了，非常不便。下面给出解决这个问题的方法。&lt;/p&gt;</description>
     </item>
     
