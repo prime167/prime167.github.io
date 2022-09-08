@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>如何撤销一个 git rebase - 静静地坐着</title>
+  <title>如何隐藏Edge浏览器的“在侧边栏搜索菜单 - 静静地坐着</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="codest" /><meta name="description" content="上次说了通过git rebase 合并多个提交，那如何撤销呢？
-" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
+<meta name="author" content="codest" /><meta name="description" content="新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
 
 
 
@@ -27,7 +26,7 @@
 <meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
-<link rel="canonical" href="http://prime167.github.io/post/2022-07-29-undo-git-rebase/" />
+<link rel="canonical" href="http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,20 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="如何撤销一个 git rebase" />
-<meta property="og:description" content="上次说了通过git rebase 合并多个提交，那如何撤销呢？" />
+<meta property="og:title" content="如何隐藏Edge浏览器的“在侧边栏搜索菜单" />
+<meta property="og:description" content="新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://prime167.github.io/post/2022-07-29-undo-git-rebase/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-07-29T15:15:20+08:00" />
-<meta property="article:modified_time" content="2022-07-29T15:15:20+08:00" />
+<meta property="og:url" content="http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-08T10:54:20+08:00" />
+<meta property="article:modified_time" content="2022-09-08T10:54:20+08:00" />
 
-<meta itemprop="name" content="如何撤销一个 git rebase">
-<meta itemprop="description" content="上次说了通过git rebase 合并多个提交，那如何撤销呢？"><meta itemprop="datePublished" content="2022-07-29T15:15:20+08:00" />
-<meta itemprop="dateModified" content="2022-07-29T15:15:20+08:00" />
-<meta itemprop="wordCount" content="232">
-<meta itemprop="keywords" content="git,rebase," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="如何撤销一个 git rebase"/>
-<meta name="twitter:description" content="上次说了通过git rebase 合并多个提交，那如何撤销呢？"/>
+<meta itemprop="name" content="如何隐藏Edge浏览器的“在侧边栏搜索菜单">
+<meta itemprop="description" content="新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的"><meta itemprop="datePublished" content="2022-09-08T10:54:20+08:00" />
+<meta itemprop="dateModified" content="2022-09-08T10:54:20+08:00" />
+<meta itemprop="wordCount" content="89">
+<meta itemprop="keywords" content="edge,浏览器," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何隐藏Edge浏览器的“在侧边栏搜索菜单"/>
+<meta name="twitter:description" content="新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -145,14 +144,14 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">如何撤销一个 git rebase</h1>
+      <h1 class="post-title">如何隐藏Edge浏览器的“在侧边栏搜索菜单</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2022-07-29 </span>
+        <span class="post-time"> 2022-09-08 </span>
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 232 字 </span>
+          <span class="more-meta"> 约 89 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -165,27 +164,11 @@
   </div>
 </div>
     <div class="post-content">
-      <p>上次说了通过git rebase 合并多个提交，那如何撤销呢？</p>
-<p>先运行git reflog命令查看本地命令记录</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ed8a955 <span class="o">(</span>HEAD -&gt; main<span class="o">)</span> HEAD@<span class="o">{</span>0<span class="o">}</span>: rebase <span class="o">(</span>finish<span class="o">)</span>: returning to refs/heads/main
-</span></span><span class="line"><span class="cl">ed8a955 <span class="o">(</span>HEAD -&gt; main<span class="o">)</span> HEAD@<span class="o">{</span>1<span class="o">}</span>: rebase <span class="o">(</span>squash<span class="o">)</span>: 添加用户功能
-</span></span><span class="line"><span class="cl">2776eb0 HEAD@<span class="o">{</span>2<span class="o">}</span>: rebase <span class="o">(</span>squash<span class="o">)</span>: <span class="c1"># This is a combination of 4 commits.</span>
-</span></span><span class="line"><span class="cl">2aade14 HEAD@<span class="o">{</span>3<span class="o">}</span>: rebase <span class="o">(</span>squash<span class="o">)</span>: <span class="c1"># This is a combination of 3 commits.</span>
-</span></span><span class="line"><span class="cl">ecb64a7 HEAD@<span class="o">{</span>4<span class="o">}</span>: rebase <span class="o">(</span>squash<span class="o">)</span>: <span class="c1"># This is a combination of 2 commits.</span>
-</span></span><span class="line"><span class="cl">288ebcb HEAD@<span class="o">{</span>5<span class="o">}</span>: rebase <span class="o">(</span>start<span class="o">)</span>: checkout HEAD~5
-</span></span><span class="line"><span class="cl">7e7af1b HEAD@<span class="o">{</span>6<span class="o">}</span>: commit: 完成
-</span></span><span class="line"><span class="cl">215353c HEAD@<span class="o">{</span>7<span class="o">}</span>: commit: 修改自测bug
-</span></span><span class="line"><span class="cl">5fcfa4f HEAD@<span class="o">{</span>8<span class="o">}</span>: commit: 完成功能
-</span></span><span class="line"><span class="cl">34024f7 HEAD@<span class="o">{</span>9<span class="o">}</span>: commit: 完成界面设计
-</span></span><span class="line"><span class="cl">288ebcb HEAD@<span class="o">{</span>10<span class="o">}</span>: commit: 开始添加用户功能
-</span></span><span class="line"><span class="cl">b36071d HEAD@<span class="o">{</span>11<span class="o">}</span>: commit: 登录功能
-</span></span><span class="line"><span class="cl">25b848d HEAD@<span class="o">{</span>12<span class="o">}</span>: commit <span class="o">(</span>initial<span class="o">)</span>: init
-</span></span></code></pre></div><p>可以看到rebase之前的最后提交 是 7e7af1b HEAD@{6}: commit: 完成</p>
-<p>将本地历史记录reset到此处即可</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset --hard <span class="s2">&#34;HEAD@{6}&#34;</span>
-</span></span></code></pre></div><p>直接使用commit-ish是一个效果</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset --hard 7e7af 
-</span></span></code></pre></div>
+      <p>新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了<a href="https://www.reddit.com/r/edge/comments/ncrbbm/comment/gya3ukg/">关闭侧边栏搜索右键菜单的方法</a></p>
+<p>快捷方式<strong>目标</strong>后边追加</p>
+<pre tabindex="0"><code> --disable-features=msSidebarSearchAfterSearchWebFor,msSidebarSearchBeforeSearchWebFor
+</code></pre><p>确定重启即可</p>
+
     </div>
 
     
@@ -198,7 +181,7 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2022-07-29
+        2022-09-08
         
     </span>
   </p>
@@ -207,17 +190,13 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/git/">git</a>
-          <a href="/tags/rebase/">rebase</a>
+          <a href="/tags/edge/">edge</a>
+          <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/2022-09-08-hide-msedge-search-sidebar-context-menu/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">如何隐藏Edge浏览器的“在侧边栏搜索菜单</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/2022-07-29-git-merge-local-commits/">
-            <span class="next-text nav-default">如何合并多个git commits</span>
+        
+        <a class="next" href="/post/2022-07-29-undo-git-rebase/">
+            <span class="next-text nav-default">如何撤销一个 git rebase</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
