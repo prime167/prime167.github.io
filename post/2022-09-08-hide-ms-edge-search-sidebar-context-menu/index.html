@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>静静地坐着</title>
+  <title>如何隐藏Edge浏览器的在侧边栏搜索菜单 - 静静地坐着</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="codest" /><meta name="description" content="编程学习,技术知识分享,技术笔记" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
+<meta name="author" content="codest" /><meta name="description" content="新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
-<link rel="canonical" href="http://prime167.github.io/" />
-  <link href="http://prime167.github.io/index.xml" rel="alternate" type="application/rss+xml" title="静静地坐着" />
-  <link href="http://prime167.github.io/index.xml" rel="feed" type="application/rss+xml" title="静静地坐着" />
+<link rel="canonical" href="http://prime167.github.io/post/2022-09-08-hide-ms-edge-search-sidebar-context-menu/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="静静地坐着" />
-<meta property="og:description" content="编程学习,技术知识分享,技术笔记" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://prime167.github.io/" />
+<meta property="og:title" content="如何隐藏Edge浏览器的在侧边栏搜索菜单" />
+<meta property="og:description" content="新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prime167.github.io/post/2022-09-08-hide-ms-edge-search-sidebar-context-menu/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-09-08T10:54:20+08:00" />
+<meta property="article:modified_time" content="2022-09-08T10:54:20+08:00" />
 
-<meta itemprop="name" content="静静地坐着">
-<meta itemprop="description" content="编程学习,技术知识分享,技术笔记"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="静静地坐着"/>
-<meta name="twitter:description" content="编程学习,技术知识分享,技术笔记"/>
+<meta itemprop="name" content="如何隐藏Edge浏览器的在侧边栏搜索菜单">
+<meta itemprop="description" content="新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的"><meta itemprop="datePublished" content="2022-09-08T10:54:20+08:00" />
+<meta itemprop="dateModified" content="2022-09-08T10:54:20+08:00" />
+<meta itemprop="wordCount" content="89">
+<meta itemprop="keywords" content="edge,浏览器," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何隐藏Edge浏览器的在侧边栏搜索菜单"/>
+<meta name="twitter:description" content="新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -61,6 +64,12 @@
 <![endif]-->
 
 
+
+    
+    <link href="/css/syntax_lg.min.css" rel="stylesheet">
+
+    
+    <link href="/css/copy-code-button.min.css" rel="stylesheet">
 
 
 </head>
@@ -132,137 +141,82 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-12-24-local-nuget-server/">局域网搭建私有nuget服务器</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-12-24 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
-          </div>
-        <span class="more-meta"> 约 1592 字 </span>
-        <span class="more-meta"> 预计阅读 4 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>昨天在公司局域网搭建了一个nuget服务器，记录一下过程</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/2019-12-24-local-nuget-server/" class="read-more-link">阅读更多</a>
-    </div>
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何隐藏Edge浏览器的在侧边栏搜索菜单</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-09-08 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 89 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <p>新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了<a href="https://www.reddit.com/r/edge/comments/ncrbbm/comment/gya3ukg/">关闭侧边栏搜索右键菜单的方法</a></p>
+<p>快捷方式<strong>目标</strong>后边追加</p>
+<pre tabindex="0"><code> --disable-features=msSidebarSearchAfterSearchWebFor,msSidebarSearchBeforeSearchWebFor
+</code></pre><p>确定重启即可</p>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-12-23-fix-win10-search/">修复Windows 10 搜索功能</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-12-23 </span>
-      <div class="post-category">
-          <a href="/categories/%E7%BB%B4%E6%8A%A4/"> 维护 </a>
+    </div>
+
+    
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">codest</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-09-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/edge/">edge</a>
+          <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
           </div>
-        <span class="more-meta"> 约 330 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>很多人Win10 升级到1909后，点击搜索按钮，输入两个字符，搜索界面就消失了，非常不便。下面给出解决这个问题的方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/2019-12-23-fix-win10-search/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-12-16-doubleendedlist/">双端链表</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-12-16 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
-          </div>
-        <span class="more-meta"> 约 361 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>双端链表</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/2019-12-16-doubleendedlist/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-11-21-dotnet-knowledge/">.NET 知识梳理</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-11-21 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
-          </div>
-        <span class="more-meta"> 约 48 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      面向对象基础 继承 多态 封装 .NET 术语 CLR CTS CLS IL .NET 基本概念 值类型 引用类型 接口 类 委托事件 垃圾回收 泛型 协变逆变
-    </div>
-    <div class="read-more">
-      <a href="/post/2019-11-21-dotnet-knowledge/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/2019-10-23-config-firefox/">Firefox 70 配置记录</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-10-23 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
-          </div>
-        <span class="more-meta"> 约 323 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/2019-10-23-config-firefox/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/3/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
-    <a class="next" href="/page/5/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2022-07-29-undo-git-rebase/">
+            <span class="next-text nav-default">如何撤销一个 git rebase</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="prime167/BlogComment"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
 
       </div>
     </main>
@@ -293,6 +247,9 @@
 </div>
 
 
+
+
+<script src="/js/copy-code-button.min.js"></script>
 
 
     </footer>

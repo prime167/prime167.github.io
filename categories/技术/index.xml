@@ -6,7 +6,16 @@
     <description>Recent content in 技术 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何隐藏Edge浏览器的在侧边栏搜索菜单</title>
+      <link>http://prime167.github.io/post/2022-09-08-hide-ms-edge-search-sidebar-context-menu/</link>
+      <pubDate>Thu, 08 Sep 2022 10:54:20 +0800</pubDate>
+      
+      <guid>http://prime167.github.io/post/2022-09-08-hide-ms-edge-search-sidebar-context-menu/</guid>
+      <description>新的基于Chromium的Edge浏览器是不错，可是微软老师往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的</description>
+    </item>
+    
     <item>
       <title>如何撤销一个 git rebase</title>
       <link>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</link>
