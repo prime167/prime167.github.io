@@ -45,12 +45,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://prime167.github.io/post/2019-07-30-csharp-error-cs1612/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-07-30T15:51:59+08:00" />
-<meta property="article:modified_time" content="2019-07-30T15:51:59+08:00" />
+<meta property="article:modified_time" content="2023-01-20T00:00:00+00:00" />
 
 <meta itemprop="name" content="C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量">
 <meta itemprop="description" content="看似简单的问题，背后涉及了很多基础知识。"><meta itemprop="datePublished" content="2019-07-30T15:51:59+08:00" />
-<meta itemprop="dateModified" content="2019-07-30T15:51:59+08:00" />
-<meta itemprop="wordCount" content="815">
+<meta itemprop="dateModified" content="2023-01-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="953">
 <meta itemprop="keywords" content="csharp,CS1612," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量"/>
 <meta name="twitter:description" content="看似简单的问题，背后涉及了很多基础知识。"/>
@@ -152,7 +152,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 815 字 </span>
+          <span class="more-meta"> 约 953 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -187,12 +187,19 @@
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">Player</span> <span class="n">p</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Player</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">ShowLocation</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">Location</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="m">6</span><span class="p">;</span> <span class="c1">// CS1612</span>
-</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">Location</span><span class="p">.</span><span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span> <span class="c1">// CS1612</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">Location</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="c1">// property return temp value =&gt; CS1612</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">_location</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span> <span class="c1">// filed is ok</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="n">p</span><span class="p">.</span><span class="n">ShowLocation</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="n">List</span><span class="p">&lt;</span><span class="n">Point</span><span class="p">&gt;</span> <span class="n">_locations</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Point</span><span class="p">&gt;();</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// add..</span>
-</span></span><span class="line"><span class="cl">            <span class="n">_locations</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">x</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span><span class="c1">// CS1612</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_locations</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">x</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span><span class="c1">// List indexer is just a property, and property return temp value =&gt; CS1612CS1612</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">Point</span><span class="p">[]</span> <span class="n">_locationsArray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">[]{</span><span class="k">new</span> <span class="n">Point</span><span class="p">()};</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_locationsArray</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">x</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span> <span class="c1">// array index return reference, ok</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -204,7 +211,13 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">Player</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="n">Point</span> <span class="n">Location</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="n">Point</span> <span class="n">Location</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_location</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">set</span> <span class="p">{</span> <span class="n">_location</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="n">Point</span> <span class="n">_location</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">public</span> <span class="k">void</span> <span class="n">ShowLocation</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
@@ -214,10 +227,27 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="分析">分析</h2>
 <p>上面的代码不会通过编译，错误为：</p>
-<pre tabindex="0"><code class="language-nohighlight" data-lang="nohighlight">错误    CS161    无法修改“Player.Location”的返回值，因为它不是变量*
-
+<pre tabindex="0"><code class="language-nohighlight" data-lang="nohighlight">错误    CS1612    无法修改“Player.Location”的返回值，因为它不是变量*
 错误    CS1612    无法修改“List&lt;Point&gt;.this[init]”的返回值，因为它不是变量*
-</code></pre><p>属性的get方法和List的索引返回的是Location的副本，而不是Location的引用。由于这个副本不保存在任何变量中，所以修改值并不会保存回Location变量，赋值没有意义。</p>
+</code></pre><ul>
+<li>属性的get方法返回值类型，而不是Location的引用，由于Point是值类型，索引返回Location的副本。由于这个副本不保存在任何变量中，所以修改值并不会保存回Location变量，赋值没有意义。</li>
+<li>字段是直接在原值上操作</li>
+<li>List的索引器是一个属性，同上
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="n">T</span> <span class="k">this</span><span class="p">[</span><span class="kt">int</span> <span class="n">index</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">get</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_items</span><span class="p">[</span><span class="n">index</span><span class="p">];</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">set</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>CLR 从一开始就支持数组，数组的索引返回引用，类似field</li>
+</ul>
 <p>消除错误的方法：</p>
 <ol>
 <li>
@@ -287,6 +317,8 @@
 <p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/ref-returns">Ref returns and ref locals</a></p>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7">What&rsquo;s new in C# 7.0</a></p>
 <p><a href="https://blogs.msdn.microsoft.com/mazhou/2017/12/12/c-7-series-part-7-ref-returns/">C# 7 Series, Part 7: Ref Returns</a></p>
+<p><a href="https://devblogs.microsoft.com/premier-developer/performance-traps-of-ref-locals-and-ref-returns-in-c/">Performance traps of ref locals and ref returns in C#
+</a></p>
     </div>
 
     
@@ -299,7 +331,7 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-07-30
+        2023-01-20
         
     </span>
   </p>
@@ -364,7 +396,7 @@
   <span class="copyright-year">
     &copy; 
     2018 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>codest</span>
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>codest</span>
   </span>
 </div>
 
