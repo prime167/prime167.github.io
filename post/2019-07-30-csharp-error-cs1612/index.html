@@ -50,7 +50,7 @@
 <meta itemprop="name" content="C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量">
 <meta itemprop="description" content="看似简单的问题，背后涉及了很多基础知识。"><meta itemprop="datePublished" content="2019-07-30T15:51:59+08:00" />
 <meta itemprop="dateModified" content="2023-01-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="954">
+<meta itemprop="wordCount" content="964">
 <meta itemprop="keywords" content="csharp,CS1612," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量"/>
 <meta name="twitter:description" content="看似简单的问题，背后涉及了很多基础知识。"/>
@@ -152,7 +152,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 954 字 </span>
+          <span class="more-meta"> 约 964 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -246,7 +246,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
-<li>CLR 从一开始就支持数组，数组的索引返回引用，类似field</li>
+<li>CLR 从一开始就支持数组，数组的索引返回引用，类似field，是在原值上直接操作</li>
 </ul>
 <p>消除错误的方法：</p>
 <ol>
