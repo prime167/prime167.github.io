@@ -49,7 +49,7 @@
 <meta itemprop="name" content="一个有趣的不等式的证明">
 <meta itemprop="description" content="已知b&gt;a&gt;e(自然对数的底数2.718281828…), 证明a^b&gt;b^a"><meta itemprop="datePublished" content="2019-12-31T16:16:59+08:00" />
 <meta itemprop="dateModified" content="2019-12-31T16:16:59+08:00" />
-<meta itemprop="wordCount" content="223">
+<meta itemprop="wordCount" content="301">
 <meta itemprop="keywords" content="math," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="一个有趣的不等式的证明"/>
 <meta name="twitter:description" content="已知b&gt;a&gt;e(自然对数的底数2.718281828…), 证明a^b&gt;b^a"/>
@@ -145,7 +145,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E5%AD%A6/"> 数学 </a>
             </div>
-          <span class="more-meta"> 约 223 字 </span>
+          <span class="more-meta"> 约 301 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -154,7 +154,15 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#2023-年更新">2023 年更新</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
@@ -162,6 +170,17 @@
 <p>从小就对数学和几何有浓厚的兴趣，初中时数学和几何也比较好，结果上了大学高数就歇菜了。</p>
 <p>印象中这应该是我的高考数学题，这些年一直在我的脑海中，今天彻底弄明白。 解题过程：</p>
 <p>要证明a^b&gt;b^a 两边取对数 bln(a) &gt; aln(b) 只需证明ln(a)/a &gt; ln(b)/b 令f(x) = ln(x)/x 求导得f`(x)=(1-lnx)/(x*x) 可以看出f(x)在（0，e）上单调增，在（e,＋∞）上单调减。</p>
+<h2 id="2023-年更新">2023 年更新</h2>
+<p>经常看到的一个问题：
+2023的2024次方和2024的2023次方 那个大？</p>
+<p>结论：前者大约是后者的2023/e 约等于 744 倍</p>
+<p>x^(x+1)/(x+1)^x</p>
+<p>=x*(x/(1+x))^x</p>
+<p>=x/((1+x)/x)^x</p>
+<p>=x/(1+1/x)^x</p>
+<p>根据e的定义
+<img src="image-1.png" alt="Alt text"></p>
+<p>所以 x^(x+1)/(x+1)^x ≈ x/e</p>
     </div>
 
     
