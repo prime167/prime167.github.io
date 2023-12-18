@@ -51,7 +51,7 @@
 <meta itemprop="description" content="问题
 已知b&gt;a&gt;e(自然对数的底数2.718281828…), 证明a^b&gt;b^a"><meta itemprop="datePublished" content="2019-12-31T16:16:59+08:00" />
 <meta itemprop="dateModified" content="2019-12-31T16:16:59+08:00" />
-<meta itemprop="wordCount" content="338">
+<meta itemprop="wordCount" content="347">
 <meta itemprop="keywords" content="math," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="一个有趣的不等式的证明"/>
 <meta name="twitter:description" content="问题
@@ -154,7 +154,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E5%AD%A6/"> 数学 </a>
             </div>
-          <span class="more-meta"> 约 338 字 </span>
+          <span class="more-meta"> 约 347 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -185,14 +185,16 @@
 <p>经常看到的一个问题：
 2023的2024次方和2024的2023次方 那个大？</p>
 <p>结论：前者大约是后者的2023/e 倍 约等于 744 倍</p>
-<p>我们来考察一般的x^(x+1)和(x+1)^x哪个大问题</p>
-<p>x^(x+1)/(x+1)^x</p>
-<p>=x*(x/(1+x))^x</p>
-<p>=x/((1+x)/x)^x</p>
-<p>=x/(1+1/x)^x</p>
+<p>我们来考察一般的(x+1)^x和x^(x+1)哪个大问题</p>
+<p>(x+1)^x/x^(x+1)</p>
+<p>=(x+1))^x/(x^x * x)</p>
+<p>=((x+1)/x)^x / x</p>
+<p>=(1+1/x)^x / x</p>
 <p>根据e的定义</p>
 <pre tabindex="0"><code>Limit[(1 + 1/x)^x, x -&gt; Infinity]
-</code></pre><p>所以 x^(x+1)/(x+1)^x ≈ x/e</p>
+</code></pre><p>(x+1)^x/x^(x+1) ≈ e/x</p>
+<p>所以</p>
+<p>x^(x+1)/(x+1)^x ≈ x/e</p>
     </div>
 
     
