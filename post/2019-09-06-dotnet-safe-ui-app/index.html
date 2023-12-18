@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1 with theme even" />
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
 
 
 <link rel="canonical" href="http://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.scss" rel="stylesheet">
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:url" content="http://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-09-06T16:43:48+08:00" />
 <meta property="article:modified_time" content="2019-09-06T16:43:48+08:00" />
-
 <meta itemprop="name" content="编写线程安全的UI程序">
 <meta itemprop="description" content="本篇讲一下如何编写线程安全的Winform 程序"><meta itemprop="datePublished" content="2019-09-06T16:43:48+08:00" />
 <meta itemprop="dateModified" content="2019-09-06T16:43:48+08:00" />
 <meta itemprop="wordCount" content="103">
-<meta itemprop="keywords" content=".NET,thread," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="编写线程安全的UI程序"/>
+<meta itemprop="keywords" content=".NET,thread," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="编写线程安全的UI程序"/>
 <meta name="twitter:description" content="本篇讲一下如何编写线程安全的Winform 程序"/>
 
 <!--[if lte IE 9]>
@@ -175,20 +175,20 @@
       <p>本篇讲一下如何编写线程安全的Winform 程序</p>
 <h2 id="有问题的代码">有问题的代码</h2>
 <p>一个很简单的功能，Winform上实时显示当前时间：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">Form1</span> <span class="p">:</span> <span class="n">Form</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">Form1</span> <span class="p">:</span> <span class="n">Form</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_timer</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Form1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_timer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Form1</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">InitializeComponent</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">UpdateTime</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">UpdateTime</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">20</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">UpdateTime</span><span class="p">(</span><span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">void</span> <span class="n">UpdateTime</span><span class="p">(</span><span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">lblTime</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;hh:mm:ss&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -317,7 +317,7 @@
 <script>
   (function () {
     var src = "https://s.ssl.qhres2.com/ssl/ab77b6ea7f3fbf79.js";
-    document.write('\x3Cscript src="' + src + '" id="sozz"><\/script>');
+    document.write('<script src="' + src + '" id="sozz"><\/script>');
   })();
 </script>
 

@@ -6,21 +6,24 @@
     <description>Recent content in 操作系统 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Apr 2022 14:57:20 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Apr 2022 14:57:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>重装操作系统备忘录</title>
       <link>http://prime167.github.io/post/2022-04-20_reinstall-os-notes/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-04-20_reinstall-os-notes/</guid>
       <description>缘起 公司电脑升级到Windows 10 21H2后出现了各种问题： 加密软件每天不定时失效，需要重启电脑才能解决 电脑无法休眠 WinCvs 闪退 Visual Studio 2019 &amp;amp; 2022 拷贝文本</description>
     </item>
+    
     <item>
       <title>修复Windows 10 更新错误0x800f0922</title>
       <link>http://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</link>
       <pubDate>Fri, 17 Dec 2021 10:59:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</guid>
       <description>上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进</description>
     </item>
+    
   </channel>
 </rss>

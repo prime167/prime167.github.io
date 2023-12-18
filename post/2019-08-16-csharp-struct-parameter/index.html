@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1 with theme even" />
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
 
 
 <link rel="canonical" href="http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.scss" rel="stylesheet">
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:url" content="http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-08-16T16:36:27+08:00" />
 <meta property="article:modified_time" content="2019-08-16T16:36:27+08:00" />
-
 <meta itemprop="name" content="c# 传递结构体参数的那些事儿">
 <meta itemprop="description" content="今天来说一下C#中传递结构体参数的演化"><meta itemprop="datePublished" content="2019-08-16T16:36:27+08:00" />
 <meta itemprop="dateModified" content="2019-08-16T16:36:27+08:00" />
 <meta itemprop="wordCount" content="1429">
-<meta itemprop="keywords" content="csharp,struct," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="c# 传递结构体参数的那些事儿"/>
+<meta itemprop="keywords" content="csharp,struct," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="c# 传递结构体参数的那些事儿"/>
 <meta name="twitter:description" content="今天来说一下C#中传递结构体参数的演化"/>
 
 <!--[if lte IE 9]>
@@ -186,7 +186,7 @@
 </ul>
 <h2 id="值传递">值传递</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// 按值传递参数</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">Calculate</span><span class="p">(</span><span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">Calculate</span><span class="p">(</span><span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">xDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">X</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">yDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">Y</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">Y</span><span class="p">;</span>
@@ -199,11 +199,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Point3D</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">X</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">Y</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">Z</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">X</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">Y</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">Z</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Point3D</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Point3D</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">X</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Y</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
@@ -217,7 +217,7 @@
 </ul>
 <h2 id="ref-传递">ref 传递</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="c1">// ref传递</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateRef</span><span class="p">(</span><span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateRef</span><span class="p">(</span><span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">xDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">X</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">yDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">Y</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">Y</span><span class="p">;</span>
@@ -247,7 +247,7 @@
         ...
     } // end of method Program::CalculateRef
 </code></pre><h2 id="out-传递">out 传递</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateOut</span><span class="p">(</span><span class="k">out</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateOut</span><span class="p">(</span><span class="k">out</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">point1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point3D</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
@@ -274,7 +274,7 @@
 </code></pre><p>但有时候我们不想让调用者修改我们的变量，<em>ref</em> 和 <em>out</em> 就无能为力了。</p>
 <h2 id="in-传递">in 传递</h2>
 <p>作为 <em>ref</em> 和 <em>out</em> 的补充，C# 7.2对in关键字进行了扩展，允许传参时用<em>in</em>关键字修饰，以表明设计意图：变量按照引用方式传递，但是不允许方法对变量进行修改。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateIn</span><span class="p">(</span><span class="k">in</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">in</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateIn</span><span class="p">(</span><span class="k">in</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">in</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//error CS8332: Cannot assign to a member of variable &#39;in Point3D&#39; because it is a readonly variable</span>
 </span></span><span class="line"><span class="cl">
@@ -287,7 +287,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>如果试图修改point1.X,会产生编译错误CS8332：不能对 in Piont3D变量的成员赋值，因为它是只读的。
 但这里有一个陷阱，我们先看一下编译器生成的C#代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateIn</span><span class="p">([</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span> <span class="p">[</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateIn</span><span class="p">([</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point1</span><span class="p">,</span> <span class="p">[</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">Point3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Point3D</span> <span class="n">point3D</span> <span class="p">=</span> <span class="n">point1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span> <span class="p">=</span> <span class="n">point3D</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
@@ -341,7 +341,7 @@
 <p><em>IL_0001: ldobj Point3D</em> 这条语句也表明会生成变量副本。</p>
 <h2 id="解决方法">解决方法</h2>
 <p>为了解决in传递可能带来的性能问题，C# 7.2 同时添加了 <strong>readonly struct</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateReadonlyIn</span><span class="p">(</span><span class="k">in</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">in</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateReadonlyIn</span><span class="p">(</span><span class="k">in</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point1</span><span class="p">,</span><span class="k">in</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">xDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">X</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">yDifference</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">Y</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">Y</span><span class="p">;</span>
@@ -353,11 +353,11 @@
 </span></span><span class="line"><span class="cl"><span class="k">readonly</span> <span class="k">struct</span> <span class="nc">ReadonlyPoint3D</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 所有字段必须是只读的</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">X</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">Y</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">Z</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">X</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">Y</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">Z</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span>  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">ReadonlyPoint3D</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">ReadonlyPoint3D</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">X</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="n">Y</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
@@ -365,7 +365,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>编译器生成的代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">double</span> <span class="n">CalculateReadonlyIn</span><span class="p">([</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point1</span><span class="p">,</span> <span class="p">[</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">double</span> <span class="n">CalculateReadonlyIn</span><span class="p">([</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point1</span><span class="p">,</span> <span class="p">[</span><span class="n">In</span><span class="p">]</span> <span class="p">[</span><span class="n">IsReadOnly</span><span class="p">]</span> <span class="k">ref</span> <span class="n">ReadonlyPoint3D</span> <span class="n">point2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">num</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">X</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">num2</span> <span class="p">=</span> <span class="n">point1</span><span class="p">.</span><span class="n">Y</span> <span class="p">-</span> <span class="n">point2</span><span class="p">.</span><span class="n">Y</span><span class="p">;</span>
@@ -505,7 +505,7 @@
 <script>
   (function () {
     var src = "https://s.ssl.qhres2.com/ssl/ab77b6ea7f3fbf79.js";
-    document.write('\x3Cscript src="' + src + '" id="sozz"><\/script>');
+    document.write('<script src="' + src + '" id="sozz"><\/script>');
   })();
 </script>
 

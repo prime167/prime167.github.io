@@ -6,21 +6,24 @@
     <description>Recent content in tool on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 Dec 2021 09:07:43 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Dec 2021 09:07:43 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我常用的软件 (2021版)</title>
       <link>http://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</link>
       <pubDate>Wed, 15 Dec 2021 09:07:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</guid>
       <description>&lt;p&gt;整理记录一下自己常用的一些软件&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>我常用的软件 (2019版)</title>
       <link>http://prime167.github.io/post/2019-10-17-my-favorite-software-2019/</link>
       <pubDate>Thu, 17 Oct 2019 14:07:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-10-17-my-favorite-software-2019/</guid>
       <description>&lt;p&gt;整理记录一下自己常用的一些软件&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

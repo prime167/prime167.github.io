@@ -6,21 +6,24 @@
     <description>Recent content in rebase on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何撤销一个 git rebase</title>
       <link>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</guid>
       <description>&lt;p&gt;上次说了通过git rebase 合并多个提交，那如何撤销呢？&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>如何合并多个git commits</title>
       <link>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</guid>
       <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添</description>
     </item>
+    
   </channel>
 </rss>

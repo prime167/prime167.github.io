@@ -6,14 +6,15 @@
     <description>Recent content in git worktree on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Jul 2019 14:05:29 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/git-worktree/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jul 2019 14:05:29 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/git-worktree/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git worktree 命令的使用</title>
       <link>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</link>
       <pubDate>Fri, 26 Jul 2019 14:05:29 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</guid>
       <description>&lt;p&gt;使用 git worktree &lt;strong&gt;同时&lt;/strong&gt; 签出多个分支，提高开发效率，节省磁盘空间。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -6,28 +6,33 @@
     <description>Recent content in blog on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog 重新开张</title>
       <link>http://prime167.github.io/post/2021-10-25-blog-reopen/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2021-10-25-blog-reopen/</guid>
       <description>去年只写了2篇blog，上个月想写的时候发现原始的markdown文件丢失了，幸好再另一台电脑找到了一个比较旧的备份，只有2019年的头几篇</description>
     </item>
+    
     <item>
       <title>Hugo 配置记录</title>
       <link>http://prime167.github.io/post/2019-11-25-hugo-setup/</link>
       <pubDate>Wed, 07 Aug 2019 16:36:46 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-11-25-hugo-setup/</guid>
       <description>&lt;p&gt;新博客配置的七七八八了，记录一下过程和未解决问题。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Hello World</title>
       <link>http://prime167.github.io/post/2019-07-10-hello-world/</link>
       <pubDate>Wed, 10 Jul 2019 17:32:42 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-10-hello-world/</guid>
       <description>&lt;p&gt;新博客开张。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -6,56 +6,69 @@
     <description>Recent content in Categories on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>技术</title>
       <link>http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 08 Sep 2022 10:54:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>维护</title>
       <link>http://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/</link>
       <pubDate>Wed, 20 Apr 2022 14:57:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>网络</title>
       <link>http://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Thu, 04 Nov 2021 09:14:00 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>port</title>
       <link>http://prime167.github.io/categories/port/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/port/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>TIL</title>
       <link>http://prime167.github.io/categories/til/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/til/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>blog</title>
       <link>http://prime167.github.io/categories/blog/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/blog/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>数学</title>
       <link>http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</link>
       <pubDate>Tue, 31 Dec 2019 16:16:59 +0800</pubDate>
+      
       <guid>http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
+    
   </channel>
 </rss>

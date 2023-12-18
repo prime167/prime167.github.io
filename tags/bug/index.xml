@@ -6,14 +6,15 @@
     <description>Recent content in bug on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 26 Jul 2019 14:57:43 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/bug/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jul 2019 14:57:43 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/bug/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于填坑</title>
       <link>http://prime167.github.io/post/2019-07-26-about-fix-bugs/</link>
       <pubDate>Fri, 26 Jul 2019 14:57:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-26-about-fix-bugs/</guid>
       <description>&lt;p&gt;寓言一则&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

@@ -6,154 +6,195 @@
     <description>Recent content in 技术 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何隐藏Edge浏览器的“在侧边栏搜索”菜单</title>
       <link>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</link>
       <pubDate>Thu, 08 Sep 2022 10:54:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</guid>
       <description>新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的</description>
     </item>
+    
     <item>
       <title>如何撤销一个 git rebase</title>
       <link>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</guid>
       <description>&lt;p&gt;上次说了通过git rebase 合并多个提交，那如何撤销呢？&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>如何合并多个git commits</title>
       <link>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</guid>
       <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添</description>
     </item>
+    
     <item>
       <title>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</title>
       <link>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</guid>
       <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目 DataAccess项目引用nuget包System.Data.SQLite， 编译后 Data</description>
     </item>
+    
     <item>
       <title>我常用的软件 (2021版)</title>
       <link>http://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</link>
       <pubDate>Wed, 15 Dec 2021 09:07:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</guid>
       <description>&lt;p&gt;整理记录一下自己常用的一些软件&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>Visual Studio 解决方案文件格式拾遗</title>
       <link>http://prime167.github.io/post/2020-06-12-sln-file-notes/</link>
       <pubDate>Fri, 12 Jun 2020 16:28:28 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2020-06-12-sln-file-notes/</guid>
       <description>&lt;p&gt;关于解决方案文件sln的说明，官方文档已经说的很清楚的，这里不再重复，只说几个细节的地方&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>在Windows 7 SP1 下离线安装 .NET Framework 4.8</title>
       <link>http://prime167.github.io/post/2020-01-15-intall-netfx4.x-offline/</link>
       <pubDate>Wed, 15 Jan 2020 16:23:19 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2020-01-15-intall-netfx4.x-offline/</guid>
       <description>&lt;p&gt;在未联网的计算机上安装.NET Framework 4.6.1, 4.6.2, 4.7, 4.8 可能会因为缺少根证书失败&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>修改NuGet全局缓存路径</title>
       <link>http://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</link>
       <pubDate>Thu, 26 Dec 2019 16:10:06 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</guid>
       <description>&lt;p&gt;修改NuGet全局缓存路径&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>局域网搭建私有nuget服务器</title>
       <link>http://prime167.github.io/post/2019-12-24-local-nuget-server/</link>
       <pubDate>Tue, 24 Dec 2019 15:09:29 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-12-24-local-nuget-server/</guid>
       <description>&lt;p&gt;昨天在公司局域网搭建了一个nuget服务器，记录一下过程&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>双端链表</title>
       <link>http://prime167.github.io/post/2019-12-16-doubleendedlist/</link>
       <pubDate>Mon, 16 Dec 2019 14:45:50 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-12-16-doubleendedlist/</guid>
       <description>&lt;p&gt;双端链表&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>.NET 知识梳理</title>
       <link>http://prime167.github.io/post/2019-11-21-dotnet-knowledge/</link>
       <pubDate>Thu, 21 Nov 2019 14:25:42 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-11-21-dotnet-knowledge/</guid>
       <description>面向对象基础 继承 多态 封装 .NET 术语 CLR CTS CLS IL .NET 基本概念 值类型 引用类型 接口 类 委托事件 垃圾回收 泛型 协变逆变</description>
     </item>
+    
     <item>
       <title>Firefox 70 配置记录</title>
       <link>http://prime167.github.io/post/2019-10-23-config-firefox/</link>
       <pubDate>Wed, 23 Oct 2019 14:20:23 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-10-23-config-firefox/</guid>
       <description>&lt;p&gt;最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>我常用的软件 (2019版)</title>
       <link>http://prime167.github.io/post/2019-10-17-my-favorite-software-2019/</link>
       <pubDate>Thu, 17 Oct 2019 14:07:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-10-17-my-favorite-software-2019/</guid>
       <description>&lt;p&gt;整理记录一下自己常用的一些软件&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>C# 的协变和逆变</title>
       <link>http://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</link>
       <pubDate>Tue, 08 Oct 2019 13:22:58 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</guid>
       <description>&lt;p&gt;协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>.NET 中的 timer</title>
       <link>http://prime167.github.io/post/2019-09-23-dotnet-timers/</link>
       <pubDate>Mon, 23 Sep 2019 11:47:39 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-09-23-dotnet-timers/</guid>
       <description>&lt;p&gt;今天简单介绍一下 .NET framework中的timer&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>编写线程安全的UI程序</title>
       <link>http://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/</link>
       <pubDate>Fri, 06 Sep 2019 16:43:48 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/</guid>
       <description>&lt;p&gt;本篇讲一下如何编写线程安全的Winform 程序&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>c# 传递结构体参数的那些事儿</title>
       <link>http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/</link>
       <pubDate>Fri, 16 Aug 2019 16:36:27 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/</guid>
       <description>&lt;p&gt;今天来说一下C#中传递结构体参数的演化&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量</title>
       <link>http://prime167.github.io/post/2019-07-30-csharp-error-cs1612/</link>
       <pubDate>Tue, 30 Jul 2019 15:51:59 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-30-csharp-error-cs1612/</guid>
       <description>&lt;p&gt;看似简单的问题，背后涉及了很多基础知识。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>关于填坑</title>
       <link>http://prime167.github.io/post/2019-07-26-about-fix-bugs/</link>
       <pubDate>Fri, 26 Jul 2019 14:57:43 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-26-about-fix-bugs/</guid>
       <description>&lt;p&gt;寓言一则&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>git worktree 命令的使用</title>
       <link>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</link>
       <pubDate>Fri, 26 Jul 2019 14:05:29 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</guid>
       <description>&lt;p&gt;使用 git worktree &lt;strong&gt;同时&lt;/strong&gt; 签出多个分支，提高开发效率，节省磁盘空间。&lt;/p&gt;</description>
     </item>
+    
     <item>
       <title>解决WinCE6.0无法访问Win10共享文件夹问题</title>
       <link>http://prime167.github.io/post/2019-07-11-fix-windows10-share/</link>
       <pubDate>Thu, 11 Jul 2019 17:40:12 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2019-07-11-fix-windows10-share/</guid>
       <description>&lt;p&gt;公司主要是用WinCE6.0做嵌入式开发，有时需要把文件发送到PC机器，但最近有一台1803的Win10总是报&amp;quot;error 53 找不到网络路径&amp;quot;的错误。&lt;/p&gt;</description>
     </item>
+    
   </channel>
 </rss>

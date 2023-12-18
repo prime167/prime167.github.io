@@ -6,14 +6,15 @@
     <description>Recent content in edge on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate>
-    <atom:link href="http://prime167.github.io/tags/edge/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/edge/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何隐藏Edge浏览器的“在侧边栏搜索”菜单</title>
       <link>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</link>
       <pubDate>Thu, 08 Sep 2022 10:54:20 +0800</pubDate>
+      
       <guid>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</guid>
       <description>新的基于Chromium的Edge浏览器是不错，可是微软老是往里塞乱七八糟的的东西，好在大部分都可以关闭。今天发现了关闭侧边栏搜索右键菜单的</description>
     </item>
+    
   </channel>
 </rss>
