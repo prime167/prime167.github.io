@@ -6,15 +6,14 @@
     <description>Recent content in System.Data.SQLite on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Jun 2022 16:42:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/system.data.sqlite/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Jun 2022 16:42:20 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/system.data.sqlite/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</title>
       <link>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</link>
       <pubDate>Tue, 21 Jun 2022 16:42:20 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</guid>
       <description>问题 假设一个工程有如下的结构 &amp;mdash;-Demo sln &amp;mdash;&amp;mdash;&amp;ndash;WPF &amp;mdash;&amp;mdash;&amp;ndash;DataAccess WPF 引用 DataAccess 项目 DataAccess项目引用nuget包System.Data.SQLite， 编译后 Data</description>
     </item>
-    
   </channel>
 </rss>

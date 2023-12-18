@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.108.0 with theme even" />
+<meta name="generator" content="Hugo 0.121.1 with theme even" />
 
 
 <link rel="canonical" href="http://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="/sass/main.scss" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,12 +46,12 @@
 <meta property="og:url" content="http://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-10-08T13:22:58+08:00" />
 <meta property="article:modified_time" content="2019-10-08T13:22:58+08:00" />
+
 <meta itemprop="name" content="C# 的协变和逆变">
 <meta itemprop="description" content="协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变"><meta itemprop="datePublished" content="2019-10-08T13:22:58+08:00" />
 <meta itemprop="dateModified" content="2019-10-08T13:22:58+08:00" />
 <meta itemprop="wordCount" content="2128">
-<meta itemprop="keywords" content=".NET,csharp,covariance,contravariance," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="C# 的协变和逆变"/>
+<meta itemprop="keywords" content=".NET,csharp,covariance,contravariance," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="C# 的协变和逆变"/>
 <meta name="twitter:description" content="协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变"/>
 
 <!--[if lte IE 9]>
@@ -206,11 +206,11 @@
 <p>C# 2.0 引入了委托的变体支持，用于在 C# 中匹配所有委托的方法签名和委托类型。 这表明不仅可以将具有匹配签名的方法分配给委托，还可以将返回派生程度较大的派生类型的方法分配给委托（协变），或者如果方法所接受参数的派生类型所具有的派生程度小于委托类型指定的程度（逆变），也可将其分配给委托。即 对参数的逆变性和对返回值的协变性</p>
 <p>举例说明：</p>
 <p>定义如下继承关系</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">L1</span> <span class="p">{</span> <span class="p">}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">L1</span> <span class="p">{</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">L2</span> <span class="p">:</span> <span class="n">L1</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">L2</span> <span class="p">:</span> <span class="n">L1</span> <span class="p">{</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">L3</span> <span class="p">:</span> <span class="n">L2</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">L3</span> <span class="p">:</span> <span class="n">L2</span> <span class="p">{</span> <span class="p">}</span>
 </span></span></code></pre></div><p>定义一个委托</p>
 <pre tabindex="0"><code class="language-charp" data-lang="charp">public delegate L1 SampleDelegate(L3 t);
 </code></pre><p>使用：</p>
@@ -249,7 +249,7 @@
 </span></span></code></pre></div><p>如果第3行是合法的，那么第4行也是合法,但animails的实际类型是List，你不可能把Lion添加到里面。</p>
 <h3 id="泛型委托">泛型委托</h3>
 <p>对于委托</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">delegate</span> <span class="n">R</span> <span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span><span class="n">P</span> <span class="n">a</span><span class="p">);</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">delegate</span> <span class="n">R</span> <span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">&gt;(</span><span class="n">P</span> <span class="n">a</span><span class="p">);</span>
 </span></span></code></pre></div><p>类似非泛型委托,9种函数组合，一个委托就够了：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="n">L3</span><span class="p">,</span> <span class="n">L1</span><span class="p">&gt;</span> <span class="n">dg1</span> <span class="p">=</span> <span class="n">RL1PL1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="n">L3</span><span class="p">,</span> <span class="n">L1</span><span class="p">&gt;</span> <span class="n">dg2</span> <span class="p">=</span> <span class="n">RL1PL2</span><span class="p">;</span>
@@ -265,8 +265,8 @@
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/out-generic-modifier">out</a>： 对于泛型类型参数，out 关键字指定该类型参数是协变的。 可以在泛型接口和委托中使用 out 关键字。</li>
 <li><a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/in-generic-modifier">in</a>：对于泛型类型参数，in 关键字指定该类型参数是逆变的。 可以在泛型接口和委托中使用 in 关键字。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">delegate</span> <span class="n">TResult</span> <span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="k">in</span> <span class="n">TP</span><span class="p">,</span> <span class="k">out</span> <span class="n">TResult</span><span class="p">&gt;(</span><span class="n">TP</span> <span class="n">a</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">delegate</span> <span class="n">T</span> <span class="n">SampleGenericDelegate1</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;();</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">delegate</span> <span class="n">TResult</span> <span class="n">SampleGenericDelegate</span><span class="p">&lt;</span><span class="k">in</span> <span class="n">TP</span><span class="p">,</span> <span class="k">out</span> <span class="n">TResult</span><span class="p">&gt;(</span><span class="n">TP</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">delegate</span> <span class="n">T</span> <span class="n">SampleGenericDelegate1</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">T</span><span class="p">&gt;();</span>
 </span></span><span class="line"><span class="cl"><span class="k">delegate</span> <span class="k">void</span> <span class="n">Action</span><span class="p">&lt;</span><span class="k">in</span> <span class="n">T</span><span class="p">&gt;(</span><span class="n">T</span> <span class="n">t</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">delegate</span> <span class="n">TResult</span> <span class="n">Func</span><span class="p">&lt;</span><span class="k">out</span> <span class="n">TResult</span><span class="p">&gt;();</span>
 </span></span></code></pre></div><h2 id="泛型接口">泛型接口</h2>
@@ -319,11 +319,11 @@
 </span></span></code></pre></div><p>方法的参数使用IEnumerable编写更通用的方法:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Program</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">PrintFullName</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">persons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">PrintFullName</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="n">persons</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 协变</span>
 </span></span><span class="line"><span class="cl">        <span class="n">List</span><span class="p">&lt;</span><span class="n">Teacher</span><span class="p">&gt;</span> <span class="n">employees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Teacher</span><span class="p">&gt;();</span>
@@ -339,31 +339,31 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Shape</span>
+</span></span><span class="line"><span class="cl"><span class="kd">abstract</span> <span class="k">class</span> <span class="nc">Shape</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">double</span> <span class="n">Area</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">virtual</span> <span class="kt">double</span> <span class="n">Area</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span> <span class="n">r</span> <span class="p">=</span> <span class="n">radius</span><span class="p">;</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">double</span> <span class="n">Radius</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">r</span><span class="p">;</span> <span class="p">}}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">override</span> <span class="kt">double</span> <span class="n">Area</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="n">r</span> <span class="p">*</span> <span class="n">r</span><span class="p">;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">double</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span> <span class="n">r</span> <span class="p">=</span> <span class="n">radius</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">double</span> <span class="n">Radius</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">r</span><span class="p">;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">override</span> <span class="kt">double</span> <span class="n">Area</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="n">PI</span> <span class="p">*</span> <span class="n">r</span> <span class="p">*</span> <span class="n">r</span><span class="p">;</span> <span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ShapeAreaComparer</span> <span class="p">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Collections</span><span class="p">.</span><span class="n">Generic</span><span class="p">.</span><span class="n">IComparer</span><span class="p">&lt;</span><span class="n">Shape</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">IComparer</span><span class="p">&lt;</span><span class="n">Shape</span><span class="p">&gt;.</span><span class="n">Compare</span><span class="p">(</span><span class="n">Shape</span> <span class="n">a</span><span class="p">,</span> <span class="n">Shape</span> <span class="n">b</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">    <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">return</span> <span class="n">b</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">b</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="m">1</span> <span class="p">:</span> <span class="n">a</span><span class="p">.</span><span class="n">Area</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">Area</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="n">b</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">b</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">?</span> <span class="m">1</span> <span class="p">:</span> <span class="n">a</span><span class="p">.</span><span class="n">Area</span><span class="p">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">Area</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Program</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// You can pass ShapeAreaComparer, which implements IComparer&lt;Shape&gt;,</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// even though the constructor for SortedSet&lt;Circle&gt; expects </span>
@@ -372,11 +372,11 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// SortedSet&lt;Circle&gt; 的构造函数需要IComparer&lt;Circle&gt;，但仍然可以传入是实现IComparer&lt;Shape&gt;的ShapeAreaComparer</span>
 </span></span><span class="line"><span class="cl">        <span class="n">SortedSet</span><span class="p">&lt;</span><span class="n">Circle</span><span class="p">&gt;</span> <span class="n">circlesByArea</span> <span class="p">=</span> 
 </span></span><span class="line"><span class="cl">            <span class="k">new</span> <span class="n">SortedSet</span><span class="p">&lt;</span><span class="n">Circle</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">ShapeAreaComparer</span><span class="p">())</span> 
-</span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="m">7.2</span><span class="p">),</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="k">null</span><span class="p">,</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(.</span><span class="m">01</span><span class="p">)</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="m">7.2</span><span class="p">),</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="m">100</span><span class="p">),</span> <span class="kc">null</span><span class="p">,</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(.</span><span class="m">01</span><span class="p">)</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="n">Circle</span> <span class="n">c</span> <span class="k">in</span> <span class="n">circlesByArea</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">c</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="s">&#34;null&#34;</span> <span class="p">:</span> <span class="s">&#34;Circle with area &#34;</span> <span class="p">+</span> <span class="n">c</span><span class="p">.</span><span class="n">Area</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">c</span> <span class="p">==</span> <span class="kc">null</span> <span class="p">?</span> <span class="s">&#34;null&#34;</span> <span class="p">:</span> <span class="s">&#34;Circle with area &#34;</span> <span class="p">+</span> <span class="n">c</span><span class="p">.</span><span class="n">Area</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -531,7 +531,7 @@
 <script>
   (function () {
     var src = "https://s.ssl.qhres2.com/ssl/ab77b6ea7f3fbf79.js";
-    document.write('<script src="' + src + '" id="sozz"><\/script>');
+    document.write('\x3Cscript src="' + src + '" id="sozz"><\/script>');
   })();
 </script>
 

@@ -6,42 +6,35 @@
     <description>Recent content in git on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Jul 2022 15:15:20 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何撤销一个 git rebase</title>
       <link>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</link>
       <pubDate>Fri, 29 Jul 2022 15:15:20 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</guid>
       <description>&lt;p&gt;上次说了通过git rebase 合并多个提交，那如何撤销呢？&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>如何合并多个git commits</title>
       <link>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</guid>
       <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添</description>
     </item>
-    
     <item>
       <title>git 使用includeIf配置多身份隔离</title>
       <link>http://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</link>
       <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</guid>
       <description>问题 作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）： 公</description>
     </item>
-    
     <item>
       <title>git worktree 命令的使用</title>
       <link>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</link>
       <pubDate>Fri, 26 Jul 2019 14:05:29 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</guid>
       <description>&lt;p&gt;使用 git worktree &lt;strong&gt;同时&lt;/strong&gt; 签出多个分支，提高开发效率，节省磁盘空间。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

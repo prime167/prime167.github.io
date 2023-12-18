@@ -6,15 +6,14 @@
     <description>Recent content in wince on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Jul 2019 17:40:12 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/wince/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Jul 2019 17:40:12 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/wince/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>解决WinCE6.0无法访问Win10共享文件夹问题</title>
       <link>http://prime167.github.io/post/2019-07-11-fix-windows10-share/</link>
       <pubDate>Thu, 11 Jul 2019 17:40:12 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2019-07-11-fix-windows10-share/</guid>
       <description>&lt;p&gt;公司主要是用WinCE6.0做嵌入式开发，有时需要把文件发送到PC机器，但最近有一台1803的Win10总是报&amp;quot;error 53 找不到网络路径&amp;quot;的错误。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

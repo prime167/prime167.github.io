@@ -6,15 +6,14 @@
     <description>Recent content in firefox on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 23 Oct 2019 14:20:23 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2019 14:20:23 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Firefox 70 配置记录</title>
       <link>http://prime167.github.io/post/2019-10-23-config-firefox/</link>
       <pubDate>Wed, 23 Oct 2019 14:20:23 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2019-10-23-config-firefox/</guid>
       <description>&lt;p&gt;最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

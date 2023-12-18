@@ -6,15 +6,14 @@
     <description>Recent content in struct on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 16 Aug 2019 16:36:27 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/struct/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Aug 2019 16:36:27 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/struct/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>c# 传递结构体参数的那些事儿</title>
       <link>http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/</link>
       <pubDate>Fri, 16 Aug 2019 16:36:27 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/</guid>
       <description>&lt;p&gt;今天来说一下C#中传递结构体参数的演化&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

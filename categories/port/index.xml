@@ -6,15 +6,14 @@
     <description>Recent content in port on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/port/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 09:53:28 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/categories/port/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 10 解决端口被占用问题</title>
       <link>http://prime167.github.io/post/2021-10-28_windows10-port/</link>
       <pubDate>Thu, 28 Oct 2021 09:53:28 +0800</pubDate>
-      
       <guid>http://prime167.github.io/post/2021-10-28_windows10-port/</guid>
       <description>前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用 netstat -ano</description>
     </item>
-    
   </channel>
 </rss>
