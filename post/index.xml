@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Sep 2022 10:54:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 14:12:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数独背后的数学</title>
+      <link>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</link>
+      <pubDate>Thu, 28 Dec 2023 14:12:20 +0800</pubDate>
+      
+      <guid>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</guid>
+      <description>今年第一篇也是最后一篇写写数独吧</description>
+    </item>
+    
     <item>
       <title>如何隐藏Edge浏览器的“在侧边栏搜索”菜单</title>
       <link>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</link>

@@ -6,7 +6,16 @@
     <description>Recent content in 数学 on 静静地坐着</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 31 Dec 2019 16:16:59 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 14:12:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数独背后的数学</title>
+      <link>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</link>
+      <pubDate>Thu, 28 Dec 2023 14:12:20 +0800</pubDate>
+      
+      <guid>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</guid>
+      <description>今年第一篇也是最后一篇写写数独吧</description>
+    </item>
+    
     <item>
       <title>一个有趣的不等式的证明</title>
       <link>http://prime167.github.io/post/2019-12-31-a-math-inequalit/</link>
