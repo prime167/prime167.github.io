@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="codest" /><meta name="description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 2x2 的数独总共有 288 种，基本形式只有2种 2x3 的数独总共有 28200960 种，基本形式只有49种 3x3 的数" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
+<meta name="author" content="codest" /><meta name="description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 结论 2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示 2x3 的数独总共有 28200960 种，" /><meta name="keywords" content="技术博客, 技术笔记, 程序员, 程序猿, C#, .NET, 编程, 代码, 软件开发, 开源, Developer, Programmer, Coder, Coding, Code" />
 
 
 
@@ -40,18 +40,18 @@
 
 
 <meta property="og:title" content="数独背后的数学" />
-<meta property="og:description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 2x2 的数独总共有 288 种，基本形式只有2种 2x3 的数独总共有 28200960 种，基本形式只有49种 3x3 的数" />
+<meta property="og:description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 结论 2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示 2x3 的数独总共有 28200960 种，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://prime167.github.io/post/2023-12-28-math-behind-sudoku/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-12-28T14:12:20+08:00" />
 <meta property="article:modified_time" content="2023-12-28T14:12:20+08:00" />
 <meta itemprop="name" content="数独背后的数学">
-<meta itemprop="description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 2x2 的数独总共有 288 种，基本形式只有2种 2x3 的数独总共有 28200960 种，基本形式只有49种 3x3 的数"><meta itemprop="datePublished" content="2023-12-28T14:12:20+08:00" />
+<meta itemprop="description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 结论 2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示 2x3 的数独总共有 28200960 种，"><meta itemprop="datePublished" content="2023-12-28T14:12:20+08:00" />
 <meta itemprop="dateModified" content="2023-12-28T14:12:20+08:00" />
-<meta itemprop="wordCount" content="127">
+<meta itemprop="wordCount" content="277">
 <meta itemprop="keywords" content="数独,数学," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="数独背后的数学"/>
-<meta name="twitter:description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 2x2 的数独总共有 288 种，基本形式只有2种 2x3 的数独总共有 28200960 种，基本形式只有49种 3x3 的数"/>
+<meta name="twitter:description" content="今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 结论 2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示 2x3 的数独总共有 28200960 种，"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -144,7 +144,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E5%AD%A6/"> 数学 </a>
             </div>
-          <span class="more-meta"> 约 127 字 </span>
+          <span class="more-meta"> 约 277 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         
       </div>
@@ -153,33 +153,52 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#结论">结论</a></li>
+            <li><a href="#参见">参见</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
       <p>今年第一篇也是最后一篇献给数独吧</p>
 <p>本次暂且只记录一些结论及来源</p>
+<h3 id="结论">结论</h3>
 <ul>
-<li>2x2 的数独总共有 288 种，基本形式只有2种</li>
-<li>2x3 的数独总共有 28200960 种，基本形式只有49种</li>
-<li>3x3 的数独总共有 6,670,903,752,021,072,936,960 (6.671×10^21), 基本形式有 5,472,730,538种</li>
+<li>2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示</li>
+<li>2x3 的数独总共有 28200960 种，基本形式有49种, 解开至少需要8个提示</li>
+<li>3x3 的数独总共有 6,670,903,752,021,072,936,960 (6.671×10^21), 基本形式有 5,472,730,538种, 解开至少需要17个提示</li>
 </ul>
-<p>参见</p>
+<p>上面的种数是指数独盘面填满的所有可能情况</p>
+<h3 id="参见">参见</h3>
 <ul>
-<li>
-<p><a href="https://en.wikipedia.org/wiki/Mathematics_of_Sudoku">Mathematics of Sudoku</a></p>
-</li>
-<li>
-<p><a href="https://pi.math.cornell.edu/~mec/Summer2009/Mahmood/Four.html">The Math Behind Sudoku
-The 4×4 Case</a></p>
-</li>
-<li>
-<p><a href="http://programmers.enjoysudoku.com/www.setbb.com/sudoku/viewtopic41e5.html?t=882&amp;mforum=sudoku">
-How many possible 2x2 soduku&rsquo;s</a></p>
-</li>
-<li>
-<p><a href="https://downloads.hindawi.com/journals/ijct/2012/760310.pdf"></a></p>
-</li>
+<li>[Mathematics of Sudoku facts for kids]{https://kids.kiddle.co/Mathematics_of_Sudoku}</li>
+<li><a href="https://en.wikipedia.org/wiki/Mathematics_of_Sudoku">Mathematics of Sudoku -Wikipedia</a></li>
+<li><a href="https://en-academic.com/dic.nsf/enwiki/1368721">Mathematics of Sudoku -academic.com</a></li>
+<li><a href="https://pi.math.cornell.edu/~mec/Summer2009/Mahmood/Four.html">The Math Behind Sudoku
+The 4×4 Case</a></li>
+<li><a href="http://programmers.enjoysudoku.com/www.setbb.com/sudoku/viewtopic41e5.html?t=882&amp;mforum=sudoku">
+How many possible 2x2 soduku&rsquo;s</a></li>
+<li><a href="https://downloads.hindawi.com/journals/ijct/2012/760310.pdf">
+The Structure of Reduced Sudoku Grids and the Sudoku Symmetry Group</a></li>
+<li><a href="https://archive.is/VpOW7">There are 5472730538 essentially different Sudoku grids
+&hellip; and the Sudoku symmetry group
+Ed Russell and Frazer Jarvis</a></li>
+<li><a href="https://archive.is/2012.07.20-061559/http://www.afjarvis.staff.shef.ac.uk/sudoku/sud23gp.html#selection-13.13-13.14">There are 49 essentially different Sudoku 2x3 grids
+&hellip; and the 2x3 Sudoku symmetry group</a></li>
+<li><a href="https://oeis.org/A291187">A291187		Number of 2 X n Sudoku grids ((2<em>n) X (2</em>n) grids divided into 2 X n boxes)</a></li>
+<li><a href="http://forum.enjoysudoku.com/number-of-essentially-different-sudoku-grids-t4281.html">Number of essentially different Sudoku grids</a></li>
+<li><a href="https://arxiv.org/pdf/1201.0749.pdf">There is no 16-Clue Sudoku: Solving the Sudoku Minimum
+Number of Clues Problem via Hitting Set Enumeration</a></li>
 </ul>
 
     </div>

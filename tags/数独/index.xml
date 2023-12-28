@@ -13,7 +13,7 @@
       <pubDate>Thu, 28 Dec 2023 14:12:20 +0800</pubDate>
       
       <guid>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</guid>
-      <description>今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 2x2 的数独总共有 288 种，基本形式只有2种 2x3 的数独总共有 28200960 种，基本形式只有49种 3x3 的数</description>
+      <description>今年第一篇也是最后一篇献给数独吧 本次暂且只记录一些结论及来源 结论 2x2 的数独总共有 288 种，基本形式有2种, 解开至少需要4个提示 2x3 的数独总共有 28200960 种，</description>
     </item>
     
   </channel>
