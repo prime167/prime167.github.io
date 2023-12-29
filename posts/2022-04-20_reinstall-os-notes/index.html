@@ -14,7 +14,7 @@
 uBlackOrigin uBlacklist (有Dropbox、Google Drive网盘同步功能) Proxy SwitchyOmega 7、油猴脚本配置 知乎编辑器 Note 暴力猴有云同步功能，可以将所有脚本及配置备份到Dropbox或者Google Drive">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2022-04-20_reinstall-os-notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4b67685d3c7da5962fd06126e91f3b729c55dc8c839e8f8c3c4792a0d9353c60.css" integrity="sha256-S2doXTx9pZYv0GEm6R87cpxV3IyDno&#43;MPEeSoNk1PGA=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://prime167.github.io/favicon.ico">
@@ -222,56 +222,116 @@ uBlackOrigin uBlacklist (有Dropbox、Google Drive网盘同步功能) Proxy Swit
     <div class="post-meta"><span title='2022-04-20 14:57:20 +0800 CST'>2022-04-20</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%bc%98%e8%b5%b7" aria-label="缘起">缘起</a></li>
-                <li>
-                    <a href="#%e5%a4%87%e4%bb%bd" aria-label="备份">备份</a><ul>
-                        
-                <li>
-                    <a href="#1ip%e5%8f%8adns%e8%ae%be%e7%bd%ae" aria-label="1、IP及DNS设置">1、IP及DNS设置</a></li>
-                <li>
-                    <a href="#%e9%92%89%e9%92%89%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95" aria-label="钉钉聊天记录">钉钉聊天记录</a></li>
-                <li>
-                    <a href="#2%e5%be%ae%e4%bf%a1%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95" aria-label="2、微信聊天记录">2、微信聊天记录</a></li>
-                <li>
-                    <a href="#3%e6%a1%8c%e9%9d%a2%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f" aria-label="3、桌面快捷方式">3、桌面快捷方式</a></li>
-                <li>
-                    <a href="#4%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="4、环境变量">4、环境变量</a></li>
-                <li>
-                    <a href="#5%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84userdata" aria-label="5、浏览器的UserData">5、浏览器的UserData</a><ul>
-                        
-                <li>
-                    <a href="#51-edge" aria-label="5.1 Edge">5.1 Edge</a></li>
-                <li>
-                    <a href="#52-google-chrome" aria-label="5.2 Google Chrome">5.2 Google Chrome</a></li></ul>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%bc%98%e8%b5%b7" aria-label="缘起">缘起</a></li>
+                    <li>
+                        <a href="#%e5%a4%87%e4%bb%bd" aria-label="备份">备份</a><ul>
+                            
+                    <li>
+                        <a href="#1ip%e5%8f%8adns%e8%ae%be%e7%bd%ae" aria-label="1、IP及DNS设置">1、IP及DNS设置</a></li>
+                    <li>
+                        <a href="#%e9%92%89%e9%92%89%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95" aria-label="钉钉聊天记录">钉钉聊天记录</a></li>
+                    <li>
+                        <a href="#2%e5%be%ae%e4%bf%a1%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95" aria-label="2、微信聊天记录">2、微信聊天记录</a></li>
+                    <li>
+                        <a href="#3%e6%a1%8c%e9%9d%a2%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f" aria-label="3、桌面快捷方式">3、桌面快捷方式</a></li>
+                    <li>
+                        <a href="#4%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="4、环境变量">4、环境变量</a></li>
+                    <li>
+                        <a href="#5%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84userdata" aria-label="5、浏览器的UserData">5、浏览器的UserData</a><ul>
+                            
+                    <li>
+                        <a href="#51-edge" aria-label="5.1 Edge">5.1 Edge</a></li>
+                    <li>
+                        <a href="#52-google-chrome" aria-label="5.2 Google Chrome">5.2 Google Chrome</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#6%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e7%9a%84%e8%ae%be%e7%bd%ae" aria-label="6、浏览器扩展的设置">6、浏览器扩展的设置</a></li>
+                    <li>
+                        <a href="#7%e6%b2%b9%e7%8c%b4%e8%84%9a%e6%9c%ac%e9%85%8d%e7%bd%ae" aria-label="7、油猴脚本配置">7、油猴脚本配置</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6" aria-label="安装软件">安装软件</a></li>
+                    <li>
+                        <a href="#%e8%b0%83%e6%95%b4%e7%b3%bb%e7%bb%9f%e8%ae%be%e7%bd%ae" aria-label="调整系统设置">调整系统设置</a><ul>
+                            
+                    <li>
+                        <a href="#%e9%9a%90%e8%97%8f%e6%ad%a4%e7%94%b5%e8%84%91%e4%b8%8b%e7%9a%84%e6%96%87%e4%bb%b6%e5%a4%b9" aria-label="隐藏此电脑下的文件夹">隐藏此电脑下的文件夹</a>
+                    </li>
+                </ul>
                 </li>
-                <li>
-                    <a href="#6%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e7%9a%84%e8%ae%be%e7%bd%ae" aria-label="6、浏览器扩展的设置">6、浏览器扩展的设置</a></li>
-                <li>
-                    <a href="#7%e6%b2%b9%e7%8c%b4%e8%84%9a%e6%9c%ac%e9%85%8d%e7%bd%ae" aria-label="7、油猴脚本配置">7、油猴脚本配置</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6" aria-label="安装软件">安装软件</a></li>
-                <li>
-                    <a href="#%e8%b0%83%e6%95%b4%e7%b3%bb%e7%bb%9f%e8%ae%be%e7%bd%ae" aria-label="调整系统设置">调整系统设置</a><ul>
-                        
-                <li>
-                    <a href="#%e9%9a%90%e8%97%8f%e6%ad%a4%e7%94%b5%e8%84%91%e4%b8%8b%e7%9a%84%e6%96%87%e4%bb%b6%e5%a4%b9" aria-label="隐藏此电脑下的文件夹">隐藏此电脑下的文件夹</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
 
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
   <div class="post-content"><h2 id="缘起">缘起<a hidden class="anchor" aria-hidden="true" href="#缘起">#</a></h2>
 <p>公司电脑升级到Windows 10 21H2后出现了各种问题：</p>
 <ul>

@@ -10,7 +10,7 @@
 <meta name="description" content="新博客配置的七七八八了，记录一下过程和未解决问题。">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2019-11-25-hugo-setup/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4b67685d3c7da5962fd06126e91f3b729c55dc8c839e8f8c3c4792a0d9353c60.css" integrity="sha256-S2doXTx9pZYv0GEm6R87cpxV3IyDno&#43;MPEeSoNk1PGA=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://prime167.github.io/favicon.ico">
@@ -210,53 +210,113 @@ if (!doNotTrack) {
     <div class="post-meta"><span title='2019-08-07 16:36:46 +0800 CST'>2019-08-07</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;codest
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e6%9b%b4%e6%96%b0%e8%ae%b0%e5%bd%95" aria-label="更新记录">更新记录</a></li>
-                <li>
-                    <a href="#%e6%b3%a8%e5%86%8cgithub" aria-label="注册GitHub">注册GitHub</a></li>
-                <li>
-                    <a href="#%e5%88%9b%e5%bb%ba%e5%8d%9a%e5%ae%a2-repo" aria-label="创建博客 repo">创建博客 repo</a></li>
-                <li>
-                    <a href="#%e4%b8%8b%e8%bd%bdhugo" aria-label="下载hugo">下载hugo</a></li>
-                <li>
-                    <a href="#%e5%88%9b%e5%bb%bablog" aria-label="创建blog">创建blog</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e9%a2%98" aria-label="设置主题">设置主题</a></li>
-                <li>
-                    <a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae" aria-label="基本配置">基本配置</a></li>
-                <li>
-                    <a href="#%e9%85%8d%e7%bd%ae%e5%86%85%e5%ae%b9%e8%bf%87%e6%9c%9f%e6%8f%90%e9%86%92" aria-label="配置内容过期提醒">配置内容过期提醒</a></li>
-                <li>
-                    <a href="#%e9%85%8d%e7%bd%aeutteranc%e8%af%84%e8%ae%ba%e7%b3%bb%e7%bb%9f" aria-label="配置utteranc评论系统">配置utteranc评论系统</a></li>
-                <li>
-                    <a href="#%e6%b7%bb%e5%8a%a0%e6%96%b0%e6%96%87%e7%ab%a0" aria-label="添加新文章">添加新文章</a></li>
-                <li>
-                    <a href="#%e7%bc%96%e8%be%91" aria-label="编辑">编辑</a><ul>
-                        
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%aetag" aria-label="设置tag">设置tag</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e5%88%86%e7%b1%bb" aria-label="设置分类">设置分类</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e6%96%87%e7%ab%a0%e6%91%98%e8%a6%81" aria-label="设置文章摘要">设置文章摘要</a></li>
-                <li>
-                    <a href="#%e6%9c%ac%e5%9c%b0%e9%a2%84%e8%a7%88" aria-label="本地预览">本地预览</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%8f%91%e5%b8%83" aria-label="发布">发布</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%9b%b4%e6%96%b0%e8%ae%b0%e5%bd%95" aria-label="更新记录">更新记录</a></li>
+                    <li>
+                        <a href="#%e6%b3%a8%e5%86%8cgithub" aria-label="注册GitHub">注册GitHub</a></li>
+                    <li>
+                        <a href="#%e5%88%9b%e5%bb%ba%e5%8d%9a%e5%ae%a2-repo" aria-label="创建博客 repo">创建博客 repo</a></li>
+                    <li>
+                        <a href="#%e4%b8%8b%e8%bd%bdhugo" aria-label="下载hugo">下载hugo</a></li>
+                    <li>
+                        <a href="#%e5%88%9b%e5%bb%bablog" aria-label="创建blog">创建blog</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e9%a2%98" aria-label="设置主题">设置主题</a></li>
+                    <li>
+                        <a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae" aria-label="基本配置">基本配置</a></li>
+                    <li>
+                        <a href="#%e9%85%8d%e7%bd%ae%e5%86%85%e5%ae%b9%e8%bf%87%e6%9c%9f%e6%8f%90%e9%86%92" aria-label="配置内容过期提醒">配置内容过期提醒</a></li>
+                    <li>
+                        <a href="#%e9%85%8d%e7%bd%aeutteranc%e8%af%84%e8%ae%ba%e7%b3%bb%e7%bb%9f" aria-label="配置utteranc评论系统">配置utteranc评论系统</a></li>
+                    <li>
+                        <a href="#%e6%b7%bb%e5%8a%a0%e6%96%b0%e6%96%87%e7%ab%a0" aria-label="添加新文章">添加新文章</a></li>
+                    <li>
+                        <a href="#%e7%bc%96%e8%be%91" aria-label="编辑">编辑</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%aetag" aria-label="设置tag">设置tag</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e5%88%86%e7%b1%bb" aria-label="设置分类">设置分类</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e6%96%87%e7%ab%a0%e6%91%98%e8%a6%81" aria-label="设置文章摘要">设置文章摘要</a></li>
+                    <li>
+                        <a href="#%e6%9c%ac%e5%9c%b0%e9%a2%84%e8%a7%88" aria-label="本地预览">本地预览</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%8f%91%e5%b8%83" aria-label="发布">发布</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
 
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
   <div class="post-content"><p>新博客配置的七七八八了，记录一下过程和未解决问题。</p>
 <h2 id="更新记录">更新记录<a hidden class="anchor" aria-hidden="true" href="#更新记录">#</a></h2>
 <ul>

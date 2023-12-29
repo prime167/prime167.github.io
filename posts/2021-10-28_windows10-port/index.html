@@ -13,7 +13,7 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 λ netsh int ipv4 show excludedportrange tcp 协议 tcp 端口排除范围 开始端口 结束端口 ---------- -------- 80 80 1313 1313 * 1883 1883 * 1899 1998 1999 2098 2108 2207 2208 2307 2308 2407 2422 2521 2522 2621 2622 2721 2722 2821 2822 2921 5357 5357 45000 45000 50000 50059 * * - 管理的端口排除。 带*就是我上面添加的。">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2021-10-28_windows10-port/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4b67685d3c7da5962fd06126e91f3b729c55dc8c839e8f8c3c4792a0d9353c60.css" integrity="sha256-S2doXTx9pZYv0GEm6R87cpxV3IyDno&#43;MPEeSoNk1PGA=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://prime167.github.io/favicon.ico">
@@ -220,7 +220,6 @@ if (!doNotTrack) {
 
 </div>
   </header> 
-
   <div class="post-content"><p>前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

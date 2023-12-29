@@ -10,7 +10,7 @@
 <meta name="description" content="昨天在公司局域网搭建了一个nuget服务器，记录一下过程">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2019-12-24-local-nuget-server/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.4b67685d3c7da5962fd06126e91f3b729c55dc8c839e8f8c3c4792a0d9353c60.css" integrity="sha256-S2doXTx9pZYv0GEm6R87cpxV3IyDno&#43;MPEeSoNk1PGA=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="http://prime167.github.io/favicon.ico">
@@ -210,53 +210,113 @@ if (!doNotTrack) {
     <div class="post-meta"><span title='2019-12-24 15:09:29 +0800 CST'>2019-12-24</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;codest
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e7%9b%ae%e7%9a%84" aria-label="目的">目的</a></li>
-                <li>
-                    <a href="#%e4%bc%a0%e7%bb%9f%e7%b1%bb%e5%ba%93%e5%88%86%e5%8f%91%e6%96%b9%e5%bc%8f" aria-label="传统类库分发方式">传统类库分发方式</a><ul>
-                        
-                <li>
-                    <a href="#%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f" aria-label="源代码方式">源代码方式</a></li>
-                <li>
-                    <a href="#%e4%bb%a5dll%e6%96%b9%e5%bc%8f%e5%88%86%e5%8f%91" aria-label="以DLL方式分发">以DLL方式分发</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a></li>
-                <li>
-                    <a href="#visual-studio-%e6%b7%bb%e5%8a%a0%e7%a8%8b%e5%ba%8f%e5%8c%85%e6%ba%90" aria-label="Visual Studio 添加程序包源">Visual Studio 添加程序包源</a></li>
-                <li>
-                    <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li>
-                <li>
-                    <a href="#%e5%88%9b%e5%bb%banuget%e5%8c%85" aria-label="创建NuGet包">创建NuGet包</a><ul>
-                        
-                <li>
-                    <a href="#1-%e9%80%9a%e8%bf%87nuget%e5%91%bd%e4%bb%a4%e8%a1%8c" aria-label="1. 通过NuGet命令行">1. 通过NuGet命令行</a></li>
-                <li>
-                    <a href="#2-%e4%bd%bf%e7%94%a8-dotnet-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%88%9b%e5%bb%ba" aria-label="2. 使用 dotnet 命令行创建">2. 使用 dotnet 命令行创建</a></li>
-                <li>
-                    <a href="#3-%e4%bd%bf%e7%94%a8-visual-studio-%e5%88%9b%e5%bb%ba" aria-label="3. 使用 Visual Studio 创建">3. 使用 Visual Studio 创建</a></li>
-                <li>
-                    <a href="#4%e9%80%9a%e8%bf%87-nuget-package-explorer-%e5%88%9b%e5%bb%ba" aria-label="4.通过 NuGet Package Explorer 创建">4.通过 NuGet Package Explorer 创建</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%8f%91%e5%b8%83nuget%e5%8c%85" aria-label="发布NuGet包">发布NuGet包</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e9%bb%98%e8%ae%a4source" aria-label="设置默认source">设置默认source</a></li>
-                <li>
-                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e7%9b%ae%e7%9a%84" aria-label="目的">目的</a></li>
+                    <li>
+                        <a href="#%e4%bc%a0%e7%bb%9f%e7%b1%bb%e5%ba%93%e5%88%86%e5%8f%91%e6%96%b9%e5%bc%8f" aria-label="传统类库分发方式">传统类库分发方式</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f" aria-label="源代码方式">源代码方式</a></li>
+                    <li>
+                        <a href="#%e4%bb%a5dll%e6%96%b9%e5%bc%8f%e5%88%86%e5%8f%91" aria-label="以DLL方式分发">以DLL方式分发</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a></li>
+                    <li>
+                        <a href="#visual-studio-%e6%b7%bb%e5%8a%a0%e7%a8%8b%e5%ba%8f%e5%8c%85%e6%ba%90" aria-label="Visual Studio 添加程序包源">Visual Studio 添加程序包源</a></li>
+                    <li>
+                        <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li>
+                    <li>
+                        <a href="#%e5%88%9b%e5%bb%banuget%e5%8c%85" aria-label="创建NuGet包">创建NuGet包</a><ul>
+                            
+                    <li>
+                        <a href="#1-%e9%80%9a%e8%bf%87nuget%e5%91%bd%e4%bb%a4%e8%a1%8c" aria-label="1. 通过NuGet命令行">1. 通过NuGet命令行</a></li>
+                    <li>
+                        <a href="#2-%e4%bd%bf%e7%94%a8-dotnet-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%88%9b%e5%bb%ba" aria-label="2. 使用 dotnet 命令行创建">2. 使用 dotnet 命令行创建</a></li>
+                    <li>
+                        <a href="#3-%e4%bd%bf%e7%94%a8-visual-studio-%e5%88%9b%e5%bb%ba" aria-label="3. 使用 Visual Studio 创建">3. 使用 Visual Studio 创建</a></li>
+                    <li>
+                        <a href="#4%e9%80%9a%e8%bf%87-nuget-package-explorer-%e5%88%9b%e5%bb%ba" aria-label="4.通过 NuGet Package Explorer 创建">4.通过 NuGet Package Explorer 创建</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%8f%91%e5%b8%83nuget%e5%8c%85" aria-label="发布NuGet包">发布NuGet包</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e9%bb%98%e8%ae%a4source" aria-label="设置默认source">设置默认source</a></li>
+                    <li>
+                        <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
 
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
   <div class="post-content"><p>昨天在公司局域网搭建了一个nuget服务器，记录一下过程</p>
 <h2 id="目的">目的<a hidden class="anchor" aria-hidden="true" href="#目的">#</a></h2>
 <p>首先，在本地搭建服务器的目的不是在本地复制一个 nuget.org，而是为了解决公司内部常用类库的分发问题。</p>
