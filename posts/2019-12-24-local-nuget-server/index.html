@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>局域网搭建私有nuget服务器 | 静静地坐着</title>
-<meta name="keywords" content="nuget, .NET">
+<meta name="keywords" content="nuget">
 <meta name="description" content="昨天在公司局域网搭建了一个nuget服务器，记录一下过程">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2019-12-24-local-nuget-server/">
@@ -109,7 +109,7 @@ if (!doNotTrack) {
   "name": "局域网搭建私有nuget服务器",
   "description": "昨天在公司局域网搭建了一个nuget服务器，记录一下过程\n",
   "keywords": [
-    "nuget", ".NET"
+    "nuget"
   ],
   "articleBody": "昨天在公司局域网搭建了一个nuget服务器，记录一下过程\n目的 首先，在本地搭建服务器的目的不是在本地复制一个 nuget.org，而是为了解决公司内部常用类库的分发问题。\n目前公用代码主要有两种分发方式：\n传统类库分发方式 源代码方式 在解决方案中直接添加类库的项目文件，再在需要的项目中添加引用\n优点：便于调试\n缺点：需要根据引用路径存放代码。\n类库与使用它的代码通常不在一个源代码版本库里。假设Solution1 以这种方式引用了Lib1，新的开发克隆了Solution1之后打开，Lib1很大可能是不可用状态，打开引用Lib1的项目文件,可能会看到这样的代码：\n1 2 3 4 ... ... 新开发必须据此规划路径并克隆Lib1\n以DLL方式分发 Lib1的负责人编译出dll，使用的人放到Solution1下的lib文件夹下，项目中再引用dll。\n优点：部署引用简单\n缺点：版本不易维护\n部署 我选择了官方的Nuget.Server,部署起来非常简单\n新建基于 .NET Framework 的空白 ASP.NET Web 应用程序\n通过NuGet包管理器添加Nuget.Server包\n发布\n部署到IIS\n浏览器中打开，看到下图就表示成功了\n编辑 Web.config\n1 2 3 4 5 6 7 8 9 10 Visual Studio 添加程序包源 工具 =\u003e 选项 =\u003e NuGet包管理器 =\u003e 程序包源,点击右侧加号添加源\n名称随便写，比如local 源写上一步配置好的地址，如 http://192.168.13.96:9006/nuget 点击确定 测试 随便找个NuGet包，放到IIS路径下的Packages文件夹下，服务器会自动解析包，并生成文件夹结构。 打开包管理器，源选择local，搜索刚才的包名字，是不是出现在搜索结果里了？ 创建NuGet包 目前可以通过3种方式创建一个NuGet包：\n1. 通过NuGet命令行 这种方法适用于传统的基于 .NET Framework的类库\n从 nuget.org 下载最新版本nuget.exe, 放到合适的路径，并添加到 PATH 环境变量\n生成包元数据文件\n在类库.csproj 文件目录下打开命令行，运行\n1 nuget spec ClassLibrary1.csproj 在目录下会生成一个 ClassLibrary1.nuspec，用文本编辑器打开，会看到如下内容：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 \u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e $id$ $version$ \u003c/span\u003e$title$ $author$ $author$ false ",
   "wordCount" : "422",
@@ -630,7 +630,6 @@ if (!doNotTrack) {
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="http://prime167.github.io/tags/nuget/">nuget</a></li>
-      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://prime167.github.io/posts/2019-12-26-nuget-change-global-cache-dir/">

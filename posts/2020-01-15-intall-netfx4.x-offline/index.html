@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>在Windows 7 SP1 下离线安装 .NET Framework 4.8 | 静静地坐着</title>
-<meta name="keywords" content=".NET">
+<meta name="keywords" content="dotnet">
 <meta name="description" content="在未联网的计算机上安装.NET Framework 4.6.1, 4.6.2, 4.7, 4.8 可能会因为缺少根证书失败">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2020-01-15-intall-netfx4.x-offline/">
@@ -109,7 +109,7 @@ if (!doNotTrack) {
   "name": "在Windows 7 SP1 下离线安装 .NET Framework 4.8",
   "description": "在未联网的计算机上安装.NET Framework 4.6.1, 4.6.2, 4.7, 4.8 可能会因为缺少根证书失败\n",
   "keywords": [
-    ".NET"
+    "dotnet"
   ],
   "articleBody": "在未联网的计算机上安装.NET Framework 4.6.1, 4.6.2, 4.7, 4.8 可能会因为缺少根证书失败\n昨天在一台未联网的Windows 7 SP1 上安装 .NET Framework 4.8,报错\n无法建立到信任根颁发机构的证书链\n英文系统下的提示为\nA certificate chain could not be built to a trusted root authority\n意思是我在你的电脑上没有我需要的根证书，我尝试联网下载，但是又连不上。\n解决方法： 最简单的方法就是联网让安装程序自己下载、导入证书（确保能连接 http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en）。\n如果实在无法联网，就需要下面的步骤了：\n1、下载证书：MicrosoftRootCertificateAuthority2011.cer\n2、安装：\n开始→运行→MMC 文件 → 添加删除管理单元 (Ctrl+M) 证书 → 计算机帐户 -\u003e 本地计算机 展开到：证书 → 受信任的根证书颁发机构 → 证书 右击展开菜单，所有任务 → 导入 选择刚才下载好的MicrosoftRootCertificateAuthority2011.cer，确定 在Windows 7 下离线安装Visual Studio 2019也会遇到证书问题\nhttps://docs.microsoft.com/zh-cn/visualstudio/install/install-certificates-for-visual-studio-offline?view=vs-2019\n",
   "wordCount" : "60",
@@ -241,7 +241,7 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
+      <li><a href="http://prime167.github.io/tags/dotnet/">dotnet</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://prime167.github.io/posts/2020-06-12-sln-file-notes/">

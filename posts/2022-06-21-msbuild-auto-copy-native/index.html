@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86 | 静静地坐着</title>
-<meta name="keywords" content="nuget, System.Data.SQLite, .NET">
+<meta name="keywords" content="nuget, System.Data.SQLite, dotnet">
 <meta name="description" content="问题 假设一个工程有如下的结构
 &mdash;-Demo sln
 &mdash;&mdash;&ndash;WPF
@@ -136,7 +136,7 @@ DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQL
   "name": "如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86",
   "description": "问题 假设一个工程有如下的结构\n\u0026mdash;-Demo sln\n\u0026mdash;\u0026mdash;\u0026ndash;WPF\n\u0026mdash;\u0026mdash;\u0026ndash;DataAccess\nWPF 引用 DataAccess 项目\nDataAccess项目引用nuget包System.Data.SQLite，\n编译后\nDataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll WPF输出文件夹仅存在System.Data.SQLite文件，需要手动从DataAccess输出文件夹拷贝X646和X86文件夹 而且每次升级System.Data.SQLite nuget包后都需要重新拷贝一次，否则会因为版本不匹配而出现异常。\n解决方法 在DataAccess.csproj 中添加\n1 2 3 4 5 6 \u0026lt;PropertyGroup\u0026gt; \u0026lt;ContentSQLiteInteropFiles\u0026gt;true\u0026lt;/ContentSQLiteInteropFiles\u0026gt; \u0026lt;CopySQLiteInteropFiles\u0026gt;false\u0026lt;/CopySQLiteInteropFiles\u0026gt; \u0026lt;CleanSQLiteInteropFiles\u0026gt;false\u0026lt;/CleanSQLiteInteropFiles\u0026gt; \u0026lt;CollectSQLiteInteropFiles\u0026gt;false\u0026lt;/CollectSQLiteInteropFiles\u0026gt; \u0026lt;/PropertyGroup\u0026gt; 参考 SQLite.Interop.dll files does not copy to project output path when required by referenced project Change nuget build targets to use \u0026lsquo;Content\u0026rsquo; rather than \u0026lsquo;Copy\u0026rsquo; and \u0026lsquo;Delete\u0026rsquo;",
   "keywords": [
-    "nuget", "System.Data.SQLite", ".NET"
+    "nuget", "System.Data.SQLite", "dotnet"
   ],
   "articleBody": "问题 假设一个工程有如下的结构\n—-Demo sln\n——–WPF\n——–DataAccess\nWPF 引用 DataAccess 项目\nDataAccess项目引用nuget包System.Data.SQLite，\n编译后\nDataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQLite.Interop.dll WPF输出文件夹仅存在System.Data.SQLite文件，需要手动从DataAccess输出文件夹拷贝X646和X86文件夹 而且每次升级System.Data.SQLite nuget包后都需要重新拷贝一次，否则会因为版本不匹配而出现异常。\n解决方法 在DataAccess.csproj 中添加\n1 2 3 4 5 6 true false false false 参考 SQLite.Interop.dll files does not copy to project output path when required by referenced project Change nuget build targets to use ‘Content’ rather than ‘Copy’ and ‘Delete’\n",
   "wordCount" : "58",
@@ -306,7 +306,7 @@ DataAccess输出文件夹存在System.Data.SQLite文件和X646和X86，内含SQL
     <ul class="post-tags">
       <li><a href="http://prime167.github.io/tags/nuget/">nuget</a></li>
       <li><a href="http://prime167.github.io/tags/system.data.sqlite/">System.Data.SQLite</a></li>
-      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
+      <li><a href="http://prime167.github.io/tags/dotnet/">dotnet</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/">

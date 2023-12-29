@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>编写线程安全的UI程序 | 静静地坐着</title>
-<meta name="keywords" content=".NET, thread">
+<meta name="keywords" content="dotnet, thread">
 <meta name="description" content="本篇讲一下如何编写线程安全的Winform 程序">
 <meta name="author" content="codest">
 <link rel="canonical" href="http://prime167.github.io/posts/2019-09-06-dotnet-safe-ui-app/">
@@ -109,7 +109,7 @@ if (!doNotTrack) {
   "name": "编写线程安全的UI程序",
   "description": "本篇讲一下如何编写线程安全的Winform 程序\n",
   "keywords": [
-    ".NET", "thread"
+    "dotnet", "thread"
   ],
   "articleBody": "本篇讲一下如何编写线程安全的Winform 程序\n有问题的代码 一个很简单的功能，Winform上实时显示当前时间：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 public partial class Form1 : Form { private System.Threading.Timer _timer; public Form1() { InitializeComponent(); } private void Form1_Load(object sender, EventArgs e) { _timer = new System.Threading.Timer(UpdateTime, null, 0, 20); } private void UpdateTime(object state) { lblTime.Text = DateTime.Now.ToString(\"hh:mm:ss\"); } } F5 运行，出错了：\n",
   "wordCount" : "64",
@@ -278,7 +278,7 @@ if (!doNotTrack) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
+      <li><a href="http://prime167.github.io/tags/dotnet/">dotnet</a></li>
       <li><a href="http://prime167.github.io/tags/thread/">thread</a></li>
     </ul>
 <nav class="paginav">
