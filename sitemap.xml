@@ -1,571 +1,254 @@
-<?xml-stylesheet type="text/xsl" href="http://prime167.github.io/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://prime167.github.io/categories/</loc>
     <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/</loc>
     <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/</loc>
     <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/</loc>
-    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/tags/%E6%95%B0%E7%8B%AC/</loc>
-    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</loc>
-    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2023-12-28T14:12:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>http://prime167.github.io/tags/%E6%95%B0%E7%8B%AC/</loc>
+    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2023-12-28-math-behind-sudoku/</loc>
+    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
+  </url><url>
+    <loc>http://prime167.github.io/</loc>
+    <lastmod>2023-12-28T14:12:20+08:00</lastmod>
+  </url><url>
     <loc>http://prime167.github.io/tags/edge/</loc>
     <lastmod>2022-09-08T10:54:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2022-09-08-hide-msedge-search-sidebar-context-menu/</loc>
+    <lastmod>2022-09-08T10:54:20+08:00</lastmod>
+  </url><url>
     <loc>http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2023-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
     <lastmod>2022-09-08T10:54:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2022-09-08-hide-msedge-search-sidebar-context-menu/</loc>
-    <lastmod>2022-09-08T10:54:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/git/</loc>
     <lastmod>2022-07-29T15:15:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/rebase/</loc>
     <lastmod>2022-07-29T15:15:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2022-07-29-undo-git-rebase/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2022-07-29-undo-git-rebase/</loc>
     <lastmod>2022-07-29T15:15:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/reflog/</loc>
     <lastmod>2022-07-29T14:04:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/</loc>
     <lastmod>2022-07-29T14:04:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/.net/</loc>
     <lastmod>2022-06-21T16:42:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/nuget/</loc>
     <lastmod>2022-06-21T16:42:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/system.data.sqlite/</loc>
     <lastmod>2022-06-21T16:42:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2022-06-21-msbuild-auto-copy-native/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2022-06-21-msbuild-auto-copy-native/</loc>
     <lastmod>2022-06-21T16:42:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/windows-10/</loc>
     <lastmod>2022-04-20T14:57:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-04-20T14:57:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/</loc>
     <lastmod>2022-04-20T14:57:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2022-04-20_reinstall-os-notes/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2022-04-20_reinstall-os-notes/</loc>
     <lastmod>2022-04-20T14:57:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-12-17-fix-win10-update-error-0x800f0922/</loc>
     <lastmod>2021-12-17T10:59:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/tool/</loc>
     <lastmod>2021-12-15T09:07:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-12-15-my-favorite-software-2021/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-12-15-my-favorite-software-2021/</loc>
     <lastmod>2021-12-15T09:07:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/cidr/</loc>
     <lastmod>2021-11-04T09:14:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/network/</loc>
     <lastmod>2021-11-04T09:14:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/vlsm/</loc>
     <lastmod>2021-11-04T09:14:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-11-04-vlsm-and-cidr/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-11-04-vlsm-and-cidr/</loc>
     <lastmod>2021-11-04T09:14:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-11-04T09:14:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/.port/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/hyper-v/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/port/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/til/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-10-28_windows10-port/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-10-28_windows10-port/</loc>
     <lastmod>2021-10-28T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/.gitconfig/</loc>
     <lastmod>2021-10-27T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-10-27-git-commit-user-per-dir/</loc>
     <lastmod>2021-10-27T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/includeif/</loc>
     <lastmod>2021-10-27T09:53:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/categories/blog/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2021-10-25-blog-reopen/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2021-10-25-blog-reopen/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/hugo/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/meta/</loc>
     <lastmod>2021-10-25T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2020-06-12-sln-file-notes/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2020-06-12-sln-file-notes/</loc>
     <lastmod>2020-06-12T16:28:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2020-01-15-intall-netfx4.x-offline/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2020-01-15-intall-netfx4.x-offline/</loc>
     <lastmod>2020-01-15T16:23:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/math/</loc>
     <lastmod>2019-12-31T16:16:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-12-31-a-math-inequalit/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-12-31-a-math-inequalit/</loc>
     <lastmod>2019-12-31T16:16:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-12-26-nuget-change-global-cache-dir/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-12-26-nuget-change-global-cache-dir/</loc>
     <lastmod>2019-12-26T16:10:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-12-24-local-nuget-server/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-12-24-local-nuget-server/</loc>
     <lastmod>2019-12-24T15:09:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/search/</loc>
     <lastmod>2019-12-23T15:05:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-12-23-fix-win10-search/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-12-23-fix-win10-search/</loc>
     <lastmod>2019-12-23T15:05:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/csharp/</loc>
     <lastmod>2023-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-12-16-doubleendedlist/</loc>
+    <lastmod>2019-12-16T14:45:50+08:00</lastmod>
+  </url><url>
     <loc>http://prime167.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-12-16T14:45:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-12-16-doubleendedlist/</loc>
-    <lastmod>2019-12-16T14:45:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-11-21-dotnet-knowledge/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-11-21-dotnet-knowledge/</loc>
     <lastmod>2019-11-21T14:25:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/firefox/</loc>
     <lastmod>2019-10-23T14:20:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-10-23-config-firefox/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-10-23-config-firefox/</loc>
     <lastmod>2019-10-23T14:20:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-10-17-my-favorite-software-2019/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-10-17-my-favorite-software-2019/</loc>
     <lastmod>2019-10-17T14:07:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-10-08-covariance-and-contravariance-of-csharp/</loc>
     <lastmod>2019-10-08T13:22:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/contravariance/</loc>
     <lastmod>2019-10-08T13:22:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/covariance/</loc>
     <lastmod>2019-10-08T13:22:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-09-23-dotnet-timers/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-09-23-dotnet-timers/</loc>
     <lastmod>2019-09-23T11:47:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/timer/</loc>
     <lastmod>2019-09-23T11:47:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/thread/</loc>
     <lastmod>2019-09-06T16:43:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-09-06-dotnet-safe-ui-app/</loc>
     <lastmod>2019-09-06T16:43:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-08-16-csharp-struct-parameter/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-08-16-csharp-struct-parameter/</loc>
     <lastmod>2019-08-16T16:36:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/struct/</loc>
     <lastmod>2019-08-16T16:36:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-11-25-hugo-setup/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-11-25-hugo-setup/</loc>
     <lastmod>2021-10-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-07-30-csharp-error-cs1612/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-07-30-csharp-error-cs1612/</loc>
     <lastmod>2023-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/cs1612/</loc>
     <lastmod>2023-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/bug/</loc>
     <lastmod>2019-07-26T14:57:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-07-26-about-fix-bugs/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-07-26-about-fix-bugs/</loc>
     <lastmod>2019-07-26T14:57:43+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/git-worktree/</loc>
     <lastmod>2019-07-26T14:05:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-07-26-git-worktree-usage/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-07-26-git-worktree-usage/</loc>
     <lastmod>2019-07-26T14:05:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/scm/</loc>
     <lastmod>2019-07-26T14:05:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/wince/</loc>
     <lastmod>2019-07-11T17:40:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>http://prime167.github.io/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2019-07-11T17:40:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-07-11-fix-windows10-share/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-07-11-fix-windows10-share/</loc>
     <lastmod>2019-07-11T17:40:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://prime167.github.io/post/2019-07-10-hello-world/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/posts/2019-07-10-hello-world/</loc>
     <lastmod>2019-07-10T17:32:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url><url>
+    <loc>http://prime167.github.io/archives/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/search/</loc>
+  </url><url>
+    <loc>http://prime167.github.io/series/</loc>
   </url>
-  
 </urlset>

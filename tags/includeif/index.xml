@@ -4,17 +4,28 @@
     <title>includeif on 静静地坐着</title>
     <link>http://prime167.github.io/tags/includeif/</link>
     <description>Recent content in includeif on 静静地坐着</description>
+    <image>
+      <title>静静地坐着</title>
+      <url>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</url>
+      <link>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Oct 2021 09:53:28 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/includeif/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Oct 2021 09:53:28 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/includeif/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git 使用includeIf配置多身份隔离</title>
-      <link>http://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</link>
+      <link>http://prime167.github.io/posts/2021-10-27-git-commit-user-per-dir/</link>
       <pubDate>Wed, 27 Oct 2021 09:53:28 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/</guid>
-      <description>问题 作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）： 公</description>
+      <guid>http://prime167.github.io/posts/2021-10-27-git-commit-user-per-dir/</guid>
+      <description>问题 作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）：
+公司的项目使用自己的名字和公司的邮箱: 张三 &amp;lt;zhansan@somecorp.com&amp;gt; 开源项目我会使用昵称和私人邮箱: Jack &amp;lt;xxx+xxx@users.noreply.github.com&amp;gt; 在~/.gitconfig（Windows 为%USERPROFILE%.gitconfig）只能声明一组name和email组合作为默认身份。虽然可以在每个repo下简单的通过运行 git config user.email &amp;lt;EMAIL&amp;gt; 和 git config user.name &amp;lt;NAME&amp;gt;命令来更改，问题是对于每个项目我都要运行这两个命令，难免有时候也会忘了设置，导致使用了错误的身份提交。
+幸运的是，git为我们提供解决此问题的方法
+[includeIf] 从 git 2.13.0 开始，git 配置文件开始支持 Conditional Includes 的配置。通过设置 includeIf..path，可以向命中 condition 的 git 仓库引入 path 指向的一个 git 配置文件中配置。
+[includeIf] 的语法如下， 为关键词， 是与关键词关联的数据， 具体意义由关键词决定。
+[includeIf &amp;ldquo;:&amp;rdquo;] path = path/to/gitconfig 其中支持的 keyword 有：
+gitdir: 其中 是一个 glob pattern 如果代码仓库的.git目录匹配 指定的 glob pattern，那么条件命中； gitdir/i：gitdir的大小写不敏感版本。 onbranch：其中 是匹配分支名的一个glob pattern。 假如代码仓库中分支名匹配 ，那么条件命中。 就我们的需求，使用 gitdir 完全可以。
+解决方案 加入我们有以下两个目录</description>
     </item>
-    
   </channel>
 </rss>

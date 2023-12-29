@@ -4,17 +4,21 @@
     <title>数独 on 静静地坐着</title>
     <link>http://prime167.github.io/tags/%E6%95%B0%E7%8B%AC/</link>
     <description>Recent content in 数独 on 静静地坐着</description>
+    <image>
+      <title>静静地坐着</title>
+      <url>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</url>
+      <link>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Dec 2023 14:12:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/%E6%95%B0%E7%8B%AC/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Dec 2023 14:12:20 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/%E6%95%B0%E7%8B%AC/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数独背后的数学</title>
-      <link>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</link>
+      <link>http://prime167.github.io/posts/2023-12-28-math-behind-sudoku/</link>
       <pubDate>Thu, 28 Dec 2023 14:12:20 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2023-12-28-math-behind-sudoku/</guid>
+      <guid>http://prime167.github.io/posts/2023-12-28-math-behind-sudoku/</guid>
       <description>&lt;p&gt;今年第一篇也是最后一篇献给数独吧&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

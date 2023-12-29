@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>.NET 中的 timer | 静静地坐着</title>
+<meta name="keywords" content=".NET, csharp, timer">
+<meta name="description" content="今天简单介绍一下 .NET framework中的timer">
+<meta name="author" content="codest">
+<link rel="canonical" href="http://prime167.github.io/posts/2019-09-23-dotnet-timers/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://prime167.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://prime167.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://prime167.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://prime167.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://prime167.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRR6GRNQGK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QRR6GRNQGK', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content=".NET 中的 timer" />
+<meta property="og:description" content="今天简单介绍一下 .NET framework中的timer" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prime167.github.io/posts/2019-09-23-dotnet-timers/" /><meta property="og:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-09-23T11:47:39+08:00" />
+<meta property="article:modified_time" content="2019-09-23T11:47:39+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:title" content=".NET 中的 timer"/>
+<meta name="twitter:description" content="今天简单介绍一下 .NET framework中的timer"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://prime167.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": ".NET 中的 timer",
+      "item": "http://prime167.github.io/posts/2019-09-23-dotnet-timers/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": ".NET 中的 timer",
+  "name": ".NET 中的 timer",
+  "description": "今天简单介绍一下 .NET framework中的timer\n",
+  "keywords": [
+    ".NET", "csharp", "timer"
+  ],
+  "articleBody": "今天简单介绍一下 .NET framework中的timer\n概述 目前，.NET Framework中有如下几种 timer：\nSystem.Timers.Timer System.Threading.Timer System.Windows.Forms.Timer System.Windows.Threading.DispatcherTimer System.Web.UI.Timer PeriodicTimer 其中前两个是通用的，即可用于客户端，也可用于服务器；第三个用于winform下，第四个用于WPF下，第五个是传统的Asp.NET Page下的控件\nSystem.Windows.Forms.Timer 先看这个最简单的。这是Winform工具箱里的一默认组件，设置一个时间间隔，每个时间间隔要触发的时间，用Start()方法启动即可\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 public partial class Form1 : Form { private int _count; private readonly Timer _timer = new Timer(); private readonly Label _lblCount = new Label(); public Form1() { InitializeComponent(); Size = new Size(450, 450); Controls.Add(_lblCount); _lblCount.Location = new Point(200, 200); _timer.Interval = 100; _timer.Tick += timer1_Tick; } private void Form1_Load(object sender, EventArgs e) { _timer.Start(); } private void timer1_Tick(object sender, EventArgs e) { _count++; _lblCount.Text = _count.ToString(\"0000\"); if (_count \u003e= 30) { _timer.Stop(); } } } 当然缺点也很明显：\n运行在UI线程，如果每个间隔的操作耗时较长，就会造成阻塞，表现为界面卡顿，影响用户体验\n精度较低，最低只能到55毫秒\nSystem.Windows.Threading.DispatcherTimer 这个和System.Windows.Forms.Timer类似,不过是WPF下使用的\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 public partial class MainWindow : Window { private int _count = 0; private readonly DispatcherTimer _timer = new DispatcherTimer(); public MainWindow() { InitializeComponent(); _timer.Interval = TimeSpan.FromMilliseconds(100); _timer.Tick += _timer_Tick; } private void _timer_Tick(object sender, EventArgs e) { _count++; lblCount.Content = _count.ToString(\"0000\"); if (_count \u003e= 30) { _timer.Stop(); } } private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) { _timer.Start(); } } 缺点：\n运行在UI线程，耗时操作也会造成界面卡顿 精度较低，因为是再Dispatcher队列中运行，受到自身和队列中其他事件的影响，不能保证严格按照interval触发事件\nSystem.Threading.Timer 根据时间间隔在线程池中执行操作 (关于跨线程操作，见上一篇博文)\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 public partial class Form3 : Form { private int _count; private System.Threading.Timer _timer; private readonly Label _lblCount = new Label(); private readonly SynchronizationContext _context; public Form3() { InitializeComponent(); _lblCount.Text = \"0000\"; _context = SynchronizationContext.Current ?? new SynchronizationContext(); Size = new Size(450,450); Controls.Add(_lblCount); _lblCount.Location = new Point(200, 200); } private void UpdateCount(object state) { _count++; _context.Send(delegate { _lblCount.Text = _count.ToString(\"0000\"); }, null); if (_count \u003e= 30) { _timer.Change(Timeout.Infinite, Timeout.Infinite); } } private void Form3_Shown(object sender, EventArgs e) { _timer = new System.Threading.Timer(UpdateCount, null, 1000, 100); } } System.Timers.Timer 通过MSDN文档可以知道，该类继承了System.ComponentModel.Component,并实现了System.ComponentModel.ISupportInitialize结果，所以它也可以被添加到工具箱里\n通过分析源码可以发现，它是对 System.Threading.Timer的包装\n用法：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 public partial class Form2 : Form { private int _count; private readonly System.Timers.Timer _timer = new System.Timers.Timer(); private readonly Label _lblCount = new Label(); public Form2() { InitializeComponent(); Size = new Size(450,450); Controls.Add(_lblCount); _lblCount.Location = new Point(200, 200); _timer.Interval = 100; _timer.SynchronizingObject = this; _timer.Elapsed += _timer_Elapsed; } private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) { _count++; _lblCount.Text = _count.ToString(\"0000\"); if (_count \u003e= 30) { _timer.Stop(); } } private void Form1_Load(object sender, EventArgs e) { _timer.Start(); } } 如果设置了SynchronizingObject，则调用该控件的BeginInvoke方法\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 private void MyTimerCallback(object state) { // System.Threading.Timer will not cancel the work item queued before the timer is stopped. // We don't want to handle the callback after a timer is stopped. if( state != cookie) { return; } if (!this.autoReset) { enabled = false; } FILE_TIME filetime = new FILE_TIME(); GetSystemTimeAsFileTime(ref filetime); ElapsedEventArgs elapsedEventArgs = new ElapsedEventArgs(filetime.ftTimeLow, filetime.ftTimeHigh); try { // To avoid ---- between remove handler and raising the event ElapsedEventHandler intervalElapsed = this.onIntervalElapsed; if (intervalElapsed != null) { if (this.SynchronizingObject != null \u0026\u0026 this.SynchronizingObject.InvokeRequired) this.SynchronizingObject.BeginInvoke(intervalElapsed, new object[]{this, elapsedEventArgs}); else intervalElapsed(this, elapsedEventArgs); } } catch { } } System.Web.UI.Timer 略\n源码\nprime167/DotNetTimers\n",
+  "wordCount" : "586",
+  "inLanguage": "en",
+  "datePublished": "2019-09-23T11:47:39+08:00",
+  "dateModified": "2019-09-23T11:47:39+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "codest"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://prime167.github.io/posts/2019-09-23-dotnet-timers/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "静静地坐着",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://prime167.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://prime167.github.io/" accesskey="h" title="静静地坐着 (Alt + H)">静静地坐着</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://prime167.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/categories/" title="类别">
+                    <span>类别</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://prime167.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://prime167.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      .NET 中的 timer
+    </h1>
+    <div class="post-meta"><span title='2019-09-23 11:47:39 +0800 CST'>2019-09-23</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;codest
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%a6%82%e8%bf%b0" aria-label="概述">概述</a></li>
+                <li>
+                    <a href="#systemwindowsformstimer" aria-label="System.Windows.Forms.Timer">System.Windows.Forms.Timer</a></li>
+                <li>
+                    <a href="#systemwindowsthreadingdispatchertimer" aria-label="System.Windows.Threading.DispatcherTimer">System.Windows.Threading.DispatcherTimer</a></li>
+                <li>
+                    <a href="#systemthreadingtimer" aria-label="System.Threading.Timer">System.Threading.Timer</a></li>
+                <li>
+                    <a href="#systemtimerstimer" aria-label="System.Timers.Timer">System.Timers.Timer</a></li>
+                <li>
+                    <a href="#systemwebuitimer" aria-label="System.Web.UI.Timer">System.Web.UI.Timer</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>今天简单介绍一下 .NET framework中的timer</p>
+<h2 id="概述">概述<a hidden class="anchor" aria-hidden="true" href="#概述">#</a></h2>
+<p>目前，.NET Framework中有如下几种 timer：</p>
+<ol>
+<li>System.Timers.Timer</li>
+<li>System.Threading.Timer</li>
+<li>System.Windows.Forms.Timer</li>
+<li>System.Windows.Threading.DispatcherTimer</li>
+<li>System.Web.UI.Timer</li>
+<li>PeriodicTimer</li>
+</ol>
+<p>其中前两个是通用的，即可用于客户端，也可用于服务器；第三个用于winform下，第四个用于WPF下，第五个是传统的Asp.NET Page下的控件</p>
+<h2 id="systemwindowsformstimer">System.Windows.Forms.Timer<a hidden class="anchor" aria-hidden="true" href="#systemwindowsformstimer">#</a></h2>
+<p>先看这个最简单的。这是Winform工具箱里的一默认组件，设置一个时间间隔，每个时间间隔要触发的时间，用Start()方法启动即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">Form1</span> <span class="p">:</span> <span class="n">Form</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">Timer</span> <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">Label</span> <span class="n">_lblCount</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Label</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Form1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">InitializeComponent</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Size</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Size</span><span class="p">(</span><span class="m">450</span><span class="p">,</span> <span class="m">450</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Controls</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_lblCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Location</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Tick</span> <span class="p">+=</span> <span class="n">timer1_Tick</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">timer1_Tick</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_count</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">_count</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;0000&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_count</span> <span class="p">&gt;=</span> <span class="m">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_timer</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当然缺点也很明显：</p>
+<p>运行在UI线程，如果每个间隔的操作耗时较长，就会造成阻塞，表现为界面卡顿，影响用户体验</p>
+<p>精度较低，最低只能到55毫秒</p>
+<h2 id="systemwindowsthreadingdispatchertimer">System.Windows.Threading.DispatcherTimer<a hidden class="anchor" aria-hidden="true" href="#systemwindowsthreadingdispatchertimer">#</a></h2>
+<p>这个和System.Windows.Forms.Timer类似,不过是WPF下使用的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">MainWindow</span> <span class="p">:</span> <span class="n">Window</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">DispatcherTimer</span> <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DispatcherTimer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">MainWindow</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">InitializeComponent</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMilliseconds</span><span class="p">(</span><span class="m">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Tick</span> <span class="p">+=</span> <span class="n">_timer_Tick</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">_timer_Tick</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_count</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lblCount</span><span class="p">.</span><span class="n">Content</span> <span class="p">=</span> <span class="n">_count</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;0000&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_count</span> <span class="p">&gt;=</span> <span class="m">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_timer</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">MainWindow_OnLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>缺点：</p>
+<p>运行在UI线程，耗时操作也会造成界面卡顿
+精度较低，因为是再Dispatcher队列中运行，受到自身和队列中其他事件的影响，不能保证严格按照interval触发事件</p>
+<h2 id="systemthreadingtimer">System.Threading.Timer<a hidden class="anchor" aria-hidden="true" href="#systemthreadingtimer">#</a></h2>
+<p>根据时间间隔在线程池中执行操作 (关于跨线程操作，见<a href="/post/2019-09-06-dotnet-safe-ui-app">上一篇博文</a>)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">Form3</span> <span class="p">:</span> <span class="n">Form</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_timer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">Label</span> <span class="n">_lblCount</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Label</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">SynchronizationContext</span> <span class="n">_context</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Form3</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">InitializeComponent</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">&#34;0000&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_context</span> <span class="p">=</span> <span class="n">SynchronizationContext</span><span class="p">.</span><span class="n">Current</span> <span class="p">??</span> <span class="k">new</span> <span class="n">SynchronizationContext</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Size</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Size</span><span class="p">(</span><span class="m">450</span><span class="p">,</span><span class="m">450</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Controls</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_lblCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Location</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">UpdateCount</span><span class="p">(</span><span class="kt">object</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_count</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_context</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="k">delegate</span> <span class="p">{</span> <span class="n">_lblCount</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">_count</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;0000&#34;</span><span class="p">);</span> <span class="p">},</span> <span class="kc">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_count</span> <span class="p">&gt;=</span> <span class="m">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_timer</span><span class="p">.</span><span class="n">Change</span><span class="p">(</span><span class="n">Timeout</span><span class="p">.</span><span class="n">Infinite</span><span class="p">,</span> <span class="n">Timeout</span><span class="p">.</span><span class="n">Infinite</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">Form3_Shown</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">UpdateCount</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="systemtimerstimer">System.Timers.Timer<a hidden class="anchor" aria-hidden="true" href="#systemtimerstimer">#</a></h2>
+<p>通过MSDN文档可以知道，该类继承了System.ComponentModel.Component,并实现了System.ComponentModel.ISupportInitialize结果，所以它也可以被添加到工具箱里</p>
+<p><img loading="lazy" src="/images/system.timers.timer.png" alt="img"  />
+</p>
+<p>通过分析<a href="https://referencesource.microsoft.com/#System/services/timers/system/timers/Timer.cs,897683f27faba082">源码</a>可以发现，它是对 System.Threading.Timer的包装</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">partial</span> <span class="k">class</span> <span class="nc">Form2</span> <span class="p">:</span> <span class="n">Form</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">_count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span> <span class="n">_timer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">Timer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">readonly</span> <span class="n">Label</span> <span class="n">_lblCount</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Label</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Form2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">InitializeComponent</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Size</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Size</span><span class="p">(</span><span class="m">450</span><span class="p">,</span><span class="m">450</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Controls</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">_lblCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Location</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Interval</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">SynchronizingObject</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Elapsed</span> <span class="p">+=</span> <span class="n">_timer_Elapsed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">_timer_Elapsed</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Timers</span><span class="p">.</span><span class="n">ElapsedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_count</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_lblCount</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">_count</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&#34;0000&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">_count</span> <span class="p">&gt;=</span> <span class="m">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">_timer</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">void</span> <span class="n">Form1_Load</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_timer</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果设置了SynchronizingObject，则调用该控件的BeginInvoke方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kd">private</span> <span class="k">void</span> <span class="n">MyTimerCallback</span><span class="p">(</span><span class="kt">object</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// System.Threading.Timer will not cancel the work item queued before the timer is stopped.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// We don&#39;t want to handle the callback after a timer is stopped.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span> <span class="n">state</span> <span class="p">!=</span> <span class="n">cookie</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(!</span><span class="k">this</span><span class="p">.</span><span class="n">autoReset</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">enabled</span> <span class="p">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">FILE_TIME</span> <span class="n">filetime</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FILE_TIME</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GetSystemTimeAsFileTime</span><span class="p">(</span><span class="k">ref</span> <span class="n">filetime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ElapsedEventArgs</span> <span class="n">elapsedEventArgs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ElapsedEventArgs</span><span class="p">(</span><span class="n">filetime</span><span class="p">.</span><span class="n">ftTimeLow</span><span class="p">,</span> <span class="n">filetime</span><span class="p">.</span><span class="n">ftTimeHigh</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// To avoid ---- between remove handler and raising the event</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ElapsedEventHandler</span> <span class="n">intervalElapsed</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">onIntervalElapsed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">intervalElapsed</span> <span class="p">!=</span> <span class="kc">null</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">SynchronizingObject</span> <span class="p">!=</span> <span class="kc">null</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">SynchronizingObject</span><span class="p">.</span><span class="n">InvokeRequired</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="n">SynchronizingObject</span><span class="p">.</span><span class="n">BeginInvoke</span><span class="p">(</span><span class="n">intervalElapsed</span><span class="p">,</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]{</span><span class="k">this</span><span class="p">,</span> <span class="n">elapsedEventArgs</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="n">intervalElapsed</span><span class="p">(</span><span class="k">this</span><span class="p">,</span>  <span class="n">elapsedEventArgs</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="systemwebuitimer">System.Web.UI.Timer<a hidden class="anchor" aria-hidden="true" href="#systemwebuitimer">#</a></h2>
+<p>略</p>
+<p>源码</p>
+<p><a href="prime167/DotNetTimers">prime167/DotNetTimers</a></p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
+      <li><a href="http://prime167.github.io/tags/csharp/">csharp</a></li>
+      <li><a href="http://prime167.github.io/tags/timer/">timer</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://prime167.github.io/posts/2019-10-08-covariance-and-contravariance-of-csharp/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>C# 的协变和逆变</span>
+  </a>
+  <a class="next" href="http://prime167.github.io/posts/2019-09-06-dotnet-safe-ui-app/">
+    <span class="title">Next »</span>
+    <br>
+    <span>编写线程安全的UI程序</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://prime167.github.io/">静静地坐着</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

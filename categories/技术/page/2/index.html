@@ -1,543 +1,369 @@
-<!doctype html>
-<html lang="zh-cn">
-<head>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>技术 | 静静地坐着</title>
+<meta name="keywords" content="">
+<meta name="description" content="github -- https://github.com/prime167">
+<meta name="author" content="codest">
+<link rel="canonical" href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://prime167.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://prime167.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://prime167.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://prime167.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://prime167.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-    <title>技术 | 静静地坐着</title>
-    <meta property="og:title" content="技术 - 静静地坐着">
-    <meta property="og:type" content="article">
-        
-        
-    <meta name="Keywords" content="C#,csharp,.NET">
-    <meta name="description" content="技术">
-        
-    <meta name="author" content="Codest">
-    <meta property="og:url" content="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" title="静静地坐着" />
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            .list {
+                background: var(--theme);
+            }
 
-    
-    
-    
-    
-    
-    
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRR6GRNQGK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QRR6GRNQGK', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="技术" />
+<meta property="og:description" content="github -- https://github.com/prime167" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/" /><meta property="og:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:title" content="技术"/>
+<meta name="twitter:description" content="github -- https://github.com/prime167"/>
+
 </head>
 
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="https://prime167.github.io">
-                        静静地坐着
-                    </a>
-                
-                <p class="description">.NET 开发</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://prime167.github.io">首页</a>
-                    
-                    <a  href="https://prime167.github.io/tab/archives/" title="归档">归档</a>
-                    
-                    <a  href="https://prime167.github.io/tags/" title="标签">标签</a>
-                    
-                    <a  href="https://prime167.github.io/categories/" title="类别">类别</a>
-                    
-                    <a  href="https://prime167.github.io/tab/about/" title="关于">关于</a>
-                    
-                </nav>
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://prime167.github.io/" accesskey="h" title="静静地坐着 (Alt + H)">静静地坐着</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </div>
-    </div>
+        <ul id="menu">
+            <li>
+                <a href="http://prime167.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/categories/" title="类别">
+                    <span>类别</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://prime167.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://prime167.github.io/categories/">Categories</a></div>
+  <h1>
+    技术
+    <a href="/categories/%E6%8A%80%E6%9C%AF/index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+  </h1>
 </header>
 
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">.NET 知识梳理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>面向对象基础 继承 多态 封装 .NET 术语 CLR CTS CLS IL .NET 基本概念 值类型 引用类型 接口 类 委托事件 垃圾回收 泛型 协变逆变 </p>
+  </div>
+  <footer class="entry-footer"><span title='2019-11-21 14:25:42 +0800 CST'>2019-11-21</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to .NET 知识梳理" href="http://prime167.github.io/posts/2019-11-21-dotnet-knowledge/"></a>
+</article>
 
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
-    
-    <h3 class="archive-title">
-        分类
-        <span class="keyword">技术</span>
-        中的文章
-    </h3>
-    
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Firefox 70 配置记录
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-10-23 14:20:23 +0800 CST'>2019-10-23</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to Firefox 70 配置记录" href="http://prime167.github.io/posts/2019-10-23-config-firefox/"></a>
+</article>
 
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-10-23-config-firefox/">Firefox 70 配置记录</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年10月23日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-10-23-config-firefox/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-10-17-my-favorite-software-2019/">我常用的软件 (2019版)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年10月17日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>整理记录一下自己常用的一些软件</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-10-17-my-favorite-software-2019/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/">C# 的协变和逆变</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年10月8日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-10-08-covariance-and-contravariance-of-csharp/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-09-23-dotnet-timers/">.NET 中的 timer</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年9月23日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>今天简单介绍一下 .NET framework中的timer</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-09-23-dotnet-timers/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/">编写线程安全的UI程序</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年9月6日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>本篇讲一下如何编写线程安全的Winform 程序</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-09-06-dotnet-safe-ui-app/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-08-16-csharp-struct-parameter/">c# 传递结构体参数的那些事儿</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年8月16日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>今天来说一下C#中传递结构体参数的演化</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-08-16-csharp-struct-parameter/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-07-30-csharp-error-cs1612/">C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年7月30日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>看似简单的问题，背后涉及了很多基础知识。</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-07-30-csharp-error-cs1612/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-07-26-about-fix-bugs/">关于填坑</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年7月26日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>寓言一则</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-07-26-about-fix-bugs/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-07-26-git-worktree-usage/">git worktree 命令的使用</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年7月26日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>使用 git worktree <strong>同时</strong> 签出多个分支，提高开发效率，节省磁盘空间。</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-07-26-git-worktree-usage/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://prime167.github.io/post/2019-07-11-fix-windows10-share/">解决WinCE6.0无法访问Win10共享文件夹问题</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年7月11日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='/categories/%E6%8A%80%E6%9C%AF'>技术</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>公司主要是用WinCE6.0做嵌入式开发，有时需要把文件发送到PC机器，但最近有一台1803的Win10总是报&quot;error 53 找不到网络路径&quot;的错误。</p>……
-            <p class="readmore"><a href="https://prime167.github.io/post/2019-07-11-fix-windows10-share/">阅读全文</a></p>
-        </div>
-    </article>
-    
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">我常用的软件 (2019版)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>整理记录一下自己常用的一些软件
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-10-17 14:07:43 +0800 CST'>2019-10-17</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to 我常用的软件 (2019版)" href="http://prime167.github.io/posts/2019-10-17-my-favorite-software-2019/"></a>
+</article>
 
-    
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C# 的协变和逆变
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>协变和逆变的概念存在于许多计算机语言中，本文主要讲C#中的协变和逆变
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-10-08 13:22:58 +0800 CST'>2019-10-08</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to C# 的协变和逆变" href="http://prime167.github.io/posts/2019-10-08-covariance-and-contravariance-of-csharp/"></a>
+</article>
 
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">.NET 中的 timer
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>今天简单介绍一下 .NET framework中的timer
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-09-23 11:47:39 +0800 CST'>2019-09-23</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to .NET 中的 timer" href="http://prime167.github.io/posts/2019-09-23-dotnet-timers/"></a>
+</article>
 
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">编写线程安全的UI程序
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>本篇讲一下如何编写线程安全的Winform 程序
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-09-06 16:43:48 +0800 CST'>2019-09-06</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to 编写线程安全的UI程序" href="http://prime167.github.io/posts/2019-09-06-dotnet-safe-ui-app/"></a>
+</article>
 
-<ol class="page-navigator">
-    
-    <li class="prev">
-        <a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">上一页</a>
-    </li>
-    
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">c# 传递结构体参数的那些事儿
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>今天来说一下C#中传递结构体参数的演化
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-08-16 16:36:27 +0800 CST'>2019-08-16</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to c# 传递结构体参数的那些事儿" href="http://prime167.github.io/posts/2019-08-16-csharp-struct-parameter/"></a>
+</article>
 
-    
-    <li >
-        <a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">1</a>
-    </li>
-    
-    <li  class="current">
-        <a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/page/2/">2</a>
-    </li>
-    
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>看似简单的问题，背后涉及了很多基础知识。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-30 15:51:59 +0800 CST'>2019-07-30</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to C# 编译错误 CS1612：无法修改“xxx”的返回值，因为它不是变量" href="http://prime167.github.io/posts/2019-07-30-csharp-error-cs1612/"></a>
+</article>
 
-    
-</ol>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">关于填坑
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>寓言一则
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-26 14:57:43 +0800 CST'>2019-07-26</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to 关于填坑" href="http://prime167.github.io/posts/2019-07-26-about-fix-bugs/"></a>
+</article>
 
-
-
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2022 <a href="https://prime167.github.io">静静地坐着 By Codest</a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">git worktree 命令的使用
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>使用 git worktree 同时 签出多个分支，提高开发效率，节省磁盘空间。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-26 14:05:29 +0800 CST'>2019-07-26</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;codest</footer>
+  <a class="entry-link" aria-label="post link to git worktree 命令的使用" href="http://prime167.github.io/posts/2019-07-26-git-worktree-usage/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">
+      «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="http://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/page/3/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
 </footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://prime167.github.io/">静静地坐着</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
-
-
-
-
-                </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='https://prime167.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://prime167.github.io">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="https://prime167.github.io/post/2022-07-29-undo-git-rebase/" title="如何撤销一个 git rebase">如何撤销一个 git rebase</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2022-07-29-git-merge-local-commits/" title="如何合并多个git commits">如何合并多个git commits</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2022-06-21-MSBuild-auto-copy-sqlite-native-dir/" title="如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86">如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2022-04-20-ReInstall-OS-Notes/" title="重装操作系统备忘录">重装操作系统备忘录</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-12-17-fix-win10-update-error-0x800f0922/" title="修复Windows 10 更新错误0x800f0922">修复Windows 10 更新错误0x800f0922</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-12-15-my-favorite-software-2021/" title="我常用的软件 (2021版)">我常用的软件 (2021版)</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-11-04-vlsm-and-cidr/" title="VLSM与CIDR的区别">VLSM与CIDR的区别</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-10-28-Windows10-Port/" title="Windows 10 解决端口被占用问题">Windows 10 解决端口被占用问题</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-10-27-git-commit-user-per-dir/" title="git 使用includeIf配置多身份隔离">git 使用includeIf配置多身份隔离</a>
-    </li>
-    
-    <li>
-        <a href="https://prime167.github.io/post/2021-10-25-Blog-Reborn/" title="Blog 重新开张">Blog 重新开张</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://prime167.github.io/categories/TIL/">TIL (2)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/blog/">blog (3)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/port/">port (1)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/%E6%8A%80%E6%9C%AF/">技术 (20)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/%E6%95%B0%E5%AD%A6/">数学 (1)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/%E7%BB%B4%E6%8A%A4/">维护 (3)</a></li>
-    
-    <li><a href="https://prime167.github.io/categories/%E7%BD%91%E7%BB%9C/">网络 (1)</a></li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://prime167.github.io/tags/.NET/">.NET</a>
-    
-    <a href="https://prime167.github.io/tags/.gitconfig/">.gitconfig</a>
-    
-    <a href="https://prime167.github.io/tags/.port/">.port</a>
-    
-    <a href="https://prime167.github.io/tags/CS1612/">CS1612</a>
-    
-    <a href="https://prime167.github.io/tags/System.Data.SQLite/">System.Data.SQLite</a>
-    
-    <a href="https://prime167.github.io/tags/windows-10/">windows 10</a>
-    
-    <a href="https://prime167.github.io/tags/bug/">bug</a>
-    
-    <a href="https://prime167.github.io/tags/cidr/">cidr</a>
-    
-    <a href="https://prime167.github.io/tags/contravariance/">contravariance</a>
-    
-    <a href="https://prime167.github.io/tags/covariance/">covariance</a>
-    
-    <a href="https://prime167.github.io/tags/csharp/">csharp</a>
-    
-    <a href="https://prime167.github.io/tags/firefox/">firefox</a>
-    
-    <a href="https://prime167.github.io/tags/git/">git</a>
-    
-    <a href="https://prime167.github.io/tags/git-worktree/">git worktree</a>
-    
-    <a href="https://prime167.github.io/tags/hugo/">hugo</a>
-    
-    <a href="https://prime167.github.io/tags/hyper-V/">hyper-V</a>
-    
-    <a href="https://prime167.github.io/tags/includeif/">includeif</a>
-    
-    <a href="https://prime167.github.io/tags/math/">math</a>
-    
-    <a href="https://prime167.github.io/tags/meta/">meta</a>
-    
-    <a href="https://prime167.github.io/tags/network/">network</a>
-    
-    <a href="https://prime167.github.io/tags/nuget/">nuget</a>
-    
-    <a href="https://prime167.github.io/tags/rebase/">rebase</a>
-    
-    <a href="https://prime167.github.io/tags/reflog/">reflog</a>
-    
-    <a href="https://prime167.github.io/tags/scm/">scm</a>
-    
-    <a href="https://prime167.github.io/tags/search/">search</a>
-    
-    <a href="https://prime167.github.io/tags/struct/">struct</a>
-    
-    <a href="https://prime167.github.io/tags/thread/">thread</a>
-    
-    <a href="https://prime167.github.io/tags/timer/">timer</a>
-    
-    <a href="https://prime167.github.io/tags/tool/">tool</a>
-    
-    <a href="https://prime167.github.io/tags/vlsm/">vlsm</a>
-    
-    <a href="https://prime167.github.io/tags/wince/">wince</a>
-    
-    <a href="https://prime167.github.io/tags/windows-10/">windows 10</a>
-    
-    <a href="https://prime167.github.io/tags/%E5%85%B1%E4%BA%AB%E9%85%8D%E7%BD%AE/">共享配置</a>
-    
-    <a href="https://prime167.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-    
-    <a href="https://prime167.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-    
-</div>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="https://prime167.github.io/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
+</script>
 </body>
 
 </html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>如何合并多个git commits | 静静地坐着</title>
+<meta name="keywords" content="git, rebase, reflog">
+<meta name="description" content="git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。
+我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。
+工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：
+1 2 3 4 5 6 7 * 7e7af1b - (HEAD -&gt; feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 &lt;----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令
+1 git rebase -i HEAD~5 git 弹出编辑器
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d.">
+<meta name="author" content="codest">
+<link rel="canonical" href="http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://prime167.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://prime167.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://prime167.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://prime167.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://prime167.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRR6GRNQGK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QRR6GRNQGK', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="如何合并多个git commits" />
+<meta property="og:description" content="git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。
+我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。
+工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：
+1 2 3 4 5 6 7 * 7e7af1b - (HEAD -&gt; feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 &lt;----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令
+1 git rebase -i HEAD~5 git 弹出编辑器
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/" /><meta property="og:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-29T14:04:20+08:00" />
+<meta property="article:modified_time" content="2022-07-29T14:04:20+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:title" content="如何合并多个git commits"/>
+<meta name="twitter:description" content="git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。
+我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。
+工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：
+1 2 3 4 5 6 7 * 7e7af1b - (HEAD -&gt; feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 &lt;----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令
+1 git rebase -i HEAD~5 git 弹出编辑器
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://prime167.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "如何合并多个git commits",
+      "item": "http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何合并多个git commits",
+  "name": "如何合并多个git commits",
+  "description": "git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。\n我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。\n工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：\n1 2 3 4 5 6 7 * 7e7af1b - (HEAD -\u0026gt; feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 \u0026lt;----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令\n1 git rebase -i HEAD~5 git 弹出编辑器\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d.",
+  "keywords": [
+    "git", "rebase", "reflog"
+  ],
+  "articleBody": "git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。\n我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。\n工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：\n1 2 3 4 5 6 7 * 7e7af1b - (HEAD -\u003e feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 \u003c----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令\n1 git rebase -i HEAD~5 git 弹出编辑器\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d..7e7af1b onto b36071d (5 commands) # # Commands: # p, pick = use commit # r, reword = use commit, but edit the commit message # e, edit = use commit, but stop for amending # s, squash = use commit, but meld into previous commit # f, fixup [-C | -c] = like \"squash\" but keep only the previous # 根据下面的提示，保留第一个(最上面提交)，把后面的提交合并到第一个，下面的pick改成s\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 s 34024f7 完成界面设计 s 5fcfa4f 完成功能 s 215353c 修改自测bug s 7e7af1b 完成 # Rebase b36071d..7e7af1b onto b36071d (5 commands) # # Commands: # p, pick = use commit # r, reword = use commit, but edit the commit message # e, edit = use commit, but stop for amending # s, squash = use commit, but meld into previous commit # f, fixup [-C | -c] = like \"squash\" but keep only the previous # 关闭后弹出编辑最终commit message\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 # This is a combination of 5 commits. # This is the 1st commit message: 开始添加用户功能 # This is the commit message #2: 完成界面设计 # This is the commit message #3: 完成功能 # This is the commit message #4: 修改自测bug # This is the commit message #5: 完成 # Please enter the commit message for your changes. Lines starting # with '#' will be ignored, and an empty message aborts the commit. # # Date: Fri Jul 29 14:14:06 2022 +0800 改为如下，关闭\n1 2 3 4 5 6 7 8 9 # This is a combination of 5 commits. # This is the 1st commit message: 添加用户功能 # Please enter the commit message for your changes. Lines starting # with '#' will be ignored, and an empty message aborts the commit. # # Date: Fri Jul 29 14:14:06 2022 +0800 提示rebase成功，再次运行git log\n1 2 3 * ed8a955 - 添加用户功能 * b36071d - 登录功能 * 25b848d - init 大功告成，合并到主分支，推送，完美。\n如果功能比较大，我提交了好几十次，那还得一个一个数吗？可以用\n1 git rebase -i [commit-hash] 这里的commit-hash是要合并的所有提交的前一个commit，比如上一个例子里，我要使用\n1 git rebase -i b3706 下面的步骤完全一样，不再赘述。\n",
+  "wordCount" : "446",
+  "inLanguage": "en",
+  "datePublished": "2022-07-29T14:04:20+08:00",
+  "dateModified": "2022-07-29T14:04:20+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "codest"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "静静地坐着",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://prime167.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://prime167.github.io/" accesskey="h" title="静静地坐着 (Alt + H)">静静地坐着</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://prime167.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/categories/" title="类别">
+                    <span>类别</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://prime167.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://prime167.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      如何合并多个git commits
+    </h1>
+    <div class="post-meta"><span title='2022-07-29 14:04:20 +0800 CST'>2022-07-29</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;codest
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。</p>
+<p>我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。</p>
+<p>工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">* 7e7af1b - <span class="o">(</span>HEAD -&gt; feat/addUser<span class="o">)</span>完成
+</span></span><span class="line"><span class="cl">* 215353c - 修改自测bug
+</span></span><span class="line"><span class="cl">* 5fcfa4f - 完成功能
+</span></span><span class="line"><span class="cl">* 34024f7 - 完成界面设计
+</span></span><span class="line"><span class="cl">* 288ebcb - 开始添加用户功能
+</span></span><span class="line"><span class="cl">* b36071d - <span class="o">(</span>origin/main<span class="o">)</span>登录功能               &lt;----远程
+</span></span><span class="line"><span class="cl">* 25b848d - init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>直接合并到main稍显杂乱，先用git rebase把提交合并一下：
+要合并的是最后5个提交，使用命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i HEAD~5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>git 弹出编辑器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pick 288ebcb 开始添加用户功能
+</span></span><span class="line"><span class="cl">pick 34024f7 完成界面设计
+</span></span><span class="line"><span class="cl">pick 5fcfa4f 完成功能
+</span></span><span class="line"><span class="cl">pick 215353c 修改自测bug
+</span></span><span class="line"><span class="cl">pick 7e7af1b 完成
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Rebase b36071d..7e7af1b onto b36071d (5 commands)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Commands:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># p, pick &lt;commit&gt; = use commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># f, fixup [-C | -c] &lt;commit&gt; = like &#34;squash&#34; but keep only the previous</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据下面的提示，保留第一个(最上面提交)，把后面的提交合并到第一个，下面的pick改成s</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pick 288ebcb 开始添加用户功能
+</span></span><span class="line"><span class="cl">s 34024f7 完成界面设计
+</span></span><span class="line"><span class="cl">s 5fcfa4f 完成功能
+</span></span><span class="line"><span class="cl">s 215353c 修改自测bug
+</span></span><span class="line"><span class="cl">s 7e7af1b 完成
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Rebase b36071d..7e7af1b onto b36071d (5 commands)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Commands:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># p, pick &lt;commit&gt; = use commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># f, fixup [-C | -c] &lt;commit&gt; = like &#34;squash&#34; but keep only the previous</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>关闭后弹出编辑最终commit message</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This is a combination of 5 commits.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the 1st commit message:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">开始添加用户功能
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the commit message #2:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">完成界面设计
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the commit message #3:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">完成功能
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the commit message #4:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">修改自测bug
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the commit message #5:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">完成
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Date:      Fri Jul 29 14:14:06 2022 +0800</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>改为如下，关闭</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This is a combination of 5 commits.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This is the 1st commit message:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">添加用户功能
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Date:      Fri Jul 29 14:14:06 2022 +0800</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>提示rebase成功，再次运行git log</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">* ed8a955 - 添加用户功能
+</span></span><span class="line"><span class="cl">* b36071d - 登录功能
+</span></span><span class="line"><span class="cl">* 25b848d - init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>大功告成，合并到主分支，推送，完美。</p>
+<p>如果功能比较大，我提交了好几十次，那还得一个一个数吗？可以用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i <span class="o">[</span>commit-hash<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的commit-hash是要合并的所有提交的<strong>前一个</strong>commit，比如上一个例子里，我要使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i b3706
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>下面的步骤完全一样，不再赘述。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://prime167.github.io/tags/git/">git</a></li>
+      <li><a href="http://prime167.github.io/tags/rebase/">rebase</a></li>
+      <li><a href="http://prime167.github.io/tags/reflog/">reflog</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://prime167.github.io/posts/2022-07-29-undo-git-rebase/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>如何撤销一个 git rebase</span>
+  </a>
+  <a class="next" href="http://prime167.github.io/posts/2022-06-21-msbuild-auto-copy-native/">
+    <span class="title">Next »</span>
+    <br>
+    <span>如何让MsBuild自动拷贝和更新System.Data.SQLite的运行时文件夹X64和X86</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://prime167.github.io/">静静地坐着</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

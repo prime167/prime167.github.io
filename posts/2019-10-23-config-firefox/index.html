@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Firefox 70 配置记录 | 静静地坐着</title>
+<meta name="keywords" content="firefox">
+<meta name="description" content="最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下">
+<meta name="author" content="codest">
+<link rel="canonical" href="http://prime167.github.io/posts/2019-10-23-config-firefox/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://prime167.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://prime167.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://prime167.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://prime167.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://prime167.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRR6GRNQGK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QRR6GRNQGK', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="Firefox 70 配置记录" />
+<meta property="og:description" content="最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prime167.github.io/posts/2019-10-23-config-firefox/" /><meta property="og:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-10-23T14:20:23+08:00" />
+<meta property="article:modified_time" content="2019-10-23T14:20:23+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:title" content="Firefox 70 配置记录"/>
+<meta name="twitter:description" content="最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://prime167.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Firefox 70 配置记录",
+      "item": "http://prime167.github.io/posts/2019-10-23-config-firefox/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Firefox 70 配置记录",
+  "name": "Firefox 70 配置记录",
+  "description": "最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下\n",
+  "keywords": [
+    "firefox"
+  ],
+  "articleBody": "最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下\n使用紧凑布局 在标签最右空白处点击右键，点击 “定制…”，将地址栏左右的弹性空白拖到下方 下方工具栏勾选 书签工具栏 下方密度选择紧凑 去掉地址栏右边的pocket图标 地址栏输入 about:config,搜索 pocket，将 extensions.pocket.enabled 改为false\n禁用标签滚动 标签达到一定数量后，只显示一部分标签，左右会出现箭头，类似滚动条 地址栏输入 about:config,将 browser.tabs.tabMinWidth 改为 0\n修改个人配置文件位置 地址栏输入 about:profiles , 创建新的配置文件，关闭Firefox后将 APPDATA%\\Mozilla\\Firefox\\Profiles\\ 内的文件移动到新位置，启动firexfox，新的profile成文默认旧的可以删除了。\n安装扩展 ublock origin bitwarden 暴力猴 Tree Style Tab 显示树状标签 ",
+  "wordCount" : "36",
+  "inLanguage": "en",
+  "datePublished": "2019-10-23T14:20:23+08:00",
+  "dateModified": "2019-10-23T14:20:23+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "codest"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://prime167.github.io/posts/2019-10-23-config-firefox/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "静静地坐着",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://prime167.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://prime167.github.io/" accesskey="h" title="静静地坐着 (Alt + H)">静静地坐着</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://prime167.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/categories/" title="类别">
+                    <span>类别</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://prime167.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://prime167.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Firefox 70 配置记录
+    </h1>
+    <div class="post-meta"><span title='2019-10-23 14:20:23 +0800 CST'>2019-10-23</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;codest
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e7%b4%a7%e5%87%91%e5%b8%83%e5%b1%80" aria-label="使用紧凑布局">使用紧凑布局</a></li>
+                <li>
+                    <a href="#%e5%8e%bb%e6%8e%89%e5%9c%b0%e5%9d%80%e6%a0%8f%e5%8f%b3%e8%be%b9%e7%9a%84pocket%e5%9b%be%e6%a0%87" aria-label="去掉地址栏右边的pocket图标">去掉地址栏右边的pocket图标</a></li>
+                <li>
+                    <a href="#%e7%a6%81%e7%94%a8%e6%a0%87%e7%ad%be%e6%bb%9a%e5%8a%a8" aria-label="禁用标签滚动">禁用标签滚动</a></li>
+                <li>
+                    <a href="#%e4%bf%ae%e6%94%b9%e4%b8%aa%e4%ba%ba%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e4%bd%8d%e7%bd%ae" aria-label="修改个人配置文件位置">修改个人配置文件位置</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95" aria-label="安装扩展">安装扩展</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>最近又开始使用Firefox，速度还是可以的，但要想用起来顺手、顺眼还需要一些配置，在此记录一下</p>
+<h2 id="使用紧凑布局">使用紧凑布局<a hidden class="anchor" aria-hidden="true" href="#使用紧凑布局">#</a></h2>
+<ol>
+<li>在标签最右空白处点击右键，点击 “定制…”，将地址栏左右的弹性空白拖到下方</li>
+<li>下方工具栏勾选 书签工具栏</li>
+<li>下方密度选择紧凑</li>
+</ol>
+<h2 id="去掉地址栏右边的pocket图标">去掉地址栏右边的pocket图标<a hidden class="anchor" aria-hidden="true" href="#去掉地址栏右边的pocket图标">#</a></h2>
+<p>地址栏输入 about:config,搜索 pocket，将 extensions.pocket.enabled 改为false</p>
+<h2 id="禁用标签滚动">禁用标签滚动<a hidden class="anchor" aria-hidden="true" href="#禁用标签滚动">#</a></h2>
+<p>标签达到一定数量后，只显示一部分标签，左右会出现箭头，类似滚动条 地址栏输入 about:config,将 browser.tabs.tabMinWidth 改为 0</p>
+<h2 id="修改个人配置文件位置">修改个人配置文件位置<a hidden class="anchor" aria-hidden="true" href="#修改个人配置文件位置">#</a></h2>
+<p>地址栏输入 about:profiles , 创建新的配置文件，关闭Firefox后将 APPDATA%\Mozilla\Firefox\Profiles\ 内的文件移动到新位置，启动firexfox，新的profile成文默认旧的可以删除了。</p>
+<h2 id="安装扩展">安装扩展<a hidden class="anchor" aria-hidden="true" href="#安装扩展">#</a></h2>
+<ul>
+<li>ublock origin</li>
+<li>bitwarden</li>
+<li>暴力猴</li>
+<li>Tree Style Tab 显示树状标签</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://prime167.github.io/tags/firefox/">firefox</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://prime167.github.io/posts/2019-11-21-dotnet-knowledge/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>.NET 知识梳理</span>
+  </a>
+  <a class="next" href="http://prime167.github.io/posts/2019-10-17-my-favorite-software-2019/">
+    <span class="title">Next »</span>
+    <br>
+    <span>我常用的软件 (2019版)</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://prime167.github.io/">静静地坐着</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

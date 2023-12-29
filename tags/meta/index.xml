@@ -4,35 +4,36 @@
     <title>meta on 静静地坐着</title>
     <link>http://prime167.github.io/tags/meta/</link>
     <description>Recent content in meta on 静静地坐着</description>
+    <image>
+      <title>静静地坐着</title>
+      <url>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</url>
+      <link>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Oct 2021 17:17:47 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/meta/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog 重新开张</title>
-      <link>http://prime167.github.io/post/2021-10-25-blog-reopen/</link>
+      <link>http://prime167.github.io/posts/2021-10-25-blog-reopen/</link>
       <pubDate>Mon, 25 Oct 2021 17:17:47 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2021-10-25-blog-reopen/</guid>
-      <description>去年只写了2篇blog，上个月想写的时候发现原始的markdown文件丢失了，幸好再另一台电脑找到了一个比较旧的备份，只有2019年的头几篇</description>
+      <guid>http://prime167.github.io/posts/2021-10-25-blog-reopen/</guid>
+      <description>去年只写了2篇blog，上个月想写的时候发现原始的markdown文件丢失了，幸好再另一台电脑找到了一个比较旧的备份，只有2019年的头几篇。就从发布的html重新写了一遍markdown，更换了maupassant主题，评论使用 utteranc 存储在单独的repo,创建了markdown源文件的repo
+备份太重要了！</description>
     </item>
-    
     <item>
       <title>Hugo 配置记录</title>
-      <link>http://prime167.github.io/post/2019-11-25-hugo-setup/</link>
+      <link>http://prime167.github.io/posts/2019-11-25-hugo-setup/</link>
       <pubDate>Wed, 07 Aug 2019 16:36:46 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2019-11-25-hugo-setup/</guid>
+      <guid>http://prime167.github.io/posts/2019-11-25-hugo-setup/</guid>
       <description>&lt;p&gt;新博客配置的七七八八了，记录一下过程和未解决问题。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Hello World</title>
-      <link>http://prime167.github.io/post/2019-07-10-hello-world/</link>
+      <link>http://prime167.github.io/posts/2019-07-10-hello-world/</link>
       <pubDate>Wed, 10 Jul 2019 17:32:42 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2019-07-10-hello-world/</guid>
+      <guid>http://prime167.github.io/posts/2019-07-10-hello-world/</guid>
       <description>&lt;p&gt;新博客开张。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

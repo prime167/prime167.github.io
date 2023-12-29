@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>局域网搭建私有nuget服务器 | 静静地坐着</title>
+<meta name="keywords" content="nuget, .NET">
+<meta name="description" content="昨天在公司局域网搭建了一个nuget服务器，记录一下过程">
+<meta name="author" content="codest">
+<link rel="canonical" href="http://prime167.github.io/posts/2019-12-24-local-nuget-server/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.07364e0d4070e21e3f3be5df749408d0117f6cf8d160730a29fb57ae6f237381.css" integrity="sha256-BzZODUBw4h4/O&#43;XfdJQI0BF/bPjRYHMKKftXrm8jc4E=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://prime167.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://prime167.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://prime167.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://prime167.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://prime167.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QRR6GRNQGK"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QRR6GRNQGK', { 'anonymize_ip': false });
+}
+</script>
+<meta property="og:title" content="局域网搭建私有nuget服务器" />
+<meta property="og:description" content="昨天在公司局域网搭建了一个nuget服务器，记录一下过程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prime167.github.io/posts/2019-12-24-local-nuget-server/" /><meta property="og:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-12-24T15:09:29+08:00" />
+<meta property="article:modified_time" content="2019-12-24T15:09:29+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png"/>
+
+<meta name="twitter:title" content="局域网搭建私有nuget服务器"/>
+<meta name="twitter:description" content="昨天在公司局域网搭建了一个nuget服务器，记录一下过程"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://prime167.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "局域网搭建私有nuget服务器",
+      "item": "http://prime167.github.io/posts/2019-12-24-local-nuget-server/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "局域网搭建私有nuget服务器",
+  "name": "局域网搭建私有nuget服务器",
+  "description": "昨天在公司局域网搭建了一个nuget服务器，记录一下过程\n",
+  "keywords": [
+    "nuget", ".NET"
+  ],
+  "articleBody": "昨天在公司局域网搭建了一个nuget服务器，记录一下过程\n目的 首先，在本地搭建服务器的目的不是在本地复制一个 nuget.org，而是为了解决公司内部常用类库的分发问题。\n目前公用代码主要有两种分发方式：\n传统类库分发方式 源代码方式 在解决方案中直接添加类库的项目文件，再在需要的项目中添加引用\n优点：便于调试\n缺点：需要根据引用路径存放代码。\n类库与使用它的代码通常不在一个源代码版本库里。假设Solution1 以这种方式引用了Lib1，新的开发克隆了Solution1之后打开，Lib1很大可能是不可用状态，打开引用Lib1的项目文件,可能会看到这样的代码：\n1 2 3 4 ... ... 新开发必须据此规划路径并克隆Lib1\n以DLL方式分发 Lib1的负责人编译出dll，使用的人放到Solution1下的lib文件夹下，项目中再引用dll。\n优点：部署引用简单\n缺点：版本不易维护\n部署 我选择了官方的Nuget.Server,部署起来非常简单\n新建基于 .NET Framework 的空白 ASP.NET Web 应用程序\n通过NuGet包管理器添加Nuget.Server包\n发布\n部署到IIS\n浏览器中打开，看到下图就表示成功了\n编辑 Web.config\n1 2 3 4 5 6 7 8 9 10 Visual Studio 添加程序包源 工具 =\u003e 选项 =\u003e NuGet包管理器 =\u003e 程序包源,点击右侧加号添加源\n名称随便写，比如local 源写上一步配置好的地址，如 http://192.168.13.96:9006/nuget 点击确定 测试 随便找个NuGet包，放到IIS路径下的Packages文件夹下，服务器会自动解析包，并生成文件夹结构。 打开包管理器，源选择local，搜索刚才的包名字，是不是出现在搜索结果里了？ 创建NuGet包 目前可以通过3种方式创建一个NuGet包：\n1. 通过NuGet命令行 这种方法适用于传统的基于 .NET Framework的类库\n从 nuget.org 下载最新版本nuget.exe, 放到合适的路径，并添加到 PATH 环境变量\n生成包元数据文件\n在类库.csproj 文件目录下打开命令行，运行\n1 nuget spec ClassLibrary1.csproj 在目录下会生成一个 ClassLibrary1.nuspec，用文本编辑器打开，会看到如下内容：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 \u003c?xml version=\"1.0\" encoding=\"utf-8\"?\u003e $id$ $version$ \u003c/span\u003e$title$ $author$ $author$ false ",
+  "wordCount" : "422",
+  "inLanguage": "en",
+  "datePublished": "2019-12-24T15:09:29+08:00",
+  "dateModified": "2019-12-24T15:09:29+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "codest"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://prime167.github.io/posts/2019-12-24-local-nuget-server/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "静静地坐着",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://prime167.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://prime167.github.io/" accesskey="h" title="静静地坐着 (Alt + H)">静静地坐着</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://prime167.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://prime167.github.io/categories/" title="类别">
+                    <span>类别</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://prime167.github.io/">Home</a>&nbsp;»&nbsp;<a href="http://prime167.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      局域网搭建私有nuget服务器
+    </h1>
+    <div class="post-meta"><span title='2019-12-24 15:09:29 +0800 CST'>2019-12-24</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;codest
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%9b%ae%e7%9a%84" aria-label="目的">目的</a></li>
+                <li>
+                    <a href="#%e4%bc%a0%e7%bb%9f%e7%b1%bb%e5%ba%93%e5%88%86%e5%8f%91%e6%96%b9%e5%bc%8f" aria-label="传统类库分发方式">传统类库分发方式</a><ul>
+                        
+                <li>
+                    <a href="#%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f" aria-label="源代码方式">源代码方式</a></li>
+                <li>
+                    <a href="#%e4%bb%a5dll%e6%96%b9%e5%bc%8f%e5%88%86%e5%8f%91" aria-label="以DLL方式分发">以DLL方式分发</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%83%a8%e7%bd%b2" aria-label="部署">部署</a></li>
+                <li>
+                    <a href="#visual-studio-%e6%b7%bb%e5%8a%a0%e7%a8%8b%e5%ba%8f%e5%8c%85%e6%ba%90" aria-label="Visual Studio 添加程序包源">Visual Studio 添加程序包源</a></li>
+                <li>
+                    <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li>
+                <li>
+                    <a href="#%e5%88%9b%e5%bb%banuget%e5%8c%85" aria-label="创建NuGet包">创建NuGet包</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%80%9a%e8%bf%87nuget%e5%91%bd%e4%bb%a4%e8%a1%8c" aria-label="1. 通过NuGet命令行">1. 通过NuGet命令行</a></li>
+                <li>
+                    <a href="#2-%e4%bd%bf%e7%94%a8-dotnet-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%88%9b%e5%bb%ba" aria-label="2. 使用 dotnet 命令行创建">2. 使用 dotnet 命令行创建</a></li>
+                <li>
+                    <a href="#3-%e4%bd%bf%e7%94%a8-visual-studio-%e5%88%9b%e5%bb%ba" aria-label="3. 使用 Visual Studio 创建">3. 使用 Visual Studio 创建</a></li>
+                <li>
+                    <a href="#4%e9%80%9a%e8%bf%87-nuget-package-explorer-%e5%88%9b%e5%bb%ba" aria-label="4.通过 NuGet Package Explorer 创建">4.通过 NuGet Package Explorer 创建</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%91%e5%b8%83nuget%e5%8c%85" aria-label="发布NuGet包">发布NuGet包</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae%e9%bb%98%e8%ae%a4source" aria-label="设置默认source">设置默认source</a></li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>昨天在公司局域网搭建了一个nuget服务器，记录一下过程</p>
+<h2 id="目的">目的<a hidden class="anchor" aria-hidden="true" href="#目的">#</a></h2>
+<p>首先，在本地搭建服务器的目的不是在本地复制一个 nuget.org，而是为了解决公司内部常用类库的分发问题。</p>
+<p>目前公用代码主要有两种分发方式：</p>
+<h2 id="传统类库分发方式">传统类库分发方式<a hidden class="anchor" aria-hidden="true" href="#传统类库分发方式">#</a></h2>
+<h3 id="源代码方式">源代码方式<a hidden class="anchor" aria-hidden="true" href="#源代码方式">#</a></h3>
+<p>在解决方案中直接添加类库的项目文件，再在需要的项目中添加引用</p>
+<ul>
+<li>
+<p>优点：便于调试</p>
+</li>
+<li>
+<p>缺点：需要根据引用路径存放代码。</p>
+</li>
+</ul>
+<p>类库与使用它的代码通常不在一个源代码版本库里。假设Solution1 以这种方式引用了Lib1，新的开发克隆了Solution1之后打开，Lib1很大可能是不可用状态，打开引用Lib1的项目文件,可能会看到这样的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">   &lt;ItemGroup&gt;
+</span></span><span class="line"><span class="cl">    &lt;ProjectReference Include=&#34;..\..\..\..\PC_Shared\Utils\PC.Shared.csproj&#34;&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>新开发必须据此规划路径并克隆Lib1</p>
+<h3 id="以dll方式分发">以DLL方式分发<a hidden class="anchor" aria-hidden="true" href="#以dll方式分发">#</a></h3>
+<p>Lib1的负责人编译出dll，使用的人放到Solution1下的lib文件夹下，项目中再引用dll。</p>
+<ul>
+<li>
+<p>优点：部署引用简单</p>
+</li>
+<li>
+<p>缺点：版本不易维护</p>
+</li>
+</ul>
+<h2 id="部署">部署<a hidden class="anchor" aria-hidden="true" href="#部署">#</a></h2>
+<p>我选择了官方的Nuget.Server,部署起来非常简单</p>
+<ol>
+<li>
+<p>新建基于 .NET Framework 的空白 ASP.NET Web 应用程序</p>
+</li>
+<li>
+<p>通过NuGet包管理器添加Nuget.Server包</p>
+</li>
+<li>
+<p>发布</p>
+</li>
+<li>
+<p>部署到IIS</p>
+</li>
+<li>
+<p>浏览器中打开，看到下图就表示成功了</p>
+<p><img loading="lazy" src="/images/local-nuget-iis-browser.png" alt="nn"  />
+</p>
+</li>
+<li>
+<p>编辑 Web.config</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    &lt;!--
+</span></span><span class="line"><span class="cl">Determines if an Api Key is required to push\delete packages from the server. 
+</span></span><span class="line"><span class="cl">--&gt;
+</span></span><span class="line"><span class="cl">&lt;add key=&#34;requireApiKey&#34; value=&#34;true&#34; /&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;!-- 
+</span></span><span class="line"><span class="cl">Set the value here to allow people to push/delete packages from the server.
+</span></span><span class="line"><span class="cl">NOTE: This is a shared key (password) for all users.
+</span></span><span class="line"><span class="cl">--&gt;
+</span></span><span class="line"><span class="cl">&lt;add key=&#34;apiKey&#34; value=&#34;your api key&#34; /&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="visual-studio-添加程序包源">Visual Studio 添加程序包源<a hidden class="anchor" aria-hidden="true" href="#visual-studio-添加程序包源">#</a></h2>
+<p>工具 =&gt; 选项 =&gt; NuGet包管理器 =&gt; 程序包源,点击右侧加号添加源</p>
+<ul>
+<li>名称随便写，比如local</li>
+<li>源写上一步配置好的地址，如 http://192.168.13.96:9006/nuget</li>
+<li>点击确定</li>
+</ul>
+<h2 id="测试">测试<a hidden class="anchor" aria-hidden="true" href="#测试">#</a></h2>
+<ol>
+<li>随便找个NuGet包，放到IIS路径下的Packages文件夹下，服务器会自动解析包，并生成文件夹结构。</li>
+<li>打开包管理器，源选择local，搜索刚才的包名字，是不是出现在搜索结果里了？</li>
+</ol>
+<h2 id="创建nuget包">创建NuGet包<a hidden class="anchor" aria-hidden="true" href="#创建nuget包">#</a></h2>
+<p>目前可以通过3种方式创建一个NuGet包：</p>
+<h3 id="1-通过nuget命令行">1. 通过NuGet命令行<a hidden class="anchor" aria-hidden="true" href="#1-通过nuget命令行">#</a></h3>
+<p>这种方法适用于传统的基于 .NET Framework的类库</p>
+<ol>
+<li>
+<p>从 nuget.org 下载最新版本nuget.exe, 放到合适的路径，并添加到 PATH 环境变量</p>
+</li>
+<li>
+<p>生成包元数据文件</p>
+<p>在类库.csproj 文件目录下打开命令行，运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nuget spec ClassLibrary1.csproj
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在目录下会生成一个 ClassLibrary1.nuspec，用文本编辑器打开，会看到如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;package&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;metadata&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id&gt;</span>$id$<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;version&gt;</span>$version$<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;title&gt;</span>$title$<span class="nt">&lt;/title&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;authors&gt;</span>$author$<span class="nt">&lt;/authors&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;owners&gt;</span>$author$<span class="nt">&lt;/owners&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;requireLicenseAcceptance&gt;</span>false<span class="nt">&lt;/requireLicenseAcceptance&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;license</span> <span class="na">type=</span><span class="s">&#34;expression&#34;</span><span class="nt">&gt;</span>MIT<span class="nt">&lt;/license&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;projectUrl&gt;</span>http://project_url_here_or_delete_this_line/<span class="nt">&lt;/projectUrl&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;iconUrl&gt;</span>http://icon_url_here_or_delete_this_line/<span class="nt">&lt;/iconUrl&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;description&gt;</span>$description$<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;releaseNotes&gt;</span>Summary of changes made in this release of the package.<span class="nt">&lt;/releaseNotes&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;copyright&gt;</span>Copyright 2019<span class="nt">&lt;/copyright&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;tags&gt;</span>Tag1 Tag2<span class="nt">&lt;/tags&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;group</span> <span class="na">targetFramework=</span><span class="s">&#34;.NETFramework4.8&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/metadata&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/package&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>id 唯一标识 version 版本号(SemVer),如 1.0.0 其他的根据情况填写，$xxx$的为必填项。</p>
+</li>
+<li>
+<p>生成NuGet包 在类库.csproj 文件目录下打开命令行，运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nuget pack
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>就会生成格式为id.version.nupkg的包了，其实就是一个zip格式的文件，可以添加.zip后缀解压查看。</p>
+</li>
+</ol>
+<h3 id="2-使用-dotnet-命令行创建">2. 使用 dotnet 命令行创建<a hidden class="anchor" aria-hidden="true" href="#2-使用-dotnet-命令行创建">#</a></h3>
+<ol>
+<li>编辑项目文件
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&#34;Microsoft.NET.Sdk&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;PropertyGroup&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;TargetFramework&gt;</span>netcoreapp3.1<span class="nt">&lt;/TargetFramework&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!--添加以下内容--&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;GeneratePackageOnBuild&gt;</span>true<span class="nt">&lt;/GeneratePackageOnBuild&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;PackageId&gt;</span>myLib2<span class="nt">&lt;/PackageId&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;Version&gt;</span>1.0.1<span class="nt">&lt;/Version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;Authors&gt;</span>your_name<span class="nt">&lt;/Authors&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;Company&gt;</span>your_company<span class="nt">&lt;/Company&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/PropertyGroup&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/Project&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>在类库.csproj 文件目录下打开命令行，运行如下命令生成包
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet pack
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="3-使用-visual-studio-创建">3. 使用 Visual Studio 创建<a hidden class="anchor" aria-hidden="true" href="#3-使用-visual-studio-创建">#</a></h3>
+<p>适用于基于.NET Core 或者 .NET Standard 的类库，在项目属性，打包界面填入必须的信息，勾选 “在构建时生成NuGet包” 就会在输出文件夹生成包了。
+<img loading="lazy" src="/images/vspack.png" alt="qq"  />
+</p>
+<h3 id="4通过-nuget-package-explorer-创建">4.通过 NuGet Package Explorer 创建<a hidden class="anchor" aria-hidden="true" href="#4通过-nuget-package-explorer-创建">#</a></h3>
+<p>和第一种类似，只不过是GUI的方式。</p>
+<ol>
+<li>Create Package</li>
+<li>Edit Package Metadata</li>
+<li>Add Package Content</li>
+</ol>
+<h2 id="发布nuget包">发布NuGet包<a hidden class="anchor" aria-hidden="true" href="#发布nuget包">#</a></h2>
+<p>四种方法</p>
+<ol>
+<li>
+<p>NuGet 命令行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nuget push packagename yourapikey -Source http://192.168.13.96:9006/nuget
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>dotnet 命令行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet nuget push packagename yourapikey -s http://192.168.13.96:9006/nuget
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>NuGet Package Explorer</p>
+</li>
+<li>
+<p>如果有权限，当然可以直接把包拷贝到服务器</p>
+</li>
+</ol>
+<h2 id="设置默认source">设置默认source<a hidden class="anchor" aria-hidden="true" href="#设置默认source">#</a></h2>
+<p>老是输入api key和 推送目的地址也是挺繁琐的，可以根据实际情况将配置添加到</p>
+<ol>
+<li>用户级的nuget.config(%appdata%/nuget/nuget.config)
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+</span></span><span class="line"><span class="cl">&lt;configuration&gt;
+</span></span><span class="line"><span class="cl">    &lt;config&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;defaultPushSource&#34; value=&#34;http://192.168.13.96:9006/nuget&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/config&gt;
+</span></span><span class="line"><span class="cl">    &lt;packageRestore&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;enabled&#34; value=&#34;True&#34; /&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;automatic&#34; value=&#34;True&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/packageRestore&gt;
+</span></span><span class="line"><span class="cl">    &lt;activePackageSource&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;nuget.org&#34; value=&#34;https://api.nuget.org/v3/index.json&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/activePackageSource&gt;
+</span></span><span class="line"><span class="cl">    &lt;packageSources&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;nuget.org&#34; value=&#34;https://api.nuget.org/v3/index.json&#34; protocolVersion=&#34;3&#34; /&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;nuget.org&#34; value=&#34;https://www.nuget.org/api/v2/&#34; /&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;local&#34; value=&#34;http://192.168.13.96:9006/nuget&#34; /&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;Microsoft Visual Studio Offline Packages&#34; value=&#34;C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/packageSources&gt;
+</span></span><span class="line"><span class="cl">    &lt;apikeys&gt;
+</span></span><span class="line"><span class="cl">        &lt;add key=&#34;http://192.168.13.96:9006/nuget&#34; value=&#34;AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ05kAjZLg06Fp2kByyoGSQAAAAACAAAAAAAQZgAAAAEAACAAAADhe1QaKTEA1JzEKcUxrpKBUV8g0eMEN1qYmkPBex3JPAAAAAAOgAAAAAIAACAAAABVYU2JJIULSVYt7/pIytWRl6CWm6m/QsIyi+x+az8N3BAAAAAUEQGJoa8+exi85xKZcPW6QAAAAKMWHIZoaecy/NA+TfOIc1obyhgtnQVk2rv3RJkAva1D/+w5NrRlUMkzwVRkgSHffEexPPHVNbAnvad7N/HEF1c=&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;/apikeys&gt;
+</span></span><span class="line"><span class="cl">&lt;/configuration&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>apikey 是加密的，需要通过命令行添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    nuget setapikey yourapikey -source http://192.168.13.96:9006/nuget
+</span></span><span class="line"><span class="cl">    nuget config -Set DefaultPushSource=http://192.168.13.96:9006/nuget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>或者你既维护nuget.org上的公共包，又维护自己公司的私有包，那可以在两个包的解决方案下放不同的nuget.conifg, 里面设置相应的defaultPushSource 和apikey 即可(当前目录为解决方案文件夹)</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nuget setapikey yourapikey -source http://192.168.13.96:9006/nuget -configfile nuget.config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">nuget config -Set DefaultPushSource=http://192.168.13.96:9006/nuget -configfile nuget.config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后发布包，只需要执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nuget push packagename
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/">NuGet 官方文档</a></li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://prime167.github.io/tags/nuget/">nuget</a></li>
+      <li><a href="http://prime167.github.io/tags/.net/">.NET</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://prime167.github.io/posts/2019-12-26-nuget-change-global-cache-dir/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>修改NuGet全局缓存路径</span>
+  </a>
+  <a class="next" href="http://prime167.github.io/posts/2019-12-23-fix-win10-search/">
+    <span class="title">Next »</span>
+    <br>
+    <span>修复Windows 10 搜索功能</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://prime167.github.io/">静静地坐着</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

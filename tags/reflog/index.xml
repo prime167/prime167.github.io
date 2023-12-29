@@ -4,17 +4,26 @@
     <title>reflog on 静静地坐着</title>
     <link>http://prime167.github.io/tags/reflog/</link>
     <description>Recent content in reflog on 静静地坐着</description>
+    <image>
+      <title>静静地坐着</title>
+      <url>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</url>
+      <link>https://i.loli.net/2021/09/26/3OMGXylm8HUYJ6p.png</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Jul 2022 14:04:20 +0800</lastBuildDate><atom:link href="http://prime167.github.io/tags/reflog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Jul 2022 14:04:20 +0800</lastBuildDate>
+    <atom:link href="http://prime167.github.io/tags/reflog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何合并多个git commits</title>
-      <link>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</link>
+      <link>http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/</link>
       <pubDate>Fri, 29 Jul 2022 14:04:20 +0800</pubDate>
-      
-      <guid>http://prime167.github.io/post/2022-07-29-git-merge-local-commits/</guid>
-      <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。 我的习惯是先在工作区和暂存区迭代，某个部分写好了用添</description>
+      <guid>http://prime167.github.io/posts/2022-07-29-git-merge-local-commits/</guid>
+      <description>git的工作区、暂存区、版本库的区分，让我们在编码的时候以渐进的方式稳步的把代码写出来。
+我的习惯是先在工作区和暂存区迭代，某个部分写好了用添加到暂存区，进行下一步；发现工作区太乱了或者这样写不行，可以丢弃工作区的更改。
+工作区达到一定的阶段，就提交一下。整个功能完成后可能是下面这样：
+1 2 3 4 5 6 7 * 7e7af1b - (HEAD -&amp;gt; feat/addUser)完成 * 215353c - 修改自测bug * 5fcfa4f - 完成功能 * 34024f7 - 完成界面设计 * 288ebcb - 开始添加用户功能 * b36071d - (origin/main)登录功能 &amp;lt;----远程 * 25b848d - init 直接合并到main稍显杂乱，先用git rebase把提交合并一下： 要合并的是最后5个提交，使用命令
+1 git rebase -i HEAD~5 git 弹出编辑器
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pick 288ebcb 开始添加用户功能 pick 34024f7 完成界面设计 pick 5fcfa4f 完成功能 pick 215353c 修改自测bug pick 7e7af1b 完成 # Rebase b36071d.</description>
     </item>
-    
   </channel>
 </rss>
