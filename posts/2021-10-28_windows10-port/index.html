@@ -60,7 +60,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Windows 10 解决端口被占用问题" />
+</noscript>
+  
+
+<meta property="og:title" content="Windows 10 解决端口被占用问题" />
 <meta property="og:description" content="前几天启动hugo server时提示1313端口被占用，给分配了一个随机端口，打开自己写的程序，mqtt默认的1883端口也被占用，使用
 1 netstat -ano | findstr 1883 没有任何返回 一番Google后得知某些端口被Hyper-V保留了。 解决方法：
 关闭Hyper-V 1 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V 重启后设置你想保留的端口，这样Hyper-V就不能再占用 1 2 # 排除ipv4动态端口占用 startport 起始端口 numberofports 端口数 netsh int ipv4 add excludedportrange protocol=tcp startport=&lt;your port&gt; numberofports=1 对于1313和1883端口，我执行了两次此命令： 1 2 3 netsh int ipv4 add excludedportrange protocol=tcp startport=1313 numberofports=1 netsh int ipv4 add excludedportrange protocol=tcp startport=1883 numberofports=1 重新启用Hyper-V,需要重启 1 dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All 再次查看端口排除范围（被系统或者我们自己保留的端口）

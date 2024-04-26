@@ -60,7 +60,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="修复Windows 10 更新错误0x800f0922" />
+</noscript>
+  
+
+<meta property="og:title" content="修复Windows 10 更新错误0x800f0922" />
 <meta property="og:description" content="上个月操作系统（Windows 10 21H1）无法启动,自动进入戴尔的恢复操作也没能恢复，最后提示分区表丢失，找了个winpe，修复了分区表，进入系统后发现只有操作系统所在的C盘了。下载DiskGenius，搜索分区，找回了丢失的数据分区，最后保存的时候提示此功能需要标准版，付费，保存。
 可是之后系统更新总提示失败，错误0x800f0922。原因在于Windows的 系统恢复分区变成了基本数据分区，可使用下列命令将分区改回EFI分区
 硬盘使用的GPT分区表

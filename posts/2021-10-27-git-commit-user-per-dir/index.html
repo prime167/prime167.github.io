@@ -64,7 +64,10 @@ gitdir: 其中 是一个 glob pattern 如果代码仓库的.git目录匹配 指�
         }
 
     </style>
-</noscript><meta property="og:title" content="git 使用includeIf配置多身份隔离" />
+</noscript>
+  
+
+<meta property="og:title" content="git 使用includeIf配置多身份隔离" />
 <meta property="og:description" content="问题 作为开发者，我们会有很多项目，公司项目，开源项目。对于不同的项目，我会使用不同的身份（user.name和user.email组合）：
 公司的项目使用自己的名字和公司的邮箱: 张三 &lt;zhansan@somecorp.com&gt; 开源项目我会使用昵称和私人邮箱: Jack &lt;xxx&#43;xxx@users.noreply.github.com&gt; 在~/.gitconfig（Windows 为%USERPROFILE%.gitconfig）只能声明一组name和email组合作为默认身份。虽然可以在每个repo下简单的通过运行 git config user.email &lt;EMAIL&gt; 和 git config user.name &lt;NAME&gt;命令来更改，问题是对于每个项目我都要运行这两个命令，难免有时候也会忘了设置，导致使用了错误的身份提交。
 幸运的是，git为我们提供解决此问题的方法
